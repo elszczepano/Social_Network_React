@@ -48,6 +48,7 @@
     "test": "node scripts/test.js --env=jsdom"
   },
   "devDependencies": {
+    "font-awesome": "^4.7.0",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
     "webpack": "^3.8.1"
