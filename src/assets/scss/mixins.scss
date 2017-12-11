@@ -1,1 +1,21 @@
 @import "variables";
+@mixin default-button {
+  background-color: #2196F3;
+  border: none;
+  outline: none;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1rem;
+  padding: .5rem .8rem;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: .2s background-color;
+  transition: .1s box-shadow;
+}
+@mixin default-button-hover {
+  background-color: #1A77C9;
+}
+@mixin default-button-pressed {
+  background-color: #1976D2;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
