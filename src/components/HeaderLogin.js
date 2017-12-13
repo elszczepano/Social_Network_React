@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import '../assets/scss/main.scss';
 import '../assets/scss/header.scss';
 
-class Header extends Component {
+class HeaderLogin extends Component {
   render() {
     return (
-      <header className="main-header">
+      <div className="main-header">
         <div className="logo">
           <h1>Groupeé</h1>
         </div>
@@ -19,9 +19,9 @@ class Header extends Component {
             </li>
           </ul>
         </div>
-      </header>
+      </div>
     );
   }
 }
 
-export default Header;
+export default HeaderLogin;
