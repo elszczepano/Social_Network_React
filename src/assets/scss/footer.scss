@@ -1,2 +1,24 @@
 @import "variables";
 @import "mixins";
+.main-footer {
+  background-color: $primary-color-dark;
+  color: #fff;
+  height: 75px;
+  padding:0 10%;
+  @include flex-space-between;
+  ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    li {
+      padding-left: 2rem;
+      a {
+        text-decoration: none;
+        color: #fff;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
