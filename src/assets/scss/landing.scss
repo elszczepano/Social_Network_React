@@ -1,0 +1,95 @@
+@import "variables";
+@import "mixins";
+
+header {
+   @include flex-space-between;
+   div {
+     h1 {
+       margin: 1rem 1.5rem;
+       font-weight: 400;
+       color: $primary-color;
+       font-size: 2rem;
+     }
+     ul {
+       list-style-type: none;
+       display: flex;
+       margin: 0 1rem;
+       padding: 0;
+       li {
+         padding: 0 .4rem;
+         display: flex;
+         align-items: flex-end;
+         input {
+           border: none;
+           border-bottom: 2px solid #d0d0d0;
+           outline: none;
+           transition: .4s all;
+           font-size: 1rem;
+           margin-top: .7rem;
+         }
+         input:focus {
+           border-bottom-color: $primary-color
+         }
+         a {
+           color: $primary-color;
+           text-decoration: none;
+         }
+         a:hover {
+           text-decoration: underline;
+         }
+       }
+     }
+   }
+ }
+ .bg-welcome {
+   @include background-image;
+   @include flex-center;
+   background-image: url('../images/children-1807511_1920.jpg');
+   height: 60vh;
+   margin-bottom: 15vh;
+   .welcome-content {
+     color: #fff;
+     text-align: center;
+     p {
+       font-weight: 400;
+       font-size: 2rem;
+       text-shadow: 1px 1px #000;
+     }
+     button {
+       transform: scale(2);
+     }
+   }
+ }
+ .features-box {
+   text-align: center;
+   margin-bottom: 10vh;
+   h2 {
+    font-size: 2.4rem;
+   }
+   h3 {
+    font-size: 1.5rem;
+    font-weight: 300;
+   }
+   .features {
+     @include flex-space-around;
+     margin: 10vh 0;
+     div h4 {
+       text-transform: uppercase;
+       font-size: 1.5rem;
+       color: $primary-color;
+     }
+     .feature {
+       @include background-image;
+       height: 20vw;
+       width: 20vw;
+       border-radius: 50%;
+       transition: .3s transform;
+     }
+     .feature:hover {
+       transform: scale(1.05);
+     }
+     .feature-friends { background-image: url('../images/friendship-1081843_1920.jpg'); }
+     .feature-work { background-image: url('../images/workplace-1245776_1920.jpg'); }
+     .feature-meeting { background-image: url('../images/old-people-616718_1920.jpg'); }
+   }
+ }
