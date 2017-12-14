@@ -28,3 +28,19 @@
   justify-content: space-between;
   align-items: center;
 }
+@mixin flex-space-around {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+@mixin flex-center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+@mixin background-image {
+  background-size: cover;
+  background-position: center;
+}

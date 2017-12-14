@@ -9,4 +9,17 @@ $fa-font-path: "..fonts" !important;
 }
 body {
   font-family: 'Roboto', sans-serif;
+
+}
+button {
+  @include default-button;
+}
+button:hover {
+  @include default-button-hover;
+}
+button:active {
+  @include default-button-pressed;
+}
+.text-marker {
+  color: $primary-color-dark;
 }
