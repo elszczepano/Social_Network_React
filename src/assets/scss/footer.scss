@@ -3,15 +3,19 @@
 .main-footer {
   background-color: $primary-color-dark;
   color: #fff;
-  height: 75px;
-  padding:0 10%;
+  padding: 1.7rem 10%;
   @include flex-space-between;
+  p {
+    margin: 0;
+  }
   ul {
     list-style-type: none;
     display: flex;
     flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
     li {
-      padding-left: 2rem;
+      padding:0 1rem;
       a {
         text-decoration: none;
         color: #fff;
@@ -19,6 +23,18 @@
       a:hover {
         text-decoration: underline;
       }
+    }
+  }
+}
+@media (max-width: 992px) {
+  .main-footer {
+    padding: 0;
+    @include flex-center;
+    p, ul {
+      margin: 1rem 0;
+    }
+    ul {
+      font-size: .8rem;
     }
   }
 }

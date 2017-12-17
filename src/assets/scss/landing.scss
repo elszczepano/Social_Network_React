@@ -13,6 +13,7 @@ header {
      ul {
        list-style-type: none;
        display: flex;
+       flex-wrap: wrap;
        margin: 0 1rem;
        padding: 0;
        li {
@@ -93,3 +94,24 @@ header {
      .feature-meeting { background-image: url('../images/old-people-616718_1920.jpg'); }
    }
  }
+@media (max-width: 576px) {
+  .features-box .features .feature {
+    height: 85vw;
+    width: 85vw;
+  }
+}
+@media (max-width: 992px) {
+  .features-box .features .feature {
+    height: 40vw;
+    width: 40vw;
+  }
+  header div {
+      margin: 0 auto;
+    ul {
+      justify-content: center;
+      li {
+        margin: 1rem 0;
+      }
+    }
+  }
+}
