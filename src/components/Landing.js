@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
+import Footer from './Footer';
 import '../assets/scss/main.scss';
+import '../assets/scss/header.scss';
 import '../assets/scss/landing.scss';
 
 class Landing extends Component {
   render() {
     return (
       <div className="landing-container">
-        <header>
+        <header className="main-page-header">
           <div className="logo">
             <h1>Groupeé</h1>
           </div>
@@ -43,6 +45,7 @@ class Landing extends Component {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }
