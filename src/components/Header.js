@@ -11,9 +11,9 @@ class Header extends Component {
           </div>
           <div>
             <ul className="user-icons">
-              <li><span class="fa fa-user" aria-hidden="true"></span></li>
-              <li><span class="fa fa-comments active" aria-hidden="true"></span></li>
-              <li><span class="fa fa-bell-o" aria-hidden="true"></span></li>
+              <li><span className="fa fa-user" aria-hidden="true"></span></li>
+              <li><span className="fa fa-comments active" aria-hidden="true"></span></li>
+              <li><span className="fa fa-bell-o" aria-hidden="true"></span></li>
               <li><button>Logout</button></li>
             </ul>
           </div>
