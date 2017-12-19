@@ -1,47 +1,6 @@
 @import "variables";
 @import "mixins";
 
-header {
-   @include flex-space-between;
-   div {
-     h1 {
-       margin: 1rem 1.5rem;
-       font-weight: 400;
-       color: $primary-color;
-       font-size: 2rem;
-     }
-     ul {
-       list-style-type: none;
-       display: flex;
-       flex-wrap: wrap;
-       margin: 0 1rem;
-       padding: 0;
-       li {
-         padding: 0 .4rem;
-         display: flex;
-         align-items: flex-end;
-         input {
-           border: none;
-           border-bottom: 2px solid #d0d0d0;
-           outline: none;
-           transition: .4s all;
-           font-size: 1rem;
-           margin-top: .7rem;
-         }
-         input:focus {
-           border-bottom-color: $primary-color
-         }
-         a {
-           color: $primary-color;
-           text-decoration: none;
-         }
-         a:hover {
-           text-decoration: underline;
-         }
-       }
-     }
-   }
- }
  .bg-welcome {
    @include background-image;
    @include flex-center;
