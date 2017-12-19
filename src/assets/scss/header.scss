@@ -40,5 +40,23 @@
          }
        }
      }
+     .user-icons li {
+       color: $icon-grey;
+       font-size: 1.5rem;
+       span.active {
+         animation-name: trigger-icon;
+         animation-duration: 3s;
+         animation-timing-function: linear;
+         animation-iteration-count: infinite;
+       }
+     }
+     .user-icons li:hover {
+       color: $icon-grey-hover;
+     }
    }
+ }
+ @keyframes trigger-icon {
+     0%   {color: $primary-color;}
+     50%  {color: #ff6633;}
+     100% {color: $primary-color;}
  }
