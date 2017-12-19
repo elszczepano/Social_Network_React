@@ -9,11 +9,9 @@
     margin: 0;
   }
   ul {
-    list-style-type: none;
     display: flex;
     flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
+    @include clear-list;
     li {
       padding:0 1rem;
       a {

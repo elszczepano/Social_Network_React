@@ -13,6 +13,7 @@
   transition: .1s box-shadow;
   transition: .3s transform;
   cursor: pointer;
+  user-select: none;
 }
 @mixin default-button-hover {
   background-color: $primary-color-dark;
@@ -43,4 +44,9 @@
 @mixin background-image {
   background-size: cover;
   background-position: center;
+}
+@mixin clear-list {
+  padding: 0;
+  list-style-type: none;
+  margin: 0;
 }

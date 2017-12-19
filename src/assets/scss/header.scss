@@ -11,11 +11,10 @@
        font-size: 2rem;
      }
      ul {
-       list-style-type: none;
+       @include clear-list;
        display: flex;
        flex-wrap: wrap;
        margin: 0 1rem;
-       padding: 0;
        li {
          padding: 0 .4rem;
          display: flex;
@@ -43,6 +42,7 @@
      .user-icons li {
        color: $icon-grey;
        font-size: 1.5rem;
+       cursor: pointer;
        span.active {
          animation-name: trigger-icon;
          animation-duration: 3s;
