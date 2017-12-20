@@ -28,7 +28,7 @@ class UserAccount extends Component {
         <section className="user-account">
           <header className="user-name">
             <img src={user.avatar} alt={`${user.firstName} ${user.lastName} avatar`}/>
-            <h2>Hello <strong>{user.firstName} {user.lastName}</strong>!</h2>
+            <h2><strong>{user.firstName} {user.lastName}</strong></h2>
           </header>
             <aside>
               <h4>About me:</h4>
@@ -42,6 +42,10 @@ class UserAccount extends Component {
               <h3>My groups:</h3>
               <table>
                 <thead>
+                <tr>
+                  <th>Icon</th>
+                  <th>Group</th>
+                </tr>
                 </thead>
                 <tbody>
                 {
