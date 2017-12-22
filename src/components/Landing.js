@@ -1,13 +1,29 @@
 import React, { Component } from 'react';
 import Footer from './Footer';
+import Register from './Register';
 import '../assets/scss/main.scss';
 import '../assets/scss/header.scss';
 import '../assets/scss/landing.scss';
 
 class Landing extends Component {
+
+  constructor(props) {
+      super(props);
+      this.state = {showRegister: false};
+
+      // This binding is necessary to make `this` work in the callback
+      this.handleRegisterClick = this.handleRegisterClick.bind(this);
+    }
+
+    handleRegisterClick() {
+      this.setState(prevState => ({
+        showRegister: !prevState.showRegister
+      }));
+    }
   render() {
     return (
       <div className="landing-container">
+      { this.state.showRegister ? <Register /> : null }
         <header className="main-page-header">
           <div className="logo">
             <h1>Groupeé</h1>
@@ -17,7 +33,7 @@ class Landing extends Component {
               <li><input type="text" placeholder="Username"/></li>
               <li><input type="password" placeholder="Password"/></li>
               <li><button>Sign In</button></li>
-              <li><a href="">new? register now</a></li>
+              <li onClick={this.handleRegisterClick}><span>new? register now</span></li>
             </ul>
           </div>
         </header>
