@@ -30,11 +30,12 @@
          input:focus {
            border-bottom-color: $primary-color
          }
-         a {
+         span {
            color: $primary-color;
            text-decoration: none;
+           cursor: pointer;
          }
-         a:hover {
+         span:hover {
            text-decoration: underline;
          }
        }

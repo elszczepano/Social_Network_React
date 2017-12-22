@@ -1,0 +1,10 @@
+@import "variables";
+@import "mixins";
+.modal-container {
+  position:fixed;
+  overflow:hidden;
+  z-index: 99999;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,.5);
+}
