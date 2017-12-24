@@ -7,10 +7,41 @@
   width: 100vw;
   height: 100vh;
   background: rgba(0,0,0,.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex-center;
   .modal-content {
     background-color: #fff;
+    .modal-header {
+      text-align: right;
+      span {
+        padding: 1rem;
+        font-size: 1.3rem;
+      }
+    }
+    .modal-body {
+      margin: 0 5rem;
+      display: flex;
+      flex-direction: column;
+      h2 {
+        text-align: center;
+        color: $primary-color-darker;
+        text-transform: uppercase;
+      }
+      label {
+        margin: 0 2rem;
+        font-size: 1.3rem;
+      }
+      input {
+        margin: 0 1rem 1rem 1rem;
+        padding: .5rem 1rem;
+        font-size: 1.2rem;
+      }
+      div {
+        margin: 0 auto;
+      }
+    }
+    .modal-footer {
+      @include flex-center;
+      margin: 2rem 0;
+    }
   }
 }

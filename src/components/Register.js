@@ -8,14 +8,21 @@ class Register extends Component {
       <div class="modal-container">
         <div class="modal-content">
           <div className="modal-header">
-            <span class="fa fa-times" aria-hidden="true"></span>
+            <span className="fa fa-times" aria-hidden="true"></span>
           </div>
           <div className="modal-body">
+            <h2>Create an account</h2>
+            <label>Name</label>
             <input type="text"/>
+            <label>Surname</label>
             <input type="text"/>
+            <label>E-mail</label>
             <input type="email"/>
-            <input type="date"/>
+            <label htmlFor="birthdate">Birth date</label>
+            <input name="birthdate" type="date"/>
+            <label>Password</label>
             <input type="password"/>
+            <label>Confirm password</label>
             <input type="password"/>
             <div className="pretty p-default">
               <input type="checkbox" />
@@ -25,7 +32,7 @@ class Register extends Component {
             </div>
           </div>
           <div className="modal-footer">
-            <button>Register</button>
+            <button type="submit">Register</button>
           </div>
         </div>
       </div>
