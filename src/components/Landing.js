@@ -12,10 +12,10 @@ class Landing extends Component {
       this.state = {showRegister: false};
 
       // This binding is necessary to make `this` work in the callback
-      this.handleRegisterShow = this.handleRegisterShow.bind(this);
+      this.handleRegisterClick = this.handleRegisterClick.bind(this);
     }
 
-    handleRegisterShow() {
+    handleRegisterClick() {
       this.setState(prevState => ({
         showRegister: !prevState.showRegister
       }));
@@ -23,7 +23,7 @@ class Landing extends Component {
   render() {
     return (
       <div className="landing-container">
-      { this.state.showRegister ? <Register /> : null }
+      { this.state.showRegister ? <Register registerVisibility={this.handleRegisterClick} /> : null }
         <header className="main-page-header">
           <div className="logo">
             <h1>Groupeé</h1>
@@ -33,7 +33,7 @@ class Landing extends Component {
               <li><input type="text" placeholder="Username"/></li>
               <li><input type="password" placeholder="Password"/></li>
               <li><button>Sign In</button></li>
-              <li onClick={this.handleRegisterShow}><span>new? register now</span></li>
+              <li onClick={this.handleRegisterClick}><span>new? register now</span></li>
             </ul>
           </div>
         </header>

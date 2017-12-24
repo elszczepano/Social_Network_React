@@ -5,10 +5,10 @@ import '../assets/scss/register.scss';
 class Register extends Component {
   render() {
     return (
-      <div class="modal-container">
-        <div class="modal-content">
+      <div className="modal-container">
+        <div className="modal-content">
           <div className="modal-header">
-            <span className="fa fa-times" aria-hidden="true"></span>
+            <span onClick={this.props.registerVisibility} className="fa fa-times" aria-hidden="true"></span>
           </div>
           <div className="modal-body">
             <h2>Create an account</h2>
