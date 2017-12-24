@@ -14,21 +14,21 @@ class Register extends Component {
             <div className="modal-body">
               <h2>Create an account</h2>
               <label htmlFor="firstname">Name</label>
-              <input name="firstname" type="text"/>
+              <input name="firstname" type="text" required/>
               <label htmlFor="lastname">Surname</label>
-              <input name="lastname" type="text"/>
+              <input name="lastname" type="text" required/>
               <label htmlFor="email">E-mail</label>
-              <input name="email" type="email"/>
+              <input name="email" type="email" required/>
               <label htmlFor="birthdate">Birth date</label>
-              <input name="birthdate" type="date"/>
+              <input name="birthdate" type="date" required/>
               <label htmlFor="password">Password</label>
-              <input name="password" type="password"/>
+              <input name="password" type="password" required/>
               <label htmlFor="confirmPassword">Confirm password</label>
-              <input name="confirmPassword" type="password"/>
+              <input name="confirmPassword" type="password" required/>
               <div className="pretty p-default">
-                <input type="checkbox" />
+                <input name="terms" type="checkbox" required/>
                 <div className="state p-primary-o">
-                 <label>Accept <a href="">the terms</a></label>
+                 <label htmlFor="terms">Accept <a href="">the terms</a></label>
                 </div>
               </div>
             </div>
