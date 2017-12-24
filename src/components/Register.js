@@ -17,6 +17,12 @@ class Register extends Component {
             <input type="date"/>
             <input type="password"/>
             <input type="password"/>
+            <div className="pretty p-default">
+              <input type="checkbox" />
+              <div className="state p-primary-o">
+               <label>Accept <a href="">the terms</a></label>
+              </div>
+            </div>
           </div>
           <div className="modal-footer">
             <button>Register</button>
