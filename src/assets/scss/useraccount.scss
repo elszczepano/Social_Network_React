@@ -40,8 +40,19 @@
         padding: .5rem 0;
         font-weight: 300;
         color: $icon-grey;
+        a {
+          color: $icon-grey;
+          text-decoration: none;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
       }
     }
+  }
+  .latest-activity-container {
+    background-color: $default-grey;
+    border-radius: 10px;
   }
   article {
     grid-row: 2;
