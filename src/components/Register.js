@@ -28,7 +28,7 @@ class Register extends Component {
               <div className="pretty p-default">
                 <input name="terms" type="checkbox" required/>
                 <div className="state p-primary-o">
-                 <label htmlFor="terms">Accept <a href="">the terms</a></label>
+                  <label htmlFor="terms">Accept the terms of service</label>
                 </div>
               </div>
             </div>
