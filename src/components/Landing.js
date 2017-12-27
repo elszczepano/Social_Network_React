@@ -33,7 +33,7 @@ class Landing extends Component {
               <li><input type="text" placeholder="Username"/></li>
               <li><input type="password" placeholder="Password"/></li>
               <li><button>Sign In</button></li>
-              <li onClick={this.handleRegisterClick}><span>new? register now</span></li>
+              <li onClick={this.handleRegisterClick}><span className="registry">new? register now</span></li>
             </ul>
           </div>
         </header>

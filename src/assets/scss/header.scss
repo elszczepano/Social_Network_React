@@ -30,12 +30,12 @@
          input:focus {
            border-bottom-color: $primary-color
          }
-         span {
+         .registry {
            color: $primary-color;
            text-decoration: none;
            cursor: pointer;
          }
-         span:hover {
+         .registry:hover {
            text-decoration: underline;
          }
        }
@@ -53,6 +53,7 @@
      }
      .user-icons li:hover {
        color: $icon-grey-hover;
+       text-decoration: none;
      }
    }
  }
