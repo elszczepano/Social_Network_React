@@ -20,7 +20,6 @@ const me = {
     'Star Wars fans': 'rebel'
   }
 };
-
 class UserAccount extends Component {
   render() {
     return (
@@ -28,17 +27,24 @@ class UserAccount extends Component {
         <Header />
         <section className="user-account">
           <header className="user-name">
-            <img src={me.avatar} alt={`${me.firstName} ${me.lastName} avatar`}/>
+            <img src={me.avatar} aria-label={`${me.firstName} ${me.lastName}`} alt={`${me.firstName} ${me.lastName} avatar`} role="img"/>
             <h2><strong>{me.firstName} {me.lastName}</strong></h2>
           </header>
             <aside>
-              <h4>About me:</h4>
+              <div className="side-heading">
+                <h4>About me:</h4>
+                <div>
+                  <a href=""><span className="fa fa-pencil" aria-hidden="true"></span> edit account</a>
+                </div>
+              </div>
               <ul>
                 <li><span className="fa fa-user-o" aria-hidden="true"></span> {me.firstName} {me.lastName}</li>
                 <li><span className="fa fa-birthday-cake" aria-hidden="true"></span> {me.birth}</li>
                 <li><span className="fa fa-envelope" aria-hidden="true"></span> {me.email}</li>
               </ul>
-              <h4>My groups:</h4>
+              <div className="side-heading">
+                <h4>My groups:</h4>
+              </div>
               {
                 Object.keys(me.groups).map ((value, i) =>
                 <ul key={i}>

@@ -16,6 +16,7 @@
       height: 200px;
       border: 10px solid #fff;
       box-shadow: 3px 3px 3px #777;
+      overflow: hidden;
     }
     h2 {
       margin: 0 2rem;
@@ -29,10 +30,24 @@
   aside {
     grid-row: 2;
     grid-column: 1;
-    h4 {
-      margin: 0;
-      padding: 1rem 0;
+    .side-heading {
       border-bottom: 1px solid $default-grey;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      h4 {
+        margin: 0;
+        padding: 1rem 0;
+      }
+      a {
+        text-decoration: none;
+        color: $link-grey;
+        font-weight: 300;
+        padding: 0 .3rem;
+      }
+      a:hover {
+        text-decoration:underline;
+      }
     }
     ul {
       @include clear-list;
