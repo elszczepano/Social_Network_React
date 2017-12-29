@@ -2,7 +2,10 @@
 @import "mixins";
 
 .main-page-header {
-   @include flex-space-between;
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
+  @include flex-space-between;
    div {
      h1 {
        margin: 1rem 1.5rem;
