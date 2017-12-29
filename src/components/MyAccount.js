@@ -25,7 +25,7 @@ class UserAccount extends Component {
     return (
       <div className="user-account-container">
         <Header />
-        <section className="user-account">
+        <section className="user-account default-container">
           <header className="user-name">
             <img src={me.avatar} aria-label={`${me.firstName} ${me.lastName}`} alt={`${me.firstName} ${me.lastName} avatar`} role="img"/>
             <h2><strong>{me.firstName} {me.lastName}</strong></h2>
