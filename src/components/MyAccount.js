@@ -5,30 +5,31 @@ import News from './News';
 import '../assets/scss/main.scss';
 import '../assets/scss/useraccount.scss';
 
-const me = {
-  firstName: 'John',
-  lastName: 'Doe',
-  birth: '20-08-1989',
-  email: 'johndoe@gmail.com',
-  avatar: 'https://avatarfiles.alphacoders.com/855/85557.png',
-  groups: {
-    'IT Devs': 'rocket',
-    'buy/sell Poland': 'camera-retro',
-    'Memes': 'image',
-    'Janusz Pol - workmates': 'money',
-    'Fishing fanatics': 'ship',
-    'Star Wars fans': 'rebel'
-  }
-};
+
 class UserAccount extends Component {
+  me = {
+    firstName: 'John',
+    lastName: 'Doe',
+    birth: '20-08-1989',
+    email: 'johndoe@gmail.com',
+    avatar: 'https://avatarfiles.alphacoders.com/855/85557.png',
+    groups: {
+      'IT Devs': 'rocket',
+      'buy/sell Poland': 'camera-retro',
+      'Memes': 'image',
+      'Janusz Pol - workmates': 'money',
+      'Fishing fanatics': 'ship',
+      'Star Wars fans': 'rebel'
+    }
+  }
   render() {
     return (
       <div className="user-account-container">
         <Header />
         <section className="user-account default-container">
           <header className="user-name">
-            <img src={me.avatar} aria-label={`${me.firstName} ${me.lastName}`} alt={`${me.firstName} ${me.lastName} avatar`} role="img"/>
-            <h2><strong>{me.firstName} {me.lastName}</strong></h2>
+            <img src={this.me.avatar} aria-label={`${this.me.firstName} ${this.me.lastName}`} alt={`${this.me.firstName} ${this.me.lastName} avatar`} role="img"/>
+            <h2><strong>{this.me.firstName} {this.me.lastName}</strong></h2>
           </header>
             <aside>
               <div className="side-heading">
@@ -38,22 +39,22 @@ class UserAccount extends Component {
                 </div>
               </div>
               <ul>
-                <li><span className="fa fa-user-o" aria-hidden="true"></span> {me.firstName} {me.lastName}</li>
-                <li><span className="fa fa-birthday-cake" aria-hidden="true"></span> {me.birth}</li>
-                <li><span className="fa fa-envelope" aria-hidden="true"></span> {me.email}</li>
+                <li><span className="fa fa-user-o" aria-hidden="true"></span> {this.me.firstName} {this.me.lastName}</li>
+                <li><span className="fa fa-birthday-cake" aria-hidden="true"></span> {this.me.birth}</li>
+                <li><span className="fa fa-envelope" aria-hidden="true"></span> {this.me.email}</li>
               </ul>
               <div className="side-heading">
                 <h4>My groups:</h4>
               </div>
               {
-                Object.keys(me.groups).map ((value, i) =>
+                Object.keys(this.me.groups).map ((value, i) =>
                 <ul key={i}>
-                  <li><a href=""><span className={`fa fa-${me.groups[value]}`}></span> {value}</a></li>
+                  <li><a href=""><span className={`fa fa-${this.me.groups[value]}`}></span> {value}</a></li>
                 </ul>
                 )
               }
             </aside>
-            <article className="latest-activity-container">
+            <section className="latest-activity-container">
               <h3>Latest activity:</h3>
               <News />
               <News />
@@ -61,7 +62,7 @@ class UserAccount extends Component {
               <News />
               <News />
               <News />
-            </article>
+            </section>
         </section>
         <Footer />
       </div>
