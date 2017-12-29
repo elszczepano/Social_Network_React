@@ -24,5 +24,7 @@ button:active {
   color: $primary-color-dark;
 }
 .default-container {
+  margin: 0 auto 10vh auto;
+  padding-top: 10vh;
   width: $default-width;
 }

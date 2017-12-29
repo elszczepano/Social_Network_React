@@ -1,9 +1,7 @@
 @import "variables";
 @import "mixins";
 .user-account {
-  margin: 0 auto 10vh auto;
   display: grid;
-  padding-top: 10vh;
   grid-template-columns: 25%;
   .user-name {
     display: flex;
@@ -69,7 +67,7 @@
     background-color: $default-grey;
     border-radius: 10px;
   }
-  article {
+  section {
     grid-row: 2;
     grid-column: 2/6;
     padding: 0 5rem;
