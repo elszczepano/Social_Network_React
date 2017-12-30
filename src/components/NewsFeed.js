@@ -25,20 +25,20 @@ class NewsFeed extends Component {
       <div>
       <Header />
       <div className="newsfeed-container default-container">
-        <aside className="aside-shortcuts">
+        <aside>
           <div className="account-shortcut">
-          <img src={this.meShortcut.avatar} alt={`${this.meShortcut.firstName} ${this.meShortcut.lastName} avatar`}/>
-          <h3>{this.meShortcut.firstName} {this.meShortcut.lastName}</h3>
+            <img src={this.meShortcut.avatar} alt={`${this.meShortcut.firstName} ${this.meShortcut.lastName} avatar`}/>
+            <h3><a className="text-marker" href="">{this.meShortcut.firstName} {this.meShortcut.lastName}</a></h3>
           </div>
           <div className="groups-shortcut">
-          <h4>Groups:</h4>
-          {
-            Object.keys(this.meShortcut.groups).map ((value, i) =>
-            <ul key={i}>
-              <li><a href=""><span className={`fa fa-${this.meShortcut.groups[value]}`}></span> {value}</a></li>
-            </ul>
-            )
-          }
+            <h4>Groups</h4>
+            {
+              Object.keys(this.meShortcut.groups).map ((value, i) =>
+              <ul className="default-group-list" key={i}>
+                <li><a href=""><span className={`fa fa-${this.meShortcut.groups[value]}`}></span> {value}</a></li>
+              </ul>
+              )
+            }
           </div>
         </aside>
         <section>

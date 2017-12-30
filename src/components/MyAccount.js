@@ -44,11 +44,11 @@ class UserAccount extends Component {
                 <li><span className="fa fa-envelope" aria-hidden="true"></span> {this.me.email}</li>
               </ul>
               <div className="side-heading">
-                <h4>My groups:</h4>
+                <h4>My groups</h4>
               </div>
               {
                 Object.keys(this.me.groups).map ((value, i) =>
-                <ul key={i}>
+                <ul className="default-group-list" key={i}>
                   <li><a href=""><span className={`fa fa-${this.me.groups[value]}`}></span> {value}</a></li>
                 </ul>
                 )
