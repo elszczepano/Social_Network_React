@@ -1,2 +1,29 @@
 @import "variables";
 @import "mixins";
+.newsfeed-container {
+  display: grid;
+  grid-template-columns: 25%;
+  aside {
+    position: fixed;
+    top: 10vh;
+    grid-column: 1;
+    .account-shortcut {
+      border-bottom: 1px solid $default-grey;
+      display: flex;
+      h3 {
+        font-weight: 300;
+      }
+      img {
+        @include profile-picture-xs;
+      }
+    }
+    .groups-shortcut {
+      h4 {
+        margin: 1rem 0 0 0;
+      }
+    }
+  }
+  section {
+    grid-column: 2;
+  }
+}
