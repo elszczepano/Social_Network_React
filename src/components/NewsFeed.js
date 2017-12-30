@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import News from './News';
+import AddPost from './AddPost';
 import '../assets/scss/main.scss';
 import '../assets/scss/newsfeed.scss';
 
@@ -41,20 +42,7 @@ class NewsFeed extends Component {
           </div>
         </aside>
         <section>
-        <div>
-          <div>
-          <h2>Write something:</h2>
-          <select name="" id="">
-          {
-            Object.keys(this.meShortcut.groups).map ((value, i) =>
-            <option key={i} value="{value}">{value}</option>
-            )
-          }
-          </select>
-          </div>
-          <textarea name="" id="" cols="30" rows="10"></textarea>
-          <button>Post</button>
-        </div>
+        <AddPost />
         <News />
         <News />
         <News />
