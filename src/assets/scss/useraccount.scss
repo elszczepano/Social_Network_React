@@ -38,28 +38,9 @@
         padding: 1rem 0;
       }
       a {
-        text-decoration: none;
         color: $link-grey;
         font-weight: 300;
         padding: 0 .3rem;
-      }
-      a:hover {
-        text-decoration:underline;
-      }
-    }
-    ul {
-      @include clear-list;
-      li {
-        padding: .5rem 0;
-        font-weight: 300;
-        color: $icon-grey;
-        a {
-          color: $icon-grey;
-          text-decoration: none;
-        }
-        a:hover {
-          text-decoration: underline;
-        }
       }
     }
   }

@@ -11,6 +11,12 @@ $fa-font-path: "..fonts" !important;
 body {
   font-family: 'Roboto', sans-serif;
 }
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
 button {
   @include default-button;
 }
@@ -27,4 +33,19 @@ button:active {
   margin: 0 auto 10vh auto;
   padding-top: 10vh;
   width: $default-width;
+}
+.default-group-list {
+  @include clear-list;
+  li {
+    padding: .4rem 0;
+    font-weight: 300;
+    color: $icon-grey;
+    a {
+      color: $icon-grey;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  }
 }
