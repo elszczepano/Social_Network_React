@@ -16,10 +16,11 @@ class AddPost extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="add-post-wrapper">
         <div>
-        <h2>Write something:</h2>
+        <h3>Write something:</h3>
         <select name="" id="">
+        <option selected disabled>Choose group</option>
         {
           Object.keys(this.meShortcut.groups).map ((value, i) =>
           <option key={i} value="{value}">{value}</option>
@@ -27,8 +28,8 @@ class AddPost extends Component {
         }
         </select>
         </div>
-        <textarea name="" id="" cols="30" rows="10"></textarea>
-        <button>Post</button>
+        <textarea name="" id="" rows="8"></textarea>
+        <button><span class="fa fa-pencil-square-o" aria-hidden="true"></span> Post</button>
       </div>
     );
   }
