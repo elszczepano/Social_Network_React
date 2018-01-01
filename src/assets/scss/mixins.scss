@@ -1,6 +1,6 @@
 @import "variables";
 @mixin default-button {
-  background-color: $primary-color;
+  background-color: $primary-color-darker;
   border: none;
   outline: none;
   color: #fff;
@@ -16,11 +16,10 @@
   user-select: none;
 }
 @mixin default-button-hover {
-  background-color: $primary-color-dark;
+  background-color: $primary-color;
   transform: scale(1.05);
 }
 @mixin default-button-pressed {
-  background-color: $primary-color-darker;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 @mixin flex-space-between {
