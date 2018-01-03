@@ -4,6 +4,7 @@ import Footer from './Footer';
 import News from './News';
 import UserShortcut from './UserShortcut';
 import AddPost from './AddPost';
+import Group from './Group';
 import '../assets/scss/main.scss';
 
 class NewsFeed extends Component {
@@ -14,13 +15,14 @@ class NewsFeed extends Component {
       <div className="default-grid default-container">
         <UserShortcut />
         <section>
-        <AddPost />
-        <News />
-        <News />
-        <News />
-        <News />
-        <News />
-        <News />
+          <Group />
+          <AddPost />
+          <News />
+          <News />
+          <News />
+          <News />
+          <News />
+          <News />
         </section>
       </div>
       <Footer />
