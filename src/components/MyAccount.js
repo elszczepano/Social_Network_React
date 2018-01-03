@@ -5,7 +5,6 @@ import News from './News';
 import '../assets/scss/main.scss';
 import '../assets/scss/useraccount.scss';
 
-
 class UserAccount extends Component {
   me = {
     firstName: 'John',
