@@ -49,3 +49,10 @@ button:active {
     }
   }
 }
+.default-grid {
+  display: grid;
+  grid-template-columns: 25%;
+  section {
+    grid-column: 2;
+  }
+}
