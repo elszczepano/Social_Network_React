@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
 import '../assets/scss/main.scss';
+import '../assets/scss/group.scss';
 
 class Group extends Component {
   groupDetails = {
@@ -16,8 +16,8 @@ class Group extends Component {
       <div>
         <h2 className="text-marker"> <span className={`fa fa-${this.groupDetails.icon}`}></span> {this.groupDetails.name}</h2>
         <ul>
-          <li>Members: {this.groupDetails.members}</li>
           <li>Administrator: {this.groupDetails.administrator}</li>
+          <li>Members: {this.groupDetails.members}</li>
           <li>Created at: {this.groupDetails.createdAt}</li>
         </ul>
         <h3>About {this.groupDetails.name}:</h3>
