@@ -20,7 +20,7 @@ class AddPost extends Component {
         <div>
         <h3>Write something:</h3>
         <select name="" id="">
-        <option selected disabled>Choose group</option>
+        <option disabled>Choose group</option>
         {
           Object.keys(this.meShortcut.groups).map ((value, i) =>
           <option key={i} value="{value}">{value}</option>
@@ -29,7 +29,7 @@ class AddPost extends Component {
         </select>
         </div>
         <textarea name="" id="" rows="8"></textarea>
-        <button><span class="fa fa-pencil-square-o" aria-hidden="true"></span> Post</button>
+        <button><span className="fa fa-pencil-square-o" aria-hidden="true"></span> Post</button>
       </div>
     );
   }
