@@ -10,7 +10,7 @@
     border-bottom: 1px solid $default-grey;
     padding-bottom: .5rem;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     img {
       @include profile-picture-xs;
     }
