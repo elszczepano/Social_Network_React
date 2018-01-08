@@ -14,9 +14,10 @@ aside {
       @include profile-picture-xs;
     }
   }
-  .groups-shortcut {
+  div {
+    margin: 1rem 0;
     h4 {
-      margin: 1rem 0 0 0;
+      margin: 0;
     }
   }
 }

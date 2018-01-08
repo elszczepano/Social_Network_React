@@ -23,8 +23,11 @@ class UserShortcut extends Component {
           <img src={this.meShortcut.avatar} alt={`${this.meShortcut.firstName} ${this.meShortcut.lastName} avatar`}/>
           <h3><a className="text-marker" href="">{this.meShortcut.firstName} {this.meShortcut.lastName}</a></h3>
         </div>
+        <div className="messages-shortcut">
+          <h4><span className="fa fa-comments" aria-hidden="true"></span> Messages</h4>
+        </div>
         <div className="groups-shortcut">
-          <h4>Groups</h4>
+          <h4><span className="fa fa-users" aria-hidden="true"></span> Groups</h4>
           {
             Object.keys(this.meShortcut.groups).map ((value, i) =>
             <ul className="default-group-list" key={i}>
