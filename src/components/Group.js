@@ -13,7 +13,7 @@ class Group extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="group-info-wrapper">
         <h2 className="text-marker"> <span className={`fa fa-${this.groupDetails.icon}`}></span> {this.groupDetails.name}</h2>
         <ul>
           <li>Administrator: {this.groupDetails.administrator}</li>
