@@ -5,10 +5,11 @@ import './index.scss';
 //import UserAccount from './components/UserAccount';
 //import MyAccount from './components/MyAccount';
 import NewsFeed from './components/NewsFeed';
+import EditAccountDetails from './components/EditAccountDetails';
 import registerServiceWorker from './registerServiceWorker';
 
 //ReactDOM.render(<Landing />, document.getElementById('root'));
 //ReactDOM.render(<UserAccount />, document.getElementById('root'));
 //ReactDOM.render(<MyAccount />, document.getElementById('root'));
-ReactDOM.render(<NewsFeed />, document.getElementById('root'));
+ReactDOM.render(<EditAccountDetails />, document.getElementById('root'));
 registerServiceWorker();
