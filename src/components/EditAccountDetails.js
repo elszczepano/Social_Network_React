@@ -8,7 +8,7 @@ class EditAccountDetails extends Component {
   user = {
     firstName: 'John',
     lastName: 'Doe',
-    birth: '20-08-1989',
+    birth: '1989-08-20',
     email: 'johndoe@gmail.com',
     avatar: 'https://avatarfiles.alphacoders.com/855/85557.png',
     groups: {
@@ -29,32 +29,32 @@ class EditAccountDetails extends Component {
           <p>Edit your personal inforamtion and click <span>update</span></p>
           <form action="">
             <div>
-              <label htmlFor=""></label>
-              <input type="text"/>
+              <label htmlFor="firstName">First name</label>
+              <input name="firstName" type="text" value={this.user.firstName}/>
             </div>
             <div>
-              <label htmlFor=""></label>
-              <input type="text"/>
+              <label htmlFor="lastName">Last name</label>
+              <input name="lastNam" type="text" value={this.user.lastName}/>
             </div>
             <div>
-              <label htmlFor=""></label>
-              <input type="date"/>
+              <label htmlFor="birth">Birth date</label>
+              <input name="birth" type="date" value={this.user.birth}/>
             </div>
             <div>
-              <label htmlFor=""></label>
-              <input type="email"/>
+              <label htmlFor="email">E-Mail Address</label>
+              <input name="email" type="email" value={this.user.email}/>
             </div>
             <div>
-              <label htmlFor=""></label>
-              <input type="file"/>
+              <label htmlFor="avatar">Avatar</label>
+              <input name="avatar" type="file"/>
             </div>
             <div>
-              <label htmlFor=""></label>
-              <input type="password"/>
+              <label htmlFor="password">New password</label>
+              <input name="password" type="password"/>
             </div>
             <div>
-              <label htmlFor=""></label>
-              <input type="password"/>
+              <label htmlFor="confirmPassword">Confirm password</label>
+              <input name="confirmPassword" type="password"/>
             </div>
           <button>Update</button>
           </form>
