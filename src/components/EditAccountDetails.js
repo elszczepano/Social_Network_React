@@ -11,52 +11,35 @@ class EditAccountDetails extends Component {
     birth: '1989-08-20',
     email: 'johndoe@gmail.com',
     avatar: 'https://avatarfiles.alphacoders.com/855/85557.png',
-    groups: {
-      'IT Devs': 'rocket',
-      'buy/sell Poland': 'camera-retro',
-      'Memes': 'image',
-      'Janusz Pol - workmates': 'money',
-      'Fishing fanatics': 'ship',
-      'Star Wars fans': 'rebel'
-    }
   }
   render() {
     return (
       <div>
         <Header />
-        <section className="default-container">
+        <section className="edit-account-contaner default-container">
           <h2 className="text-marker">Edit account details</h2>
           <p>Edit your personal inforamtion and click <span>update</span></p>
           <form action="">
-            <div>
+            <div className="edit-account-fields">
               <label htmlFor="firstName">First name</label>
-              <input name="firstName" type="text" value={this.user.firstName}/>
-            </div>
-            <div>
+              <input name="firstName" type="text" defaultValue={this.user.firstName}/>
               <label htmlFor="lastName">Last name</label>
-              <input name="lastNam" type="text" value={this.user.lastName}/>
-            </div>
-            <div>
+              <input name="lastNam" type="text" defaultValue={this.user.lastName}/>
               <label htmlFor="birth">Birth date</label>
-              <input name="birth" type="date" value={this.user.birth}/>
-            </div>
-            <div>
+              <input name="birth" type="date" defaultValue={this.user.birth}/>
               <label htmlFor="email">E-Mail Address</label>
-              <input name="email" type="email" value={this.user.email}/>
-            </div>
-            <div>
+              <input name="email" type="email" defaultValue={this.user.email}/>
               <label htmlFor="avatar">Avatar</label>
               <input name="avatar" type="file"/>
-            </div>
-            <div>
               <label htmlFor="password">New password</label>
               <input name="password" type="password"/>
-            </div>
-            <div>
               <label htmlFor="confirmPassword">Confirm password</label>
               <input name="confirmPassword" type="password"/>
             </div>
-          <button>Update</button>
+            <div className="edit-account-buttons">
+              <button type="submit">Update</button>
+              <button className="danger-button">Delete account</button>
+            </div>
           </form>
         </section>
         <Footer />
