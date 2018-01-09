@@ -20,12 +20,9 @@
       }
       label {
         text-align: right;
-      }
-      input {
-        margin: 0 1rem 1rem 1rem;
-        padding: .5rem 1rem;
         font-size: 1.2rem;
-        outline: none;
+        line-height: 200%;
+        color: $primary-color-darker;
       }
     }
     .edit-account-buttons {

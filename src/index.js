@@ -4,7 +4,7 @@ import './index.scss';
 //import Landing from './components/Landing';
 //import UserAccount from './components/UserAccount';
 //import MyAccount from './components/MyAccount';
-import NewsFeed from './components/NewsFeed';
+//import NewsFeed from './components/NewsFeed';
 import EditAccountDetails from './components/EditAccountDetails';
 import registerServiceWorker from './registerServiceWorker';
 
