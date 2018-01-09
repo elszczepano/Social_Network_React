@@ -1,2 +1,35 @@
 @import "variables";
 @import "mixins";
+
+.edit-account-contaner {
+  h2 {
+    font-weight: 300;
+    font-size: 2.5rem;
+  }
+  p {
+    font-weight: 300;
+  }
+  form {
+    .edit-account-fields {
+      margin: 0 auto;
+      width:50%;
+      display: grid;
+      grid-template-columns: 40% 50%;
+      input, label {
+        margin: 1rem;
+      }
+      label {
+        text-align: right;
+      }
+      input {
+        margin: 0 1rem 1rem 1rem;
+        padding: .5rem 1rem;
+        font-size: 1.2rem;
+        outline: none;
+      }
+    }
+    .edit-account-buttons {
+      @include flex-space-between;
+    }
+  }
+}
