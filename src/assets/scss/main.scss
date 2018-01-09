@@ -11,6 +11,12 @@ $fa-font-path: "..fonts" !important;
 body {
   font-family: 'Roboto', sans-serif;
 }
+input {
+  margin: 0 1rem 1rem 1rem;
+  padding: .5rem 1rem;
+  font-size: 1.2rem;
+  outline: none;
+}
 a {
   text-decoration: none;
 }
