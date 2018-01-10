@@ -19,6 +19,7 @@ class Group extends Component {
           <li>Administrator: {this.groupDetails.administrator}</li>
           <li>Members: {this.groupDetails.members}</li>
           <li>Created at: {this.groupDetails.createdAt}</li>
+          <li><span className="fa fa-pencil"></span> Edit group</li>
         </ul>
         <h3>About {this.groupDetails.name}:</h3>
         <p>{this.groupDetails.description}</p>
