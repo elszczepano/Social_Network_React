@@ -38,8 +38,6 @@ button:active {
 .danger-button:hover {
   @include danger-button-hover;
 }
-
-
 .text-marker {
   color: $primary-color-dark;
 }

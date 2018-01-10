@@ -1,2 +1,23 @@
 @import "variables";
 @import "mixins";
+
+section {
+  .group-header {
+    @include flex-space-between;
+    align-items: flex-end;
+    border-bottom: 1px solid $primary-color-darker;
+    h2 {
+      margin: 0;
+      font-weight: 300;
+      font-size: 3rem;
+      span {
+        font-size: 5rem;
+        margin-right: 2rem;
+        margin-right: 2rem;
+      }
+    }
+    .members {
+      font-weight: 300;
+    }
+  }
+}
