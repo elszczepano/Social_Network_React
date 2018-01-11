@@ -20,4 +20,34 @@ section {
       font-weight: 300;
     }
   }
+  section {
+    table {
+      margin: 5rem 0;
+      width: 100%;
+      border: 1px solid $default-grey;
+      thead, tbody {
+        display: grid;
+        tr {
+          padding: 1rem;
+          display: grid;
+          grid-template-columns:90% 10%;
+          td:last-of-type {
+            text-align: center;
+            .fa {
+              color: $primary-red;
+            }
+          }
+        }
+      }
+      tbody tr {
+          border-top: 1px solid $default-grey;
+          cursor: pointer;
+      }
+      tbody tr:hover {
+        td:last-of-type {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
 }
