@@ -29,6 +29,10 @@ class GroupAdmin extends Component {
             </span>
           </header>
           <section>
+            <div className="search-box">
+              <button><span className="fa fa-search"></span></button>
+              <input type="text" placeholder="Find user..."/>
+            </div>
             <table>
               <thead>
                 <tr>
@@ -59,6 +63,9 @@ class GroupAdmin extends Component {
                 }
               </tbody>
             </table>
+            <div>
+              <button>save changes</button>
+            </div>
           </section>
         </section>
       </div>

@@ -21,8 +21,24 @@ section {
     }
   }
   section {
+    margin-top: 5rem;
+    .search-box {
+      float: right;
+      input {
+        margin: 0;
+        font-size: 1rem;
+      }
+      button {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border: 2px solid $primary-color-darker;
+      }
+      button:hover {
+        border-color: $primary-color;
+      }
+    }
     table {
-      margin: 5rem 0;
+      margin-bottom: 3rem;
       width: 100%;
       border: 1px solid $default-grey;
       thead, tbody {
@@ -55,6 +71,9 @@ section {
           text-decoration: underline;
         }
       }
+    }
+    div button {
+      float: right;
     }
   }
 }
