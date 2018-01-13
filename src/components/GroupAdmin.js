@@ -14,6 +14,7 @@ class GroupAdmin extends Component {
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta doloremque sit obcaecati dolorum nesciunt quo beatae minus quas, quidem, sapiente aliquam numquam. ',
     membersList: ['John Doe', 'John Smith', 'Foo Bar', 'James Bond', 'Harry Potter']
   }
+  roles = [ 'User', 'Admin', 'Moderator'];
   render() {
     return (<div>
       <Header/>
@@ -32,6 +33,7 @@ class GroupAdmin extends Component {
               <thead>
                 <tr>
                   <td>Member</td>
+                  <td>Role</td>
                   <td>Remove</td>
                 </tr>
               </thead>
@@ -40,6 +42,15 @@ class GroupAdmin extends Component {
                   this.group.membersList.map((value, i) => {
                     return (<tr key={i}>
                       <td>{value}</td>
+                      <td>
+                        <select name="role" id="">
+                        {
+                          this.roles.map((value, i) => {
+                            return <option key={i} value="{value}">{value}</option>
+                          })
+                        }
+                        </select>
+                      </td>
                       <td>
                         <span className="fa fa-times"></span>
                       </td>

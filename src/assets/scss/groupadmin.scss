@@ -30,11 +30,18 @@ section {
         tr {
           padding: 1rem;
           display: grid;
-          grid-template-columns:90% 10%;
+          grid-template-columns:80% 15% 5%;
           td:last-of-type {
             text-align: center;
             .fa {
               color: $primary-red;
+            }
+          }
+          td select {
+            font-size: 1rem;
+            option {
+              padding: .2rem;
+              border-top: 1px solid red;
             }
           }
         }
