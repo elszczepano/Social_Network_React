@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import News from './News';
 import '../assets/scss/main.scss';
 import '../assets/scss/useraccount.scss';
 
@@ -9,7 +10,6 @@ class UserAccount extends Component {
     firstName: 'John',
     lastName: 'Doe',
     birth: '20-08-1989',
-    email: 'johndoe@gmail.com',
     avatar: 'https://avatarfiles.alphacoders.com/855/85557.png',
     groups: {
       'IT Devs': 'rocket',
@@ -31,32 +31,28 @@ class UserAccount extends Component {
           </header>
             <aside>
               <h4>About me:</h4>
-              <ul>
+              <ul className="default-group-list">
                 <li><span className="fa fa-user-o" aria-hidden="true"></span> {this.user.firstName} {this.user.lastName}</li>
                 <li><span className="fa fa-birthday-cake" aria-hidden="true"></span> {this.user.birth}</li>
-                <li><span className="fa fa-envelope" aria-hidden="true"></span> {this.user.email}</li>
+              </ul>
+              <h4>My groups:</h4>
+              <ul  className="default-group-list">
+              {
+                Object.keys(this.user.groups).map ((value, i) =>
+                <li key={i}>
+                  <span className={`fa fa-${this.user.groups[value]}`}></span> {value}
+                </li>
+                )
+              }
               </ul>
             </aside>
-            <section>
-              <h3>My groups:</h3>
-              <table>
-                <thead>
-                <tr>
-                  <th>Icon</th>
-                  <th>Group</th>
-                </tr>
-                </thead>
-                <tbody>
-                {
-                  Object.keys(this.user.groups).map ((value, i) =>
-                  <tr key={i}>
-                    <td><span className={`fa fa-${this.user.groups[value]}`}></span></td>
-                    <td>{value}</td>
-                  </tr>
-                  )
-                }
-                </tbody>
-              </table>
+            <section className="news-container">
+              <News />
+              <News />
+              <News />
+              <News />
+              <News />
+              <News />
             </section>
         </section>
         <Footer />
