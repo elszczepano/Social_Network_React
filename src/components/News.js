@@ -5,7 +5,7 @@ import '../assets/scss/news.scss';
 class News extends Component {
   render() {
     return (
-      <div className="news-container">
+      <div className="news-wrapper">
       <header>
       <img src="https://avatarfiles.alphacoders.com/855/85557.png" alt="User Name avatar"/>
       <span><strong><a href="">User Name</a></strong> <span className="fa fa-caret-right" aria-hidden="true"></span> <strong><a href="">Group Name</a></strong></span>
