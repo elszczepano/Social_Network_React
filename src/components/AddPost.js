@@ -27,7 +27,7 @@ class AddPost extends Component {
         }
         </select>
         </div>
-        <textarea name="" id="" rows="8"></textarea>
+        <textarea name="" id="" rows="8" />
         <button><span className="fa fa-pencil-square-o" aria-hidden="true"></span> Post</button>
       </div>
     );
