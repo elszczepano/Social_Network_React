@@ -10,8 +10,6 @@ class Landing extends Component {
   constructor(props) {
       super(props);
       this.state = {showRegister: false};
-
-      // This binding is necessary to make `this` work in the callback
       this.handleRegisterClick = this.handleRegisterClick.bind(this);
     }
 
