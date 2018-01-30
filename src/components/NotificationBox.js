@@ -4,13 +4,15 @@ import '../assets/scss/main.scss';
 import '../assets/scss/notification.scss';
 
 class NotificationBox extends Component {
-
+  
   unreaded = 2;
-
   render() {
     return (
       <div className="notification-box">
-        <header>Notifications({this.unreaded})</header>
+        <header>
+          <div>Notifications({this.unreaded})</div>
+          <div><span className="fa fa-caret-up"></span></div>
+        </header>
         <section>
           <Notification />
           <Notification />

@@ -8,6 +8,8 @@
     background-color: $primary-color-darker;
     color: #FFF;
     padding: .5rem;
+    display: grid;
+    grid-template-columns: 1fr 10px;
   }
   footer {
     padding: 1rem 10px;
