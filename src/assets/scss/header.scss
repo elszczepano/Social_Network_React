@@ -5,6 +5,7 @@
   position: fixed;
   width: 100%;
   background-color: #fff;
+  z-index: 99999;
   @include flex-space-between;
    div {
      h1 {
