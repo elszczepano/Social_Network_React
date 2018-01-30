@@ -17,7 +17,7 @@
 }
 .notification {
   display: grid;
-  grid-template-columns: 1fr 30px;
+  grid-template-columns: 1fr 30px 30px;
   border-bottom: $default-border;
   justify-items: center;
   align-items: center;

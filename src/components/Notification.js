@@ -10,6 +10,7 @@ class Notification extends Component {
     return (
       <div className="notification">
         <p>Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.</p>
+        <span className="fa fa-check"></span>
         <span className="fa fa-times"></span>
       </div>
     );
