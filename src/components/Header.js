@@ -6,8 +6,11 @@ class Header extends Component {
   render() {
     return (
         <header className="main-page-header">
-          <div className="logo">
-            <h1>Groupeé</h1>
+          <div>
+            <div className="logo">
+              <h1>Groupeé</h1>
+            </div>
+            <input type="text" placeholder="Search groups and hit enter!"/>
           </div>
           <div>
             <ul className="user-icons">

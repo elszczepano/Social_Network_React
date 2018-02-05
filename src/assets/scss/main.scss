@@ -46,6 +46,9 @@ button:active {
 .text-marker {
   color: $primary-color-dark;
 }
+.warning-marker {
+  color: $primary-red;
+}
 .default-container {
   margin: 0 auto 10vh auto;
   padding-top: 10vh;
