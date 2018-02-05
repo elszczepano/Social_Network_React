@@ -1,9 +1,12 @@
 @import "variables";
 @import "mixins";
-aside {
+.user-shortcuts {
   position: fixed;
   top: 10vh;
   grid-column: 1;
+  .notifications-shortcut:hover {
+    cursor: pointer;
+  }
   .account-shortcut {
     border-bottom: 1px solid $default-grey;
     display: flex;

@@ -18,13 +18,13 @@ class UserShortcut extends Component {
   }
   render() {
     return (
-      <aside>
+      <aside className="user-shortcuts">
         <div className="account-shortcut">
           <img src={this.meShortcut.avatar} alt={`${this.meShortcut.firstName} ${this.meShortcut.lastName} avatar`}/>
           <h3><a className="text-marker" href="">{this.meShortcut.firstName} {this.meShortcut.lastName}</a></h3>
         </div>
-        <div className="messages-shortcut">
-          <h4><span className="fa fa-comments" aria-hidden="true"></span> Messages</h4>
+        <div className="notifications-shortcut">
+          <h4 className="text-marker"><span className="fa fa-bell" aria-hidden="true"></span> Notifications</h4>
         </div>
         <div className="groups-shortcut">
           <h4><span className="fa fa-users" aria-hidden="true"></span> Groups</h4>
