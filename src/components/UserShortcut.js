@@ -29,8 +29,8 @@ class UserShortcut extends Component {
         <div className="groups-shortcut">
           <h4><span className="fa fa-users" aria-hidden="true"></span> Groups</h4>
           {
-            Object.keys(this.meShortcut.groups).map ((value, i) =>
-            <ul className="default-group-list" key={i}>
+            Object.keys(this.meShortcut.groups).map ((value) =>
+            <ul className="default-group-list" key={value.toString()}>
               <li><a href=""><span className={`fa fa-${this.meShortcut.groups[value]}`}></span> {value}</a></li>
             </ul>
             )

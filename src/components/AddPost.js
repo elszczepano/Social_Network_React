@@ -21,8 +21,8 @@ class AddPost extends Component {
         <select name="" id="">
         <option disabled>Choose group</option>
         {
-          Object.keys(this.meShortcut.groups).map ((value, i) =>
-          <option key={i} value="{value}">{value}</option>
+          Object.keys(this.meShortcut.groups).map ((value) =>
+          <option key={value.toString()} value={value}>{value}</option>
           )
         }
         </select>

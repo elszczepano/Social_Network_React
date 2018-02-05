@@ -36,10 +36,10 @@ class UserAccount extends Component {
                 <li><span className="fa fa-birthday-cake" aria-hidden="true"></span> {this.user.birth}</li>
               </ul>
               <h4>My groups:</h4>
-              <ul  className="default-group-list">
+              <ul className="default-group-list">
               {
-                Object.keys(this.user.groups).map ((value, i) =>
-                <li key={i}>
+                Object.keys(this.user.groups).map ((value) =>
+                <li key={value.toString()}>
                   <span className={`fa fa-${this.user.groups[value]}`}></span> {value}
                 </li>
                 )

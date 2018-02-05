@@ -31,7 +31,7 @@ class GroupAdmin extends Component {
           <section>
             <div>
             <h3 className="text-marker">Description:</h3>
-            <textarea className="description-field">{this.group.description}</textarea>
+            <textarea defaultValue={this.group.description} className="description-field" />
             </div>
             <div className="search-box">
               <button><span className="fa fa-search"></span></button>
@@ -47,14 +47,14 @@ class GroupAdmin extends Component {
               </thead>
               <tbody>
                 {
-                  this.group.membersList.map((value, i) => {
-                    return (<tr key={i}>
+                  this.group.membersList.map((value) => {
+                    return (<tr key={value.toString()}>
                       <td>{value}</td>
                       <td>
                         <select name="role" id="">
                         {
-                          this.roles.map((value, i) => {
-                            return <option key={i} value="{value}">{value}</option>
+                          this.roles.map((value) => {
+                            return <option key={value.toString()} defaultValue={value}>{value}</option>
                           })
                         }
                         </select>
