@@ -21,6 +21,15 @@ section {
     }
   }
   section {
+    div textarea {
+      width: 99.42%;
+      height: 10rem;
+      font-size: 1.1rem;
+      color: $icon-grey;
+    }
+    div textarea:focus {
+      color: #000;
+    }
     margin-top: 5rem;
     .search-box {
       float: right;

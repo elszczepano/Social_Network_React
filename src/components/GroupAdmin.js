@@ -29,6 +29,10 @@ class GroupAdmin extends Component {
             </span>
           </header>
           <section>
+            <div>
+            <h3 className="text-marker">Description:</h3>
+            <textarea className="description-field">{this.group.description}</textarea>
+            </div>
             <div className="search-box">
               <button><span className="fa fa-search"></span></button>
               <input type="text" placeholder="Find user..."/>
