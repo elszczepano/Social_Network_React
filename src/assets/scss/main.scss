@@ -23,6 +23,12 @@ select {
   border: none;
   font-size: 1.1rem;
 }
+textarea {
+  outline: none;
+  resize: none;
+  border-color: $default-grey;
+  font-family: 'Roboto', sans-serif;
+}
 a {
   text-decoration: none;
 }
