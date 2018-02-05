@@ -10,22 +10,35 @@
     border-bottom: 1px solid $default-grey;
     padding-bottom: .5rem;
     display: flex;
-    align-items: center;
-    img {
-      @include profile-picture-xs;
-    }
-    span {
-      strong a {
-        color: $primary-color-darker;
-        text-decoration: none;
-      }
+    justify-content: space-between;
+    span, div span {
       color: $icon-grey;
-      span {
-        padding: 0 .3rem;
-      }
     }
-    span strong a:hover {
-      text-decoration: underline;
+    span:hover {
+      cursor: pointer;
+      color: $icon-grey-hover;
+    }
+    .dropdown-menu {
+      position: relative;
+    }
+    div {
+      display: flex;
+      align-items: center;
+      img {
+        @include profile-picture-xs;
+      }
+      span {
+        strong a {
+          color: $primary-color-darker;
+          text-decoration: none;
+        }
+        span {
+          padding: 0 .3rem;
+        }
+      }
+      span strong a:hover {
+        text-decoration: underline;
+      }
     }
   }
   section {
