@@ -7,75 +7,71 @@
   background-color: #fff;
   z-index: 99999;
   @include flex-space-between;
-   div {
-     display: flex;
-     align-items: center;
-     .logo {
-       h1 {
-         margin: 1rem 1.5rem;
-         font-weight: 400;
-         color: $primary-color;
-         font-size: 2rem;
-       }
-     }
-     input {
-      margin: 0 3rem;
+  div {
+    display: flex;
+    align-items: center;
+    color: $primary-color;
+    h1 {
+      font-weight: 300;
+      padding: 0 1rem;
+    }
+    input {
+      margin: 0 1rem;
       padding: .5 1rem;
-      border-radius: 25px;
-      width: 20rem;
-     }
-     input::placeholder {
-       color: $icon-grey;
-     }
-     ul {
-       @include clear-list;
-       display: flex;
-       flex-wrap: wrap;
-       margin: 0 1rem;
-       li {
-         padding: 0 .4rem;
-         display: flex;
-         align-items: center;
-         input {
-           border: none;
-           border-bottom: 2px solid #d0d0d0;
-           outline: none;
-           transition: .4s all;
-           font-size: 1rem;
-           margin-top: .7rem;
-         }
-         input:focus {
-           border-bottom-color: $primary-color
-         }
-         .registry {
-           color: $primary-color;
-           text-decoration: none;
-           cursor: pointer;
-         }
-         .registry:hover {
-           text-decoration: underline;
-         }
-       }
-     }
-     .user-icons li {
-       color: $icon-grey;
-       font-size: 1.5rem;
-       cursor: pointer;
-       span.active {
-         animation-name: trigger-icon;
-         animation-duration: 3s;
-         animation-timing-function: linear;
-         animation-iteration-count: infinite;
-       }
-     }
-     .user-icons li:hover {
-       color: $icon-grey-hover;
-       text-decoration: none;
-     }
-   }
- }
- @keyframes trigger-icon {
-     0%   {color: #ff6633;}
-     50%  {color: $primary-color;}
-     100% {color: #ff6633;}
- }
+      width: 10rem;
+    }
+    input::placeholder {
+      color: $icon-grey;
+    }
+    ul {
+      @include clear-list;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 1rem;
+      li {
+        padding: 0 .4rem;
+        display: flex;
+        align-items: center;
+        input {
+          border: none;
+          border-bottom: 2px solid #d0d0d0;
+          outline: none;
+          transition: .4s all;
+          font-size: 1rem;
+          margin-top: .7rem;
+        }
+        input:focus {
+          border-bottom-color: $primary-color
+        }
+        .registry {
+          color: $primary-color;
+          text-decoration: none;
+          cursor: pointer;
+        }
+        .registry:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    .user-icons li {
+      color: $icon-grey;
+      font-size: 1.5rem;
+      cursor: pointer;
+      span.active {
+        animation-name: trigger-icon;
+        animation-duration: 3s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+      }
+    }
+    .user-icons li:hover {
+      color: $icon-grey-hover;
+      text-decoration: none;
+    }
+  }
+}
+@keyframes trigger-icon {
+  0%   {color: #ff6633;}
+  50%  {color: $primary-color;}
+  100% {color: #ff6633;}
+}
