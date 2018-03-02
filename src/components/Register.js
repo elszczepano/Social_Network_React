@@ -7,7 +7,7 @@ import '../assets/scss/register.scss';
 class Register extends Component {
   constructor(props) {
     super(props);
-    this.state = {name: "", surname: "", email: "", birth_date: "", password: "", confirmPassword: "", errMessage: ""};
+    this.state = {name: "", email: "", password: "", confirmPassword: "", errMessage: []};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleRegister = this.handleRegister.bind(this);
@@ -17,19 +17,31 @@ class Register extends Component {
     this.setState({[event.target.id]: event.target.value});
   }
   handleRegister(event) {
-
-    if(this.state.password!=this.state.confirmPassword) {
-      this.setState({errMessage: "Passwords are different"});
+    let message = [];
+    if(this.state.password!==this.state.confirmPassword) {
+      message.push("Passwords are different");
+      this.setState({errMessage: message});
       event.preventDefault();
+      return;
     }
-    const user = {
-        name: this.state.name,
-        surname: this.state.surname,
-        email: this.state.email,
-        birthDate: this.state.birthDate,
-        password: this.state.password
-    };
-    //TODO axios post request
+    else this.setState({errMessage: []});
+
+    API.post('/register',{
+      name: this.state.name,
+      email: this.state.email,
+      password: this.state.password
+    })
+    .then(response => {
+      console.log(response)
+    })
+    .catch(error => {
+      const response = error.response['data']['message'];
+      Object.keys(response).forEach((key) => {
+        message.push(response[key].toString());
+      })
+      this.setState({errMessage: message});
+      console.log(this.state.errMessage);
+    });
   }
 
   render() {
@@ -39,23 +51,22 @@ class Register extends Component {
           <div className="modal-header">
             <span onClick={this.props.registerVisibility} className="fa fa-times" aria-hidden="true"></span>
           </div>
-          <form action="" method="post">
             <div className="modal-body">
               <h2>Create an account</h2>
                 <label htmlFor="firstname">Name<span className="warning-marker">*</span></label>
               <input id="name" type="text" value={this.state.name} onChange={this.handleChange} required/>
-                <label htmlFor="lastname">Surname</label>
-              <input id="surname" type="text" value={this.state.surname} onChange={this.handleChange}/>
                 <label htmlFor="email">E-mail<span className="warning-marker">*</span></label>
               <input id="email" type="email" value={this.state.email} onChange={this.handleChange} required/>
-                <label htmlFor="birthDate">Birth date</label>
-              <input id="birthDate" type="date" value={this.state.birthDate} onChange={this.handleChange}/>
                 <label htmlFor="password">Password<span className="warning-marker">*</span></label>
               <input id="password" type="password" value={this.state.password} onChange={this.handleChange} required/>
                 <label htmlFor="confirmPassword">Confirm password<span className="warning-marker">*</span></label>
               <input id="confirmPassword" type="password" value={this.state.confirmPassword} onChange={this.handleChange} required/>
-              <div className="warning-marker register-error-box">
-                {this.state.errMessage}
+              <div  className="register-message-box">
+              {
+                this.state.errMessage.map((value) =>
+                  <p className="warning-marker" key={value.toString()}>{value}</p>
+                )
+              }
               </div>
               <div className="pretty p-default">
                 <input id="terms" type="checkbox" required/>
@@ -67,7 +78,6 @@ class Register extends Component {
             <div className="modal-footer">
               <button type="submit" onClick={this.handleRegister}>Register</button>
             </div>
-          </form>
         </div>
       </div>
     );
