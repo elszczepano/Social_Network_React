@@ -6,7 +6,7 @@ import '../assets/scss/register.scss';
 class Register extends Component {
   constructor(props) {
     super(props);
-    this.state = {name: "", email: "", password: "", confirmPassword: "", errMessage: []};
+    this.state = { errMessage: []};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleRegister = this.handleRegister.bind(this);
