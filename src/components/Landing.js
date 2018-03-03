@@ -14,14 +14,14 @@ class Landing extends Component {
     }
 
     handleRegisterClick() {
-      this.setState(prevState => ({
-        showRegister: !prevState.showRegister
-      }));
+      this.setState({
+        showRegister: !this.state.showRegister
+      });
     }
   render() {
     return (
       <div className="landing-container">
-      { this.state.showRegister ? <Register registerVisibility={this.handleRegisterClick} /> : null }
+      { this.state.showRegister ? <Register registerVisibility={this.handleRegisterClick} /> : '' }
         <header className="main-page-header">
           <div className="logo">
             <h1>Groupeé</h1>
