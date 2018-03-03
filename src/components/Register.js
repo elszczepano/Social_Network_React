@@ -19,19 +19,16 @@ class Register extends Component {
   }
 
   handleAcceptTerms() {
-    this.setState({
-      terms: !this.state.terms
-    });
+    this.setState({terms: !this.state.terms});
   }
 
   handleRegister(event) {
-    this.setState({
-      registered: false
-    });
-
     let message = [];
 
-    this.setState({errMessage: message});
+    this.setState({
+      registered: false,
+      errMessage: message
+    });
 
     if(this.state.password!==this.state.confirmPassword) {
       message.push("Passwords are different");
@@ -52,11 +49,11 @@ class Register extends Component {
       password: this.state.password
     })
     .then(response => {
-      this.setState({
-        registered: !this.state.registered
-      });
       message.push("User created succesfully. Now you can sign in");
-      this.setState({errMessage: message});
+      this.setState({
+        registered: !this.state.registered,
+        errMessage: message
+      });
     })
     .catch(error => {
       const response = error.response['data']['message'];
