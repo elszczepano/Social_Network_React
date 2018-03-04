@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import Landing from './components/Landing';
+import Landing from './components/Containers/Landing';
 //import UserAccount from './components/UserAccount';
 //import NotificationBox from './components/NotificationBox';
 //import NewsFeed from './components/NewsFeed';

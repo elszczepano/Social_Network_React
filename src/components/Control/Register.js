@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import API from '../api.js';
-import '../assets/scss/main.scss';
-import '../assets/scss/register.scss';
+import API from '../../api.js';
+import '../../assets/scss/main.scss';
+import '../../assets/scss/register.scss';
 
 class Register extends Component {
   constructor(props) {

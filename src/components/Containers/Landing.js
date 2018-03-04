@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import Footer from './Footer';
-import Register from './Register';
-import '../assets/scss/main.scss';
-import '../assets/scss/header.scss';
-import '../assets/scss/landing.scss';
+import Footer from '../View/Footer';
+import Register from '../Control/Register';
+import Login from '../Control/Login';
+import '../../assets/scss/main.scss';
+import '../../assets/scss/header.scss';
+import '../../assets/scss/landing.scss';
 
 class Landing extends Component {
 
@@ -26,13 +27,7 @@ class Landing extends Component {
           <div className="logo">
             <h1>Groupeé</h1>
           </div>
-          <div>
-            <ul>
-              <li><input type="text" placeholder="Username"/></li>
-              <li><input type="password" placeholder="Password"/></li>
-              <li><button>Sign In</button></li>
-            </ul>
-          </div>
+          <Login />
         </header>
         <div className="bg-welcome">
           <div className="welcome-content">
