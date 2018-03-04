@@ -1,0 +1,34 @@
+@import "../variables";
+@import "../mixins";
+
+.user-panel-box {
+  @include flex-space-between;
+  input {
+    width: 20rem !important;
+  }
+  .user-icons {
+    @include clear-list;
+    @include flex-center;
+    li {
+      color: $icon-grey;
+      font-size: 1.5rem;
+      margin: 0 .7rem;
+      cursor: pointer;
+      span.active {
+        animation-name: trigger-icon;
+        animation-duration: 3s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+      }
+    }
+    li:hover {
+      color: $icon-grey-hover;
+      text-decoration: none;
+    }
+  }
+}
+@keyframes trigger-icon {
+  0%   {color: #ff6633;}
+  50%  {color: $primary-color;}
+  100% {color: #ff6633;}
+}

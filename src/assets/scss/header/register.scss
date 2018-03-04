@@ -1,0 +1,52 @@
+@import "../variables";
+@import "../mixins";
+.modal-container {
+  position:fixed;
+  overflow:hidden;
+  z-index: 99999;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,.5);
+  @include flex-center;
+  .modal-content {
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    .modal-header {
+      text-align: right;
+      span {
+        padding: 1rem;
+        font-size: 1.3rem;
+        cursor: pointer;
+      }
+      span:hover {
+        color: $primary-color-darker;
+      }
+    }
+    .modal-body {
+      margin: 0 5rem;
+      display: flex;
+      flex-direction: column;
+      h2 {
+        text-align: center;
+        color: $primary-color-darker;
+        text-transform: uppercase;
+      }
+      label {
+        margin: 0 2rem;
+        font-size: 1.3rem;
+      }
+      div {
+        margin: 0 auto;
+      }
+      .register-message-box {
+        padding-bottom: 1rem;
+        font-weight: 700;
+        text-align: center;
+      }
+    }
+    .modal-footer {
+      @include flex-center;
+      margin: 2rem 0;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@import "../variables";
+@import "../mixins";
+
+.login-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  ul {
+    @include clear-list;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 1rem;
+    li {
+      padding: 0 .4rem;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
