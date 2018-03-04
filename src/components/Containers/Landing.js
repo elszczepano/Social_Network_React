@@ -1,34 +1,28 @@
 import React, { Component } from 'react';
 import Footer from '../View/Footer';
 import Register from '../Control/Register';
-import Login from '../Control/Login';
+import Header from './Header';
 import '../../assets/scss/main.scss';
-import '../../assets/scss/header.scss';
 import '../../assets/scss/landing.scss';
 
 class Landing extends Component {
 
   constructor(props) {
-      super(props);
-      this.state = {showRegister: false};
-      this.handleRegisterClick = this.handleRegisterClick.bind(this);
-    }
+    super(props);
+    this.state = {showRegister: false};
+    this.handleRegisterClick = this.handleRegisterClick.bind(this);
+  }
 
-    handleRegisterClick() {
-      this.setState({
-        showRegister: !this.state.showRegister
-      });
-    }
+  handleRegisterClick() {
+    this.setState({
+      showRegister: !this.state.showRegister
+    });
+  }
   render() {
     return (
       <div className="landing-container">
       { this.state.showRegister ? <Register registerVisibility={this.handleRegisterClick} /> : '' }
-        <header className="main-page-header">
-          <div className="logo">
-            <h1>Groupeé</h1>
-          </div>
-          <Login />
-        </header>
+        <Header />
         <div className="bg-welcome">
           <div className="welcome-content">
             <p>Groupeé is gathering people with common goals and interests.</p>

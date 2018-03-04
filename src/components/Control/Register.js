@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import API from '../../api.js';
 import '../../assets/scss/main.scss';
-import '../../assets/scss/register.scss';
+import '../../assets/scss/header/register.scss';
 
 class Register extends Component {
   constructor(props) {
@@ -23,23 +23,29 @@ class Register extends Component {
   }
 
   handleRegister(event) {
-    let message = [];
+    let messages = [];
+
+    function checkField(field, message) {
+      if(!field) messages.push(message);
+    }
 
     this.setState({
       registered: false,
-      errMessage: message
+      errMessage: messages
     });
 
+    checkField(this.state.name, "The name field is required");
+    checkField(this.state.email, "The email field is required");
+    checkField(this.state.password, "The password field is required");
+    checkField(this.state.confirmPassword, "The confirm password field is required");
+    checkField(this.state.terms, "You must accept the terms");
+
     if(this.state.password!==this.state.confirmPassword) {
-      message.push("Passwords are different");
+      messages.push("Passwords are different");
     }
 
-    if(!this.state.terms) {
-      message.push("Accept the terms");
-    }
-
-    if(message.length) {
-      this.setState({errMessage: message});
+    if(messages.length) {
+      this.setState({errMessage: messages});
       return;
     }
 
@@ -49,18 +55,18 @@ class Register extends Component {
       password: this.state.password
     })
     .then(response => {
-      message.push("User created succesfully. Now you can sign in");
+      messages.push("User created succesfully. Now you can sign in");
       this.setState({
         registered: !this.state.registered,
-        errMessage: message
+        errMessage: messages
       });
     })
     .catch(error => {
       const response = error.response['data']['message'];
       Object.keys(response).forEach((key) => {
-        message.push(response[key].toString());
+        messages.push(response[key].toString());
       })
-      this.setState({errMessage: message});
+      this.setState({errMessage: messages});
     });
   }
 
