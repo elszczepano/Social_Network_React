@@ -10,7 +10,7 @@ class UserPanel extends Component {
           <ul className="user-icons">
             <li><span className="fa fa-user" aria-hidden="true"></span></li>
             <li><span className="fa fa-bell active" aria-hidden="true"></span></li>
-            <li><button>Logout</button></li>
+            <li><button onClick={this.props.logout}>Logout</button></li>
           </ul>
       </div>
     );
