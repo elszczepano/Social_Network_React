@@ -18,18 +18,24 @@ class Login extends Component {
   }
 
   handleLogin(event) {
-    API.post('/login', {
-    email: this.state.email,
-    password: this.state.password
-  })
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error.response);
-  });
-  }
+    this.setState({errMessage: ""});
+    if(!this.state.email||!this.state.password) {
+      this.setState({errMessage: "Enter username and password"});
+      return;
+    }
 
+    API.post('/login', {
+      email: this.state.email,
+      password: this.state.password
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(error => {
+      const response = error.response['data']['error'];
+      this.setState({errMessage: response});
+    });
+  }
 
   render() {
     return (
