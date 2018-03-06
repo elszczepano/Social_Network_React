@@ -28,8 +28,10 @@ class Login extends Component {
       email: this.state.email,
       password: this.state.password
     })
-    .then(function (response) {
-      console.log(response);
+    .then(response => {
+      const token = response['data']['access_token'];
+      API.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      this.props.parent.handleIsLogged();
     })
     .catch(error => {
       const response = error.response['data']['error'];

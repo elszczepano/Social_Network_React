@@ -9,6 +9,14 @@ class Header extends Component {
   constructor(props) {
       super(props);
       this.state = {isLogged: false};
+
+      this.handleIsLogged = this.handleIsLogged.bind(this);
+  }
+
+  handleIsLogged() {
+    this.setState({
+      isLogged: !this.state.isLogged
+    });
   }
 
   render() {
@@ -17,7 +25,7 @@ class Header extends Component {
             <div className="logo">
               <h1>Groupeé</h1>
             </div>
-            { this.state.isLogged ? <UserPanel /> : <Login /> }
+            { this.state.isLogged ? <UserPanel logout={this.handleIsLogged} /> : <Login parent={this} isLogged={this.state.isLogged} /> }
         </header>
     );
   }
