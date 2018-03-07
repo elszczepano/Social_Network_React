@@ -17,4 +17,8 @@ class UserPanel extends Component {
   }
 }
 
+UserPanel.propTypes = {
+  logout: PropTypes.func
+}
+
 export default UserPanel;
