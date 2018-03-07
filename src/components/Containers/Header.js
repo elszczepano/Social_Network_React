@@ -9,11 +9,9 @@ class Header extends Component {
   constructor(props) {
       super(props);
       this.state = {isLogged: false};
-
-      this.handleIsLogged = this.handleIsLogged.bind(this);
   }
 
-  handleIsLogged() {
+  handleIsLogged = () => {
     this.setState({
       isLogged: !this.state.isLogged
     });

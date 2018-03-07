@@ -8,21 +8,17 @@ class Register extends Component {
   constructor(props) {
     super(props);
     this.state = { errMessage: [], terms: false, registered: false, name: "", email: "", password: "", confirmPassword: ""};
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleRegister = this.handleRegister.bind(this);
-    this.handleAcceptTerms = this.handleAcceptTerms.bind(this);
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     this.setState({[event.target.id]: event.target.value});
   }
 
-  handleAcceptTerms() {
+  handleAcceptTerms = () => {
     this.setState({terms: !this.state.terms});
   }
 
-  handleRegister(event) {
+  handleRegister = (event) => {
     let messages = [];
 
     function checkField(field, message) {
