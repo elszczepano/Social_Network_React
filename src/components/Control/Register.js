@@ -53,7 +53,7 @@ class Register extends Component {
     .then(response => {
       messages.push("User created succesfully. Now you can sign in");
       this.setState({
-        registered: !this.state.registered,
+        registered: true,
         errMessage: messages
       });
     })
