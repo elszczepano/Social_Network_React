@@ -7,7 +7,7 @@ import userDetails from './reducers';
 import registerServiceWorker from './registerServiceWorker';
 import './index.scss';
 
-let store = createStore(userDetails);
+let store = createStore(userDetails,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(
   <Provider store={store}>

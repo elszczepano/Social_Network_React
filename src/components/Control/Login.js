@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import API from '../../api.js';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import { setLogged } from '../../actions';
 import '../../assets/scss/main.scss';
 import '../../assets/scss/header/login.scss';
