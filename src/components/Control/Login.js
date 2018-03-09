@@ -31,7 +31,9 @@ class Login extends Component {
       const token = response['data']['access_token'];
       API.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       this.props.parent.handleIsLogged();
-      this.props.dispatch(setLogged(true));
+      this.props.dispatch(setLogged({
+        type: 'SWITCH_LOGIN_STATUS'
+      }));
     })
     .catch(error => {
       console.log(error);

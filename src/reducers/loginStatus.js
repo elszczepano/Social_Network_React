@@ -1,15 +1,11 @@
 import { LOGIN_STATUS } from '../actions';
 
-const loginStatus = (state = [], action) => {
+const loginStatus = (state = false, action) => {
   switch (action.type) {
-    case LOGIN_STATUS:
-    return {
-      ...state,
-      ...action.data
-    };
-    default:
-    return state;
+    case 'SWITCH_LOGIN_STATUS':
+    return !state
   }
+  return state;
 }
 
 export default loginStatus;
