@@ -8,16 +8,13 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {email: "", password: "", errMessage: ""};
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleLogin = this.handleLogin.bind(this);
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     this.setState({[event.target.id]: event.target.value});
   }
 
-  handleLogin(event) {
+  handleLogin = (event) => {
     this.setState({errMessage: ""});
     if(!this.state.email||!this.state.password) {
       this.setState({errMessage: "Enter username and password"});
