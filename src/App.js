@@ -5,16 +5,15 @@ import {
   Link
 } from 'react-router-dom';
 
-import Header from './components/Containers/Header';
 import Landing from './components/Containers/Landing';
+import NewsFeed from './components/Containers/NewsFeed';
 
 class App extends Component {
   render() {
     return (
       <Router>
         <div className="container">
-          <Header />
-          <Landing />
+        <Landing />
         </div>
       </Router>
     );

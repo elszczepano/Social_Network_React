@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import API from '../../api.js';
+import { connect } from 'react-redux'
+import { setLogged } from '../../actions';
 import '../../assets/scss/main.scss';
 import '../../assets/scss/header/login.scss';
 
@@ -29,8 +31,10 @@ class Login extends Component {
       const token = response['data']['access_token'];
       API.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       this.props.parent.handleIsLogged();
+      this.props.dispatch(setLogged(true));
     })
     .catch(error => {
+      console.log(error);
       const response = error.response['data']['error'];
       this.setState({errMessage: response});
     });
@@ -50,4 +54,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default connect()(Login);
