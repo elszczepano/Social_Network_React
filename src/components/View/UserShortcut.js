@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../assets/scss/main.scss';
-import '../assets/scss/usershortcut.scss';
+import '../../assets/scss/main.scss';
+import '../../assets/scss/user/usershortcut.scss';
 
 class UserShortcut extends Component {
   meShortcut = {

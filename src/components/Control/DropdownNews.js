@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../assets/scss/main.scss';
-import '../assets/scss/dropdownnews.scss';
+import '../../assets/scss/main.scss';
+import '../../assets/scss/post/dropdownpost.scss';
 
 class DropdownNews extends Component {
   render() {

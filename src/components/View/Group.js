@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../assets/scss/main.scss';
-import '../assets/scss/group.scss';
+import '../../assets/scss/main.scss';
+import '../../assets/scss/group/group.scss';
 
 class Group extends Component {
   groupDetails = {

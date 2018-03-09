@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import DropdownNews from './DropdownNews';
-import '../assets/scss/main.scss';
-import '../assets/scss/news.scss';
+import DropdownNews from '../Control/DropdownNews';
+import '../../assets/scss/main.scss';
+import '../../assets/scss/post/post.scss';
 
 class News extends Component {
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../assets/scss/main.scss';
-import '../assets/scss/addpost.scss';
+import '../../assets/scss/main.scss';
+import '../../assets/scss/post/addpost.scss';
 
 class AddPost extends Component {
   meShortcut = {

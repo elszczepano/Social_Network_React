@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import Header from './Header';
-import Footer from './Footer';
-import News from './News';
-import UserShortcut from './UserShortcut';
-import AddPost from './AddPost';
-import Group from './Group';
-import '../assets/scss/main.scss';
+import Footer from '../View/Footer';
+import News from '../View/News';
+import UserShortcut from '../View/UserShortcut';
+import AddPost from '../Control/AddPost';
+import Group from '../View/Group';
+import '../../assets/scss/main.scss';
 
 class NewsFeed extends Component {
   render() {
     return (
-      <div>
+      <React.Fragment>
       <Header />
       <div className="default-grid default-container">
         <UserShortcut />
@@ -26,7 +26,7 @@ class NewsFeed extends Component {
         </section>
       </div>
       <Footer />
-      </div>
+      </React.Fragment>
     );
   }
 }
