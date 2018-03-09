@@ -19,9 +19,10 @@ class Landing extends Component {
   }
   render() {
     return (
+      <React.Fragment>
+      <Header />
       <div className="landing-container">
       { this.state.showRegister ? <Register registerVisibility={this.handleRegisterClick} /> : '' }
-        <Header />
         <div className="bg-welcome">
           <div className="welcome-content">
             <p>Groupeé is gathering people with common goals and interests.</p>
@@ -46,8 +47,9 @@ class Landing extends Component {
             </div>
           </div>
         </div>
-        <Footer />
       </div>
+      <Footer />
+      </React.Fragment>
     );
   }
 }
