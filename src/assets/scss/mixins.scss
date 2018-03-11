@@ -1,5 +1,6 @@
 @import "variables";
 @mixin default-button {
+  font-family: 'Josefin Sans', sans-serif;
   background-color: $primary-color-darker;
   border: none;
   outline: none;
