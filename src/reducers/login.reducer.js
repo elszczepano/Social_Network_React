@@ -1,9 +1,11 @@
 const loginStatus = (state = false, action) => {
   switch (action.type) {
-    case 'SWITCH_LOGIN_STATUS':
-      return !state;
+    case 'SIGN_IN':
+    return true
+    case 'SIGN_OUT':
+    return false
     default:
-      return state;
+    return false
   }
 }
 

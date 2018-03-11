@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import API from '../../api.js';
 import { connect } from 'react-redux';
-import { setLogged } from '../../actions';
+import { Redirect } from 'react-router-dom';
+import { signIn } from '../../actions/login.actions';
 import '../../assets/scss/main.scss';
 import '../../assets/scss/header/login.scss';
 
@@ -30,13 +31,9 @@ class Login extends Component {
     .then(response => {
       const token = response['data']['access_token'];
       API.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      this.props.parent.handleIsLogged();
-      this.props.dispatch(setLogged({
-        type: 'SWITCH_LOGIN_STATUS'
-      }));
+      this.props.dispatch(signIn());
     })
     .catch(error => {
-      console.log(error);
       const response = error.response['data']['error'];
       this.setState({errMessage: response});
     });

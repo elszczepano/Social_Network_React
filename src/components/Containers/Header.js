@@ -1,21 +1,11 @@
 import React, { Component } from 'react';
 import Login from '../Control/Login';
 import UserPanel from '../Control/UserPanel';
+import { connect } from 'react-redux';
 import '../../assets/scss/main.scss';
 import '../../assets/scss/header/header.scss';
 
 class Header extends Component {
-
-  constructor(props) {
-      super(props);
-      this.state = {isLogged: false};
-  }
-
-  handleIsLogged = () => {
-    this.setState({
-      isLogged: !this.state.isLogged
-    });
-  }
 
   render() {
     return (
@@ -23,10 +13,16 @@ class Header extends Component {
             <div className="logo">
               <h1>Groupeé</h1>
             </div>
-            { this.state.isLogged ? <UserPanel logout={this.handleIsLogged} /> : <Login parent={this} isLogged={this.state.isLogged} /> }
+            { this.props.loginStatus ? <UserPanel/> : <Login/> }
         </header>
     );
   }
 }
 
-export default Header;
+function mapStateToProps(state) {
+  return {
+    loginStatus: state.loginStatus
+  }
+}
+
+export default connect(mapStateToProps)(Header);
