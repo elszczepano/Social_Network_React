@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import API from '../../api.js';
 import '../../assets/scss/main.scss';
 import '../../assets/scss/header/register.scss';
@@ -67,6 +68,10 @@ class Register extends Component {
   }
 
   render() {
+    let messageClass = classNames({
+    'success-marker': this.state.registered,
+    'warning-marker': !this.state.registered
+    });
     return (
       <div className="modal-container">
         <div className="modal-content">
@@ -86,7 +91,7 @@ class Register extends Component {
               <div className="register-message-box">
               {
                 this.state.errMessage.map((value) =>
-                  <p className= { this.state.registered ? "success-marker" : "warning-marker" } key={value.toString()}>{value}</p>
+                  <p className={messageClass} key={value.toString()}>{value}</p>
                 )
               }
               </div>
