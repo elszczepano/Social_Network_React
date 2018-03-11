@@ -8,9 +8,6 @@ $fa-font-path: "..fonts" !important;
   @extend .fa;
   @extend .fa-user;
 }
-body {
-  font-family: 'Roboto', sans-serif;
-}
 input {
   margin: 0 1rem 1rem 1rem;
   padding: .5rem 1rem;
