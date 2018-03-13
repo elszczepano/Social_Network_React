@@ -31,8 +31,6 @@ class Login extends Component {
       const token = response['data']['access_token'];
       API.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       this.props.dispatch(signIn());
-      const currentPath = window.location.href;
-      window.location.replace(`${currentPath}feed`);
     })
     .catch(error => {
       const response = error.response['data']['error'];

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route, Redirect } from 'react-router';
 import Login from '../Control/Login';
 import UserPanel from '../Control/UserPanel';
 import { connect } from 'react-redux';
@@ -14,6 +15,7 @@ class Header extends Component {
               <h1>Groupeé</h1>
             </div>
             { this.props.loginStatus ? <UserPanel/> : <Login/> }
+            { this.props.loginStatus ? <Redirect to="/feed"/> : <Redirect to="/"/> }
         </header>
     );
   }
