@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import API from '../../api.js';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import { signIn } from '../../actions/login.actions';
 import '../../assets/scss/main.scss';
 import '../../assets/scss/header/login.scss';
@@ -32,6 +31,8 @@ class Login extends Component {
       const token = response['data']['access_token'];
       API.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       this.props.dispatch(signIn());
+      const currentPath = window.location.href;
+      window.location.replace(`${currentPath}feed`);
     })
     .catch(error => {
       const response = error.response['data']['error'];
