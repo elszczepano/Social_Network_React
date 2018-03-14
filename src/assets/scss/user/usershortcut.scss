@@ -1,8 +1,11 @@
 @import "../variables";
 @import "../mixins";
 .user-shortcuts {
+  background-color: #fff;
   position: fixed;
-  top: 10vh;
+  top: 5vh;
+  padding: 2rem 5rem 2rem 2rem;
+  border-radius: 10px;
   grid-column: 1;
   .notifications-shortcut:hover {
     cursor: pointer;
@@ -12,6 +15,8 @@
     display: flex;
     h3 {
       font-weight: 300;
+      color: $primary-color;
+      font-size: 1.5rem;
     }
     img {
       @include profile-picture-xs;
