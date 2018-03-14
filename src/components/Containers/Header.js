@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Redirect } from 'react-router';
+import { Redirect } from 'react-router';
 import Login from '../Control/Login';
 import UserPanel from '../Control/UserPanel';
 import { connect } from 'react-redux';

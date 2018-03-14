@@ -33,7 +33,7 @@ class Login extends Component {
     })
     .then(response => {
       localStorage.setItem("loginStatus", "logged");
-      localStorage.setItem("token",`Bearer ${ response['data']['access_token']}`);
+      localStorage.setItem("token",`Bearer ${response['data']['access_token']}`);
       this.props.dispatch(signIn());
     })
     .catch(error => {
