@@ -6,12 +6,13 @@ import '../../assets/scss/user/usershortcut.scss';
 class UserShortcut extends Component {
   constructor(props) {
     super(props);
-    this.state = {name: "", surname: "", avatar: ""};
+    this.state = {id: "", name: "", surname: "", avatar: ""};
   }
 
   componentWillMount() {
-    API.get('/me')
+    API.get('/me', { 'headers': { 'Authorization': localStorage.getItem("token")} })
     .then(response => {
+      console.log(response);
       response = response['data'];
       this.setState({
         name: response['name'],

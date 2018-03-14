@@ -33,8 +33,7 @@ class Login extends Component {
     })
     .then(response => {
       localStorage.setItem("loginStatus", "logged");
-      const token = response['data']['access_token'];
-      API.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      localStorage.setItem("token",`Bearer ${ response['data']['access_token']}`);
       this.props.dispatch(signIn());
     })
     .catch(error => {
