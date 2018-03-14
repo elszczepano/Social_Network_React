@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import Footer from '../View/Footer';
-import News from '../View/News';
+import Post from '../View/Post';
 import UserShortcut from '../View/UserShortcut';
 import AddPost from '../Control/AddPost';
-import Group from '../View/Group';
 import '../../assets/scss/main.scss';
 
 class NewsFeed extends Component {
@@ -15,14 +14,11 @@ class NewsFeed extends Component {
       <div className="default-grid default-container">
         <UserShortcut />
         <section>
-          <Group />
           <AddPost />
-          <News />
-          <News />
-          <News />
-          <News />
-          <News />
-          <News />
+          <Post />
+          <Post />
+          <Post />
+          <Post />
         </section>
       </div>
       <Footer />

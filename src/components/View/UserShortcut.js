@@ -35,10 +35,7 @@ class UserShortcut extends Component {
       <aside className="user-shortcuts">
         <div className="account-shortcut">
           <img src={this.state.avatar} alt={`${this.state.name} ${this.state.surname} avatar`}/>
-          <h3><a className="text-marker" href="">{this.state.name} {this.state.surname}</a></h3>
-        </div>
-        <div className="notifications-shortcut">
-          <h4 className="text-marker"><span className="fa fa-bell" aria-hidden="true"></span> Notifications</h4>
+          <h3>{this.state.name} {this.state.surname}</h3>
         </div>
         <div className="groups-shortcut">
           <h4><span className="fa fa-users" aria-hidden="true"></span> Groups</h4>
