@@ -5,7 +5,7 @@ const loginStatus = (state = false, action) => {
     case 'SIGN_OUT':
     return false
     default:
-    return false
+    return localStorage.getItem("loginStatus");
   }
 }
 

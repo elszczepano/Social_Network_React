@@ -11,7 +11,7 @@ class Landing extends Component {
     super(props);
     this.state = {showRegister: false};
   }
-
+  
   handleRegisterClick = () => {
     this.setState({
       showRegister: !this.state.showRegister

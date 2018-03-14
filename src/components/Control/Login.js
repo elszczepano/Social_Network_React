@@ -12,6 +12,10 @@ class Login extends Component {
     this.state = {email: "", password: "", errMessage: ""};
   }
 
+  componentWillMount() {
+    localStorage.setItem("loginStatus", "");
+  }
+
   handleChange = (event) => {
     this.setState({[event.target.id]: event.target.value});
   }
@@ -28,6 +32,7 @@ class Login extends Component {
       password: this.state.password
     })
     .then(response => {
+      localStorage.setItem("loginStatus", "logged");
       const token = response['data']['access_token'];
       API.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       this.props.dispatch(signIn());
