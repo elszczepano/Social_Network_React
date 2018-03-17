@@ -1,11 +1,12 @@
-const loginStatus = (state = false, action) => {
+const loginStatus = (state, action) => {
   switch (action.type) {
     case 'SIGN_IN':
-    return true
+      return true;
     case 'SIGN_OUT':
-    return false
+      return false;
     default:
-    return localStorage.getItem("loginStatus");
+      if(!localStorage.getItem("token")) return false;
+      return true;
   }
 }
 
