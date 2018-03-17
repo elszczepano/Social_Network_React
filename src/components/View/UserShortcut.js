@@ -6,7 +6,7 @@ import '../../assets/scss/user/usershortcut.scss';
 class UserShortcut extends Component {
   constructor(props) {
     super(props);
-    this.state = {id: "", name: "", surname: "", avatar: ""};
+    this.state = {id: "", name: "", surname: "", avatar: "", groups: []};
   }
 
   componentWillMount() {
@@ -14,10 +14,22 @@ class UserShortcut extends Component {
     .then(response => {
       response = response['data'];
       this.setState({
+        id: response['id'],
         name: response['name'],
         surname: response['surname'],
         avatar: response['avatar']
       });
+    })
+    .then(() => {
+      API.get(`/user/groups/${this.state.id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
+      .then(response => {
+        response = response['data'];
+        response = response.map(group => group.name);
+        console.log(response);
+        this.setState({
+          groups: response
+        })
+      })
     })
     .catch(error => {
       const response = error.response['data']['message'];
@@ -33,6 +45,13 @@ class UserShortcut extends Component {
         </div>
         <div className="groups-shortcut">
           <h4><span className="fa fa-users" aria-hidden="true"></span> Groups</h4>
+          <ul>
+          {
+            this.state.groups.map((value) => {
+              return <li key={value.toString()}>{value}</li>
+            })
+          }
+          </ul>
         </div>
       </aside>
     );
