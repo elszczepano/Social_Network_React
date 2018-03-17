@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import API from '../../api.js';
 import { connect } from 'react-redux';
 import { signOut } from '../../actions/login.actions';
 import '../../assets/scss/main.scss';
 import '../../assets/scss/header/panel.scss';
 
 class UserPanel extends Component {
-
   signOut = () => {
-    this.props.dispatch(signOut());
+    API.post('/logout', {}, { 'headers': { 'Authorization': localStorage.getItem("token")} })
+    .then(response => {
+      localStorage.removeItem('token');
+      this.props.dispatch(signOut());
+    })
+    .catch(error => {
+      console.log(error.response);
+    });
   }
 
   render() {
