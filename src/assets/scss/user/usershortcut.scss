@@ -7,6 +7,7 @@
   padding: 2rem 5rem 2rem 2rem;
   border-radius: 10px;
   grid-column: 1;
+  max-width: 11rem;
   .notifications-shortcut:hover {
     cursor: pointer;
   }
@@ -26,6 +27,15 @@
     margin: 1rem 0;
     h4 {
       margin: 0;
+    }
+    ul {
+      list-style-type: none;
+      margin: 1rem 0;
+      padding: 0;
+      li:hover {
+        cursor:pointer;
+        color: $primary-color;
+      }
     }
   }
 }
