@@ -12,10 +12,6 @@ class Login extends Component {
     this.state = {email: "", password: "", errMessage: ""};
   }
 
-  componentWillMount() {
-    localStorage.setItem("loginStatus", "");
-  }
-
   handleChange = (event) => {
     this.setState({[event.target.id]: event.target.value});
   }
@@ -32,11 +28,11 @@ class Login extends Component {
       password: this.state.password
     })
     .then(response => {
-      localStorage.setItem("loginStatus", "logged");
       localStorage.setItem("token",`Bearer ${response['data']['access_token']}`);
       this.props.dispatch(signIn());
     })
     .catch(error => {
+      console.log(error);
       const response = error.response['data']['error'];
       this.setState({errMessage: response});
     });

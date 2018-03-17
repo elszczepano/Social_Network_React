@@ -12,18 +12,12 @@ class UserShortcut extends Component {
   componentWillMount() {
     API.get('/me', { 'headers': { 'Authorization': localStorage.getItem("token")} })
     .then(response => {
-      console.log(response);
       response = response['data'];
       this.setState({
         name: response['name'],
         surname: response['surname'],
+        avatar: response['avatar']
       });
-      if(response['avatar']) {
-        this.setState({avatar: response['avatar']});
-      }
-      else {
-        this.setState({avatar: '../../assets/images/avatar-15777909_1280.png'});
-      }
     })
     .catch(error => {
       const response = error.response['data']['message'];
