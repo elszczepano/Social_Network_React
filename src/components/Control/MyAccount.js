@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Header from './Header';
-import Footer from './Footer';
-import '../assets/scss/main.scss';
-import '../assets/scss/editaccountdetails.scss';
+import Header from '../Containers/Header';
+import Footer from '../View/Footer';
+import '../../assets/scss/main.scss';
+import '../../assets/scss/user/myaccount.scss';
 
-class EditAccountDetails extends Component {
+class MyAccount extends Component {
   user = {
     firstName: 'John',
     lastName: 'Doe',
@@ -48,4 +48,4 @@ class EditAccountDetails extends Component {
   }
 }
 
-export default EditAccountDetails;
+export default MyAccount;
