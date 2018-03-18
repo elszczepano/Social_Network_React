@@ -1,40 +1,57 @@
 @import "../variables";
 @import "../mixins";
+.user-shortcuts::-webkit-scrollbar {
+  width: .5rem;
+}
+.user-shortcuts::-webkit-scrollbar-thumb {
+	border-radius: 5px;
+	background-color: #303C4E;
+}
 .user-shortcuts {
-  background-color: #fff;
+  padding-left: .5rem;
+  overflow-y: scroll;
+  background-color: #222B3C;
+  color: #fff;
+  height: 100vh;
   position: fixed;
+  left: 0;
   top: 5vh;
-  padding: 2rem 5rem 2rem 2rem;
-  border-radius: 10px;
   grid-column: 1;
-  max-width: 11rem;
-  .notifications-shortcut:hover {
-    cursor: pointer;
-  }
+  width: 17rem;
   .account-shortcut {
-    border-bottom: 1px solid $default-grey;
-    display: flex;
+    padding: 0 1rem;
+    margin-top: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    @include flex-center;
     h3 {
-      font-weight: 300;
-      color: $primary-color;
+      font-weight: 500;
       font-size: 1.5rem;
+      color: $default-grey;
     }
     img {
       @include profile-picture-xs;
+      margin: 0 1rem;
     }
   }
-  div {
-    margin: 1rem 0;
-    h4 {
-      margin: 0;
-    }
+  h3 {
+    text-align: center;
+    font-weight: 400;
+  }
+  .groups-shortcut {
     ul {
       list-style-type: none;
-      margin: 1rem 0;
+      margin: 0;
       padding: 0;
+      li {
+        padding: 1rem;
+        box-sizing: border-box;
+        font-weight: 600;
+        transition: .3s;
+      }
       li:hover {
+        transform: translateY(2px);
+        background-color: #303C4E;
         cursor:pointer;
-        color: $primary-color;
       }
     }
   }

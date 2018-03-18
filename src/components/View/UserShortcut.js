@@ -43,8 +43,8 @@ class UserShortcut extends Component {
           <img src={this.state.avatar} alt={`${this.state.name} ${this.state.surname} avatar`}/>
           <h3>{this.state.name} {this.state.surname}</h3>
         </div>
+        <h3>Browse groups: </h3>
         <div className="groups-shortcut">
-          <h4><span className="fa fa-users" aria-hidden="true"></span> Groups</h4>
           <ul>
           {
             this.state.groups.map((value) => {
