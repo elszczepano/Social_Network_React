@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header';
-import Post from '../View/Post';
 import UserShortcut from '../View/UserShortcut';
+import PostContainer from './PostContainer';
 import AddPost from '../Control/AddPost';
 import '../../assets/scss/main.scss';
 
@@ -14,10 +14,7 @@ class NewsFeed extends Component {
         <UserShortcut />
         <section>
           <AddPost />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
+          <PostContainer />
         </section>
       </div>
       </React.Fragment>
