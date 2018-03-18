@@ -21,10 +21,11 @@ class UserPanel extends Component {
   render() {
     return (
       <div className="user-panel-box">
+
           <input type="text" placeholder="Search groups and hit enter!"/>
           <ul className="user-icons">
-            <li><span className="fa fa-user" aria-hidden="true"></span></li>
-            <li><span className="fa fa-bell active" aria-hidden="true"></span></li>
+            <li><span className="fa fa-user-o" aria-hidden="true"></span></li>
+            <li><span className="fa fa-bell-o" aria-hidden="true"></span></li>
             <li><button onClick={this.signOut}>Logout</button></li>
           </ul>
       </div>
