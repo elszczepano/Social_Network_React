@@ -25,7 +25,6 @@ class UserShortcut extends Component {
       .then(response => {
         response = response['data'];
         response = response.map(group => group.name);
-        console.log(response);
         this.setState({
           groups: response
         })
