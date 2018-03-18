@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import DropdownNews from '../Control/DropdownNews';
 import '../../assets/scss/main.scss';
 import '../../assets/scss/post/post.scss';
 
-class News extends Component {
-
+class Post extends Component {
   constructor(props) {
       super(props);
       this.state = {showDropdown: false};
@@ -15,6 +15,7 @@ class News extends Component {
         showDropdown: !prevState.showDropdown
       }));
     }
+
   render () {
     return (
       <div className="news-wrapper">
@@ -29,10 +30,8 @@ class News extends Component {
         </div>
       </header>
       <section>
-        <p className="news-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Magni numquam maiores odit eveniet, vero laboriosam inventore nemo iste, sed commodi, obcaecati totam modi blanditiis doloribus!
-        Consectetur animi temporibus, laudantium ipsa!</p>
-        <p className="news-votes">21</p>
+        <p className="news-content">{this.props.content.content}</p>
+        <p className="news-votes">{this.props.content.rating}</p>
       </section>
       <footer>
         <span className="fa fa-plus" aria-hidden="true"></span>
@@ -44,4 +43,8 @@ class News extends Component {
   }
 }
 
-export default News;
+Post.propTypes = {
+  content: PropTypes.object
+}
+
+export default Post;
