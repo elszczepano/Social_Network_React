@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Header from './Header';
-import Footer from '../View/Footer';
 import Post from '../View/Post';
 import UserShortcut from '../View/UserShortcut';
 import AddPost from '../Control/AddPost';
@@ -21,7 +20,6 @@ class NewsFeed extends Component {
           <Post />
         </section>
       </div>
-      <Footer />
       </React.Fragment>
     );
   }
