@@ -1,8 +1,12 @@
-@import "variables";
-@import "mixins";
+@import "../variables";
+@import "../mixins";
 
 .notification-box {
+  position: absolute;
   width: 250px;
+  top: 3rem;
+  right: 8rem;
+  background-color: #fff;
   box-shadow: $default-shadow;
   header {
     background-color: $primary-color-darker;
@@ -10,6 +14,9 @@
     padding: .5rem;
     display: grid;
     grid-template-columns: 1fr 10px;
+    div span {
+      cursor: pointer;
+    }
   }
   footer {
     padding: 1rem 10px;

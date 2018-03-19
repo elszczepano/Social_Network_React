@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import Notification from './Notification';
-import Message from './Message';
-import '../assets/scss/main.scss';
-import '../assets/scss/notification.scss';
+import Notification from '../View/Notification';
+import '../../assets/scss/main.scss';
+import '../../assets/scss/user/notification.scss';
 
 class NotificationBox extends Component {
   constructor(){
@@ -22,7 +21,7 @@ class NotificationBox extends Component {
       <div className="notification-box">
         <header>
           <div>Notifications({this.unread})</div>
-          <div><span className="fa fa-caret-up"></span></div>
+          <div><span onClick={this.props.registerVisibility} className="fa fa-times"></span></div>
         </header>
         <section>
           <Notification />

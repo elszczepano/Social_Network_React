@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../assets/scss/main.scss';
-import '../assets/scss/notification.scss';
+import '../../assets/scss/main.scss';
+import '../../assets/scss/user/notification.scss';
 
 class Notification extends Component {
 
