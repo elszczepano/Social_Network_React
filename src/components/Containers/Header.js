@@ -10,13 +10,13 @@ class Header extends Component {
 
   render() {
     return (
-        <header className="main-header">
-            <div className="logo">
-              <h1>Groupeé</h1>
-            </div>
-            { this.props.loginStatus ? <UserPanel/> : <Login/> }
-            { this.props.loginStatus ? <Redirect to="/feed"/> : <Redirect to="/"/> }
-        </header>
+      <header className="main-header">
+          <div className="logo">
+            <h1>Groupeé</h1>
+          </div>
+          { this.props.loginStatus ? <UserPanel/> : <Login/> }
+          { this.props.loginStatus ? <Redirect to="/feed"/> : <Redirect to="/"/> }
+      </header>
     );
   }
 }
