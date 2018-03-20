@@ -14,7 +14,7 @@ class NotificationBox extends Component {
     API.get('/me', { 'headers': { 'Authorization': localStorage.getItem("token")} })
     .then(response => response['data']['id'])
     .then(id => {
-      API.get(`/notifications/user/${id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
+      API.get(`user/notifications/${id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
       .then(response => {
         response = response['data'];
         response = response.map(notification => notification);
