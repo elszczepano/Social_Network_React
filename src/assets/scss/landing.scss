@@ -1,59 +1,59 @@
 @import "variables";
 @import "mixins";
 
- .bg-welcome {
-   @include background-image;
-   @include flex-center;
-   background-image: url('../images/children-1807511_1920.jpg');
-   height: 60vh;
-   .welcome-content {
-     color: #fff;
-     text-align: center;
-     p {
-       font-size: 2rem;
-       text-shadow: 1px 1px #000;
-     }
-     button {
-       transform: scale(2);
-     }
-   }
- }
- .features-box {
-   padding-top: 5vh;
-   background-color: #fff;
-   text-align: center;
-   padding-bottom: .1vh;
-   h2 {
+.bg-welcome {
+  @include background-image;
+  @include flex-center;
+  background-image: url('../images/children-1807511_1920.jpg');
+  height: 60vh;
+  .welcome-content {
+    color: #fff;
+    text-align: center;
+    p {
+      font-size: 2rem;
+      text-shadow: 1px 1px #000;
+    }
+    button {
+      transform: scale(2);
+    }
+  }
+}
+.features-box {
+  padding-top: 5vh;
+  background-color: #fff;
+  text-align: center;
+  padding-bottom: .1vh;
+  h2 {
     font-size: 2.4rem;
-   }
-   h3 {
+  }
+  h3 {
     font-size: 1.9rem;
     font-weight: 300;
-   }
-   .features {
-     @include flex-space-around;
-     margin: 10vh 0;
-     div h4 {
-       font-weight: 400;
-       text-transform: uppercase;
-       font-size: 1.5rem;
-       color: $primary-color;
-     }
-     .feature {
-       @include background-image;
-       height: 20vw;
-       width: 20vw;
-       border-radius: 50%;
-       transition: .3s transform;
-     }
-     .feature:hover {
-       transform: scale(1.05);
-     }
-     .feature-friends { background-image: url('../images/friendship-1081843_1920.jpg'); }
-     .feature-work { background-image: url('../images/workplace-1245776_1920.jpg'); }
-     .feature-meeting { background-image: url('../images/old-people-616718_1920.jpg'); }
-   }
- }
+  }
+  .features {
+    @include flex-space-around;
+    margin: 10vh 0;
+    div h4 {
+      font-weight: 400;
+      text-transform: uppercase;
+      font-size: 1.5rem;
+      color: $primary-color;
+    }
+    .feature {
+      @include background-image;
+      height: 20vw;
+      width: 20vw;
+      border-radius: 50%;
+      transition: .3s transform;
+    }
+    .feature:hover {
+      transform: scale(1.05);
+    }
+    .feature-friends { background-image: url('../images/friendship-1081843_1920.jpg'); }
+    .feature-work { background-image: url('../images/workplace-1245776_1920.jpg'); }
+    .feature-meeting { background-image: url('../images/old-people-616718_1920.jpg'); }
+  }
+}
 @media (max-width: 576px) {
   .features-box .features .feature {
     height: 85vw;

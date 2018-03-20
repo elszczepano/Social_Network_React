@@ -7,6 +7,8 @@
   top: 3rem;
   right: 8rem;
   background-color: #fff;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
   box-shadow: $default-shadow;
   header {
     background-color: $primary-color-darker;
@@ -15,13 +17,15 @@
     display: grid;
     grid-template-columns: 1fr 10px;
     div span {
+      transition: .1s transform;
+    }
+    div span:hover {
       cursor: pointer;
+      transform: scale(1.1);
     }
   }
-  footer {
-    padding: 1rem 10px;
-    display: flex;
-    justify-content: flex-end;
+  section {
+    min-height: 150px;
   }
 }
 .notification {
