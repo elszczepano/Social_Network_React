@@ -27,8 +27,8 @@ class PostContainer extends Component {
     return (
       <React.Fragment>
       {
-        this.state.userPosts.map(post =>
-          <Post content={post}/>
+        this.state.userPosts.map((post, index) =>
+          <Post content={post} key={index}/>
         )
       }
       </React.Fragment>
