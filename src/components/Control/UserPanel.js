@@ -20,14 +20,9 @@ class UserPanel extends Component {
   }
 
   signOut = () => {
-    API.post('/logout', {}, { 'headers': { 'Authorization': localStorage.getItem("token")} })
-    .then(response => {
-      localStorage.removeItem('token');
-      this.props.dispatch(signOut());
-    })
-    .catch(error => {
-      console.log(error.response);
-    });
+    API.post('/logout', {}, { 'headers': { 'Authorization': localStorage.getItem("token")} });
+    localStorage.removeItem('token');
+    this.props.dispatch(signOut());
   }
 
   render() {
