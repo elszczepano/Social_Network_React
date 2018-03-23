@@ -24,9 +24,10 @@ class UserShortcut extends Component {
       API.get(`/user/groups/${this.state.id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
       .then(response => {
         response = response['data'];
-        console.log(response);
-        response = response.map(group => ({name: group.name, icon: group.icon.name}));
-        console.log(response);
+        response = response.map(group => ({
+          name: group.name,
+          icon: group.icon.name
+        }));
         this.setState({
           groups: response
         })
