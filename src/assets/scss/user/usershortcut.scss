@@ -47,6 +47,7 @@
         box-sizing: border-box;
         font-weight: 600;
         transition: .3s;
+        @include flex-space-between;
       }
       li:hover {
         transform: translateY(2px);

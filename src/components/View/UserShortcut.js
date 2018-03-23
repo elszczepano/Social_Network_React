@@ -24,7 +24,9 @@ class UserShortcut extends Component {
       API.get(`/user/groups/${this.state.id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
       .then(response => {
         response = response['data'];
-        response = response.map(group => group.name);
+        console.log(response);
+        response = response.map(group => ({name: group.name, icon: group.icon.name}));
+        console.log(response);
         this.setState({
           groups: response
         })
@@ -46,8 +48,8 @@ class UserShortcut extends Component {
         <div className="groups-shortcut">
           <ul>
           {
-            this.state.groups.map((value) => {
-              return <li key={value.toString()}>{value}</li>
+            this.state.groups.map((group, index) => {
+              return <li key={index}><span>{group.name}</span><span className={`fa fa-${group.icon}`}></span> </li>
             })
           }
           </ul>
