@@ -15,7 +15,14 @@ class PostContainer extends Component {
       API.get(`/user/posts/${id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
       .then(response => {
         response = response['data'];
-        response = response.map(post => post);
+        console.log(response);
+        response = response.map(post => ({
+          content: post.content,
+          rating: post.rating,
+          author: `${post.user.name} ${post.user.surname}`,
+          authorAvatar: post.user.avatar,
+          group: post.group.name
+        }));
         this.setState({
           userPosts: response
         })

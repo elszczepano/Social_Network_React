@@ -21,8 +21,8 @@ class Post extends Component {
       <div className="news-wrapper">
       <header>
         <div>
-          <img src="https://avatarfiles.alphacoders.com/855/85557.png" alt="User Name avatar"/>
-          <span><strong><a href="">User Name</a></strong> <span className="fa fa-caret-right" aria-hidden="true"></span> <strong><a href="">Group Name</a></strong></span>
+          <img src={this.props.content.authorAvatar} alt={`${this.props.content.author} avatar`}/>
+          <span><strong><a href="">{this.props.content.author}</a></strong> <span className="fa fa-caret-right" aria-hidden="true"></span> <strong><a href="">{this.props.content.group}</a></strong></span>
         </div>
         <div className="dropdown-menu">
             <span onClick={this.handleDropdownClick} className="fa fa-cog"></span>
