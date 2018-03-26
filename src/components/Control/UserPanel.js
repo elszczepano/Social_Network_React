@@ -30,8 +30,9 @@ class UserPanel extends Component {
         <div className="user-panel-box">
             <input type="text" placeholder="Search groups and hit enter!"/>
             <ul className="user-icons">
-              <li><span className="fa fa-user-o" aria-hidden="true"></span></li>
-              <li><span className="fa fa-bell-o" aria-hidden="true" onClick={this.handleRegisterClick}></span></li>
+              <li><span className="fa fa-plus"></span></li>
+              <li><span className="fa fa-user-o"></span></li>
+              <li><span className="fa fa-bell-o" onClick={this.handleRegisterClick}></span></li>
               <li><button onClick={this.signOut}>Logout</button></li>
             </ul>
             { this.state.showNotifications ? <NotificationBox registerVisibility={this.handleRegisterClick} /> : '' }
