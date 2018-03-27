@@ -1,0 +1,11 @@
+@import "variables";
+@import "mixins";
+
+aside {
+  background-color: $primary-navy;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 5px;
+  height: 50vh;
+  margin-top: 4.25rem;
+}

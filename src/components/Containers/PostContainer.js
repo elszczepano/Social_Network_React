@@ -33,6 +33,7 @@ class PostContainer extends Component {
   render () {
     return (
       <React.Fragment>
+      <h1 className="text-marker">My recent activity:</h1>
       {
         this.state.userPosts.map((post, index) =>
           <Post content={post} key={index}/>

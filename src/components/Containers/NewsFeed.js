@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import Header from './Header';
 import UserShortcut from '../View/UserShortcut';
 import PostContainer from './PostContainer';
-import AddPost from '../Control/AddPost';
+import SidePanel from './SidePanel';
 import '../../assets/scss/main.scss';
+import '../../assets/scss/newsfeed.scss';
 
 class NewsFeed extends Component {
   render() {
@@ -12,9 +13,11 @@ class NewsFeed extends Component {
       <Header />
       <div className="default-grid default-container">
         <UserShortcut />
-        <section>
-          <AddPost />
-          <PostContainer />
+        <section className="news-feed-wrapper">
+          <div>
+            <PostContainer />
+          </div>
+          <SidePanel />
         </section>
       </div>
       </React.Fragment>

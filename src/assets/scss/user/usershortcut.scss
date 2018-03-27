@@ -5,12 +5,12 @@
 }
 .user-shortcuts::-webkit-scrollbar-thumb {
 	border-radius: 5px;
-	background-color: #303C4E;
+	background-color: $primary-navy-light;
 }
 .user-shortcuts {
   padding-left: .5rem;
   overflow-y: scroll;
-  background-color: #222B3C;
+  background-color: $primary-navy;
   color: #fff;
   height: 100vh;
   position: fixed;
