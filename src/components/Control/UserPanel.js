@@ -8,17 +8,6 @@ import '../../assets/scss/main.scss';
 import '../../assets/scss/header/panel.scss';
 
 class UserPanel extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {showNotifications: false};
-  }
-
-  handleRegisterClick = () => {
-    this.setState({
-      showNotifications: !this.state.showNotifications
-    });
-  }
-
   signOut = () => {
     API.post('/logout', {}, { 'headers': { 'Authorization': localStorage.getItem("token")} });
     localStorage.removeItem('token');
@@ -32,10 +21,10 @@ class UserPanel extends Component {
             <ul className="user-icons">
               <li><span className="fa fa-plus"></span></li>
               <li><span className="fa fa-user-o"></span></li>
-              <li><span className="fa fa-bell-o" onClick={this.handleRegisterClick}></span></li>
+              <li><span className="fa fa-bell-o" onClick={() => this.refs.notifiactionBox.toggleNotifcation()}></span></li>
               <li><button onClick={this.signOut}>Logout</button></li>
             </ul>
-            { this.state.showNotifications ? <NotificationBox registerVisibility={this.handleRegisterClick} /> : '' }
+            <NotificationBox ref="notifiactionBox" />
         </div>
     );
   }

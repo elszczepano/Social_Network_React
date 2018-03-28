@@ -7,7 +7,7 @@ import '../../assets/scss/user/notification.scss';
 class NotificationBox extends Component {
   constructor(props) {
     super(props);
-    this.state = {userNotifications: []};
+    this.state = {userNotifications: [], isOpened: true};
   }
 
   componentWillMount() {
@@ -23,23 +23,49 @@ class NotificationBox extends Component {
         })
       })
     })
-    .then()
+  }
+
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside);
+  }
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
+  }
+
+  setWrapperRef = (node) => {
+    this.wrapperRef = node;
+  }
+
+  toggleNotifcation = () => {
+    this.setState(prevState => ({
+      isOpened: !this.state.isOpened
+    }));
+  }
+
+  handleClickOutside = (event) => {
+    if (this.wrapperRef && !this.wrapperRef.contains(event.target) && this.state.isOpened) {
+      this.toggleNotifcation();
+    }
   }
   render() {
     return (
-      <div className="notification-box">
-        <header>
-          <div>Notifications ()</div>
-          <div><span onClick={this.props.registerVisibility} className="fa fa-times"></span></div>
-        </header>
-        <section>
-        {
-          this.state.userNotifications.map((notification, index) =>
-            <Notification content={notification} key={index}/>
-          )
-        }
-        </section>
-      </div>
+      <React.Fragment>
+      {
+        this.state.isOpened ? <div ref={this.setWrapperRef} className="notification-box">
+          <header>
+            <div>Notifications ()</div>
+            <div><span onClick={this.toggleNotifcation} className="fa fa-times"></span></div>
+          </header>
+          <section>
+          {
+            this.state.userNotifications.map((notification, index) =>
+              <Notification content={notification} key={index}/>
+            )
+          }
+          </section>
+        </div> : ''
+      }
+      </React.Fragment>
     );
   }
 }

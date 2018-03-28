@@ -5,8 +5,6 @@ import '../../assets/scss/user/notification.scss';
 
 class Notification extends Component {
 
-  isReaded = true;
-
   render() {
     return (
       <div className="notification">
