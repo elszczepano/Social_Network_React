@@ -7,7 +7,7 @@ import '../../assets/scss/user/notification.scss';
 class NotificationBox extends Component {
   constructor(props) {
     super(props);
-    this.state = {userNotifications: [], isOpened: true};
+    this.state = {userNotifications: [], unread: 0, isOpened: false};
   }
 
   componentWillMount() {
@@ -20,7 +20,10 @@ class NotificationBox extends Component {
         response = response.map(notification => notification);
         this.setState({
           userNotifications: response
-        })
+        });
+        for(let notification of response) {
+          if(!notification.read) this.setState({unread: this.state.unread + 1});
+        }
       })
     })
   }
@@ -48,25 +51,24 @@ class NotificationBox extends Component {
     }
   }
   render() {
-    return (
-      <React.Fragment>
-      {
-        this.state.isOpened ? <div ref={this.setWrapperRef} className="notification-box">
-          <header>
-            <div>Notifications ()</div>
-            <div><span onClick={this.toggleNotifcation} className="fa fa-times"></span></div>
-          </header>
-          <section>
-          {
-            this.state.userNotifications.map((notification, index) =>
-              <Notification content={notification} key={index}/>
-            )
-          }
-          </section>
-        </div> : ''
-      }
-      </React.Fragment>
-    );
+    if(this.state.isOpened) {
+      return (
+          <div ref={this.setWrapperRef} className="notification-box">
+            <header>
+              <div>Notifications ({this.state.unread})</div>
+              <div><span onClick={this.toggleNotifcation} className="fa fa-times"></span></div>
+            </header>
+            <section>
+            {
+              this.state.userNotifications.map((notification, index) =>
+                <Notification content={notification} key={index}/>
+              )
+            }
+            </section>
+          </div>
+      );
+    }
+    else return ("");
   }
 }
 
