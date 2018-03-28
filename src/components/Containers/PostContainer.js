@@ -15,7 +15,6 @@ class PostContainer extends Component {
       API.get(`/user/posts/${id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
       .then(response => {
         response = response['data'];
-        console.log(response);
         response = response.map(post => ({
           content: post.content,
           rating: post.rating,
