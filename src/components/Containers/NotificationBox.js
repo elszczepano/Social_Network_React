@@ -10,7 +10,19 @@ class NotificationBox extends Component {
     this.state = {userNotifications: [], unread: 0, isOpened: false};
   }
 
-  componentWillMount() {
+  componentDidUpdate() {
+    if(this.state.isOpened) this.fetchNotifications();
+  }
+
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside);
+  }
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
+  }
+
+
+  fetchNotifications = () => {
     API.get('/me', { 'headers': { 'Authorization': localStorage.getItem("token")} })
     .then(response => response['data']['id'])
     .then(id => {
@@ -26,13 +38,6 @@ class NotificationBox extends Component {
         }
       })
     })
-  }
-
-  componentDidMount() {
-    document.addEventListener('mousedown', this.handleClickOutside);
-  }
-  componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleClickOutside);
   }
 
   setWrapperRef = (node) => {
@@ -68,7 +73,7 @@ class NotificationBox extends Component {
           </div>
       );
     }
-    else return ("");
+    else return null;
   }
 }
 
