@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
+import AddPostSidePanel from '../Control/AddPostSidePanel';
+import CreateGroupShort from '../Control/CreateGroupShort';
 import '../../assets/scss/main.scss';
-import '../../assets/scss/sidepanel.scss';
+import '../../assets/scss/sidepanel/sidepanel.scss';
 
 class SidePanel extends Component {
 
   render() {
     return (
       <aside>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni nisi, doloribus at voluptates aliquid maiores eum reiciendis soluta quam alias repellendus vero dignissimos, omnis repudiandae optio libero ex ipsum quo.
+        <CreateGroupShort />
+        <AddPostSidePanel />
       </aside>
     );
   }
