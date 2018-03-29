@@ -19,7 +19,7 @@ class AddPost extends Component {
         <div>
         <h3>Write something:</h3>
         <select name="" id="">
-        <option disabled>Choose group</option>
+        <option defaultValue disabled>Choose group</option>
         {
           Object.keys(this.meShortcut.groups).map ((value) =>
           <option key={value.toString()} value={value}>{value}</option>
