@@ -20,6 +20,8 @@ class Register extends Component {
   }
 
   handleRegister = (event) => {
+
+    event.preventDefault();
     let messages = [];
 
     function checkField(field, message) {
@@ -73,6 +75,7 @@ class Register extends Component {
     'warning-marker': !this.state.registered
     });
     return (
+      <form>
       <div className="modal-container">
         <div className="modal-content">
           <div className="modal-header">
@@ -107,6 +110,7 @@ class Register extends Component {
             </div>
         </div>
       </div>
+      </form>
     );
   }
 }
