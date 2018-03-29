@@ -17,6 +17,7 @@ class Login extends Component {
   }
 
   handleLogin = (event) => {
+    event.preventDefault();
     this.setState({errMessage: ""});
     if(!this.state.email||!this.state.password) {
       this.setState({errMessage: "Enter username and password"});
@@ -40,14 +41,16 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="login-box">
-        <ul>
-          <li className="warning-marker">{this.state.errMessage}</li>
-          <li><input id="email" value={this.state.email} onChange={this.handleChange} type="text" placeholder="Email"/></li>
-          <li><input id="password" value={this.state.password} onChange={this.handleChange} type="password" placeholder="Password"/></li>
-          <li><button onClick={this.handleLogin}>Sign In</button></li>
-        </ul>
-      </div>
+      <form>
+        <div className="login-box">
+          <ul>
+            <li className="warning-marker">{this.state.errMessage}</li>
+            <li><input id="email" value={this.state.email} onChange={this.handleChange} type="text" placeholder="Email"/></li>
+            <li><input id="password" value={this.state.password} onChange={this.handleChange} type="password" placeholder="Password"/></li>
+            <li><button onClick={this.handleLogin}>Sign In</button></li>
+          </ul>
+        </div>
+      </form>
     );
   }
 }
