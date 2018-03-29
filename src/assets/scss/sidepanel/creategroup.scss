@@ -1,0 +1,34 @@
+@import "../variables";
+@import "../mixins";
+
+.instant-create-group {
+  h3 {
+    text-align: center;
+    font-weight: 500;
+  }
+  input::placeholder {
+    color: #fff;
+  }
+  input {
+    margin: 0;
+    font-weight: 100;
+    background-color: $primary-navy-light;
+    color: #fff;
+    border: none;
+  }
+  div {
+    margin: 1rem 0;
+    select {
+      padding: 8px 16px;
+      width: 100%;
+      font-family: 'Raleway', sans-serif;
+      background-color: $primary-navy-light;
+      color: #fff;
+      font-weight: 100;
+    }
+  }
+  .instant-create-group-submit {
+    display: flex;
+    justify-content: center;
+  }
+}
