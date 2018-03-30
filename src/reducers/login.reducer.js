@@ -5,8 +5,7 @@ const loginStatus = (state, action) => {
     case 'SIGN_OUT':
       return false;
     default:
-      if(!localStorage.getItem("token")) return false;
-      return true;
+      return false;
   }
 }
 
