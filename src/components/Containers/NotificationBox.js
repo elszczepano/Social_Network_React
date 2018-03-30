@@ -10,17 +10,14 @@ class NotificationBox extends Component {
     this.state = {userNotifications: [], unread: 0, isOpened: false};
   }
 
-  componentDidUpdate() {
-    if(this.state.isOpened) this.fetchNotifications();
-  }
-
   componentDidMount() {
+    this.fetchNotifications();
     document.addEventListener('mousedown', this.handleClickOutside);
   }
+  
   componentWillUnmount() {
     document.removeEventListener('mousedown', this.handleClickOutside);
   }
-
 
   fetchNotifications = () => {
     API.get('/me', { 'headers': { 'Authorization': localStorage.getItem("token")} })

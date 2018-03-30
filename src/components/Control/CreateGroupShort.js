@@ -29,10 +29,9 @@ class CreateGroupShort extends Component {
         <input placeholder="Group name" type="text"/>
         <div>
           <label htmlFor="icon">Select icon:</label>
-          <select name="icon" id="">
+          <select name="icon">
             {
               this.state.icons.map((icon, index) => {
-                console.log(icon);
                 return <option key={index}>{icon.name}</option>
               })
             }
