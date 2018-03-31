@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import loginStatus from './login.reducer';
+import userDetails from './userDetails.reducer';
  
 const reducers = combineReducers({
-  loginStatus
+  loginStatus,
+  userDetails
 });
  
 export default reducers;
