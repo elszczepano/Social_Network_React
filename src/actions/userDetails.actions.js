@@ -4,3 +4,8 @@ export const getDetails = (user) => {
     user
   }
 }
+export const removeDetails = () => {
+  return {
+    type: 'REMOVE_DETAILS'
+  }
+}

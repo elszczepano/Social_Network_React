@@ -4,6 +4,7 @@ import NotificationBox from '../Containers/NotificationBox';
 import API from '../../api.js';
 import { connect } from 'react-redux';
 import { signOut } from '../../actions/login.actions';
+import { removeDetails } from '../../actions/userDetails.actions';
 import '../../assets/scss/main.scss';
 import '../../assets/scss/header/panel.scss';
 
@@ -12,6 +13,7 @@ class UserPanel extends Component {
     API.post('/logout', {}, { 'headers': { 'Authorization': localStorage.getItem("token")} });
     localStorage.removeItem('token');
     this.props.dispatch(signOut());
+    this.props.dispatch(removeDetails());
   }
 
   render() {

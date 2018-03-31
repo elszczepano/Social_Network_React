@@ -1,9 +1,11 @@
-const userDetails = (state, action) => {
+const userDetails = (state = {}, action) => {
   switch (action.type) {
     case 'GET_DETAILS':
       return action.user;
+    case 'REMOVE_DETAILS':
+      return {};
     default:
-      return null;
+      return state;
   }
 }
 
