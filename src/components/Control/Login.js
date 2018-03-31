@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import API from '../../api.js';
 import { connect } from 'react-redux';
 import { signIn } from '../../actions/login.actions';
+import { getDetails } from '../../actions/userDetails.actions';
 import '../../assets/scss/main.scss';
 import '../../assets/scss/header/login.scss';
 
@@ -30,7 +31,13 @@ class Login extends Component {
     })
     .then(response => {
       localStorage.setItem("token",`Bearer ${response['data']['access_token']}`);
-      this.props.dispatch(signIn());
+      API.get('/me', { 'headers': { 'Authorization': localStorage.getItem("token")} })
+      .then(response => {
+        response = response['data'];
+        this.props.dispatch(getDetails(response));
+        this.props.dispatch(signIn());
+      })
+
     })
     .catch(error => {
       console.log(error);
