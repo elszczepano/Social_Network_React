@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import API from '../../api.js';
 import '../../assets/scss/main.scss';
 import '../../assets/scss/user/usershortcut.scss';
@@ -8,20 +9,8 @@ class UserShortcut extends Component {
     super(props);
     this.state = {id: "", name: "", surname: "", avatar: "", groups: []};
   }
-
   componentWillMount() {
-    API.get('/me', { 'headers': { 'Authorization': localStorage.getItem("token")} })
-    .then(response => {
-      response = response['data'];
-      this.setState({
-        id: response['id'],
-        name: response['name'],
-        surname: response['surname'],
-        avatar: response['avatar']
-      });
-    })
-    .then(() => {
-      API.get(`/user/groups/${this.state.id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
+      API.get(`/user/groups/${this.props.user.id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
       .then(response => {
         response = response['data'];
         response = response.map(group => ({
@@ -32,7 +21,6 @@ class UserShortcut extends Component {
           groups: response
         })
       })
-    })
     .catch(error => {
       const response = error.response['data']['message'];
       console.log(response);
@@ -42,10 +30,10 @@ class UserShortcut extends Component {
     return (
       <aside className="user-shortcuts">
         <div className="account-shortcut">
-          <img src={this.state.avatar} alt={`${this.state.name} ${this.state.surname} avatar`}/>
-          <h3>{this.state.name} {this.state.surname}</h3>
+          <img src={this.props.user.avatar} alt={`${this.props.user.name} ${this.props.user.surname} avatar`}/>
+          <h3>{this.props.user.name} {this.props.user.surname}</h3>
         </div>
-        <h3>Browse groups: </h3>
+        <h3>Browse groups:</h3>
         <div className="groups-shortcut">
           <ul>
           {
@@ -60,4 +48,10 @@ class UserShortcut extends Component {
   }
 }
 
-export default UserShortcut;
+function mapStateToProps(state) {
+  return {
+    user: state.userDetails
+  }
+}
+
+export default connect(mapStateToProps)(UserShortcut);
