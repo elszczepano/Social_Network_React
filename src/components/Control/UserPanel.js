@@ -23,10 +23,10 @@ class UserPanel extends Component {
             <ul className="user-icons">
               <li><span className="fa fa-plus"></span></li>
               <li><span className="fa fa-user-o"></span></li>
-              <li><span className="fa fa-bell-o" onClick={() => this.refs.notifiactionBox.toggleNotifcation()}></span></li>
+              <li><span className="fa fa-bell-o" onClick={() => this.refs['notificationBox'].getWrappedInstance().toggleNotifcation()}></span></li>
               <li><button onClick={this.signOut}>Logout</button></li>
             </ul>
-            <NotificationBox ref="notifiactionBox" />
+            <NotificationBox ref="notificationBox" />
         </div>
     );
   }

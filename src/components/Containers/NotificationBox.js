@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Notification from '../View/Notification';
+import { connect } from 'react-redux';
 import API from '../../api.js';
 import '../../assets/scss/main.scss';
 import '../../assets/scss/user/notification.scss';
@@ -14,16 +15,13 @@ class NotificationBox extends Component {
     this.fetchNotifications();
     document.addEventListener('mousedown', this.handleClickOutside);
   }
-  
+
   componentWillUnmount() {
     document.removeEventListener('mousedown', this.handleClickOutside);
   }
 
   fetchNotifications = () => {
-    API.get('/me', { 'headers': { 'Authorization': localStorage.getItem("token")} })
-    .then(response => response['data']['id'])
-    .then(id => {
-      API.get(`user/notifications/${id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
+      API.get(`user/notifications/${this.props.user.id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
       .then(response => {
         response = response['data'];
         response = response.map(notification => notification);
@@ -34,7 +32,6 @@ class NotificationBox extends Component {
           if(!notification.read) this.setState({unread: this.state.unread + 1});
         }
       })
-    })
   }
 
   setWrapperRef = (node) => {
@@ -74,4 +71,10 @@ class NotificationBox extends Component {
   }
 }
 
-export default NotificationBox;
+function mapStateToProps(state) {
+  return {
+    user: state.userDetails
+  }
+}
+
+export default connect(mapStateToProps, null, null, { withRef: true })(NotificationBox);
