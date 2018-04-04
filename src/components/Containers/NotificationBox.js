@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Notification from '../View/Notification';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import API from '../../api.js';
 import '../../assets/scss/main.scss';
@@ -84,6 +85,10 @@ function mapStateToProps(state) {
   return {
     user: state.userDetails
   }
+}
+
+NotificationBox.propTypes = {
+  user: PropTypes.object.isRequired
 }
 
 export default connect(mapStateToProps, null, null, { withRef: true })(NotificationBox);

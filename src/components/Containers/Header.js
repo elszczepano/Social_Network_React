@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router';
+import PropTypes from 'prop-types';
 import Login from '../Control/Login';
 import UserPanel from '../Control/UserPanel';
 import { connect } from 'react-redux';
@@ -25,6 +26,10 @@ function mapStateToProps(state) {
   return {
     loginStatus: state.loginStatus
   }
+}
+
+Header.propTypes = {
+  loginStatus: PropTypes.bool.isRequired
 }
 
 export default connect(mapStateToProps)(Header);

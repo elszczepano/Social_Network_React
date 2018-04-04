@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import API from '../../api.js';
 import '../../assets/scss/main.scss';
@@ -57,6 +58,10 @@ function mapStateToProps(state) {
   return {
     user: state.userDetails
   }
+}
+
+UserShortcut.propTypes = {
+  user: PropTypes.object.isRequired
 }
 
 export default connect(mapStateToProps)(UserShortcut);
