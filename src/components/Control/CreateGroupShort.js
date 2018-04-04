@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import API from '../../api.js';
 import '../../assets/scss/main.scss';
-import '../../assets/scss/sidepanel/creategroup.scss';
+import '../../assets/scss/sidepanel.scss';
 
 class CreateGroupShort extends Component {
   constructor(props) {
@@ -46,7 +46,7 @@ class CreateGroupShort extends Component {
             }
           </select>
         </div>
-        <div className="instant-create-group-submit">
+        <div className="aside-button-submit">
           <button type="submit">Create</button>
         </div>
       </form>
