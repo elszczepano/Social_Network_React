@@ -21,6 +21,15 @@ class CreateGroupShort extends Component {
         icons: response
       })
     })
+    .catch(error => {
+      if(error.response) {
+        const response = error.response['data']['message'];
+        console.log(response);
+      }
+      else {
+        console.log(error);
+      }
+    });
   }
   render() {
     return (

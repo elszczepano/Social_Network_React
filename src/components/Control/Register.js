@@ -61,11 +61,16 @@ class Register extends Component {
       });
     })
     .catch(error => {
-      const response = error.response['data']['message'];
-      Object.keys(response).forEach((key) => {
-        messages.push(response[key].toString());
-      })
-      this.setState({errMessage: messages});
+      if(error.response) {
+        const response = error.response['data']['message'];
+        Object.keys(response).forEach((key) => {
+          messages.push(response[key].toString());
+        })
+        this.setState({errMessage: messages});
+      }
+      else {
+        console.log(error);
+      }
     });
   }
 

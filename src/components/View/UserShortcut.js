@@ -22,8 +22,13 @@ class UserShortcut extends Component {
         })
       })
     .catch(error => {
-      const response = error.response['data']['message'];
-      console.log(response);
+      if(error.response) {
+        const response = error.response['data']['message'];
+        console.log(response);
+      }
+      else {
+        console.log(error);
+      }
     });
   }
   render() {
