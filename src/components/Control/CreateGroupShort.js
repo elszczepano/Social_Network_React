@@ -6,7 +6,7 @@ import '../../assets/scss/sidepanel.scss';
 class CreateGroupShort extends Component {
   constructor(props) {
     super(props);
-    this.state = {icons: []};
+    this.state = {icons: [], groupName: ""};
   }
 
   componentWillMount() {
@@ -31,11 +31,19 @@ class CreateGroupShort extends Component {
       }
     });
   }
+
+  handleChange = (event) => {
+    this.setState({[event.target.id]: event.target.value});
+  }
+
+  createGroup = () => {
+    //API.post()
+  }
   render() {
     return (
       <form className="instant-create-group">
         <h3>Create group instantly</h3>
-        <input placeholder="Group name" type="text"/>
+        <input id="groupName" onChange={this.handleChange} placeholder="Group name" type="text"/>
         <div>
           <label htmlFor="icon">Select icon:</label>
           <select name="icon">
@@ -47,7 +55,7 @@ class CreateGroupShort extends Component {
           </select>
         </div>
         <div className="aside-button-submit">
-          <button type="submit">Create</button>
+          <button type="submit" onClick={this.createGroup}>Create</button>
         </div>
       </form>
     );
