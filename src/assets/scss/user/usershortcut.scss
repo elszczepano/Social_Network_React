@@ -48,6 +48,9 @@
         font-weight: 600;
         transition: .3s;
         @include flex-space-between;
+        .group-name {
+          max-width: 80%;
+        }
       }
       li:hover {
         transform: translateY(2px);

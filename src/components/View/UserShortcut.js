@@ -44,7 +44,7 @@ class UserShortcut extends Component {
           <ul>
           {
             this.state.groups.map((group, index) => {
-              return <li key={index}><span>{group.name}</span><span className={`fa fa-${group.icon}`}></span> </li>
+              return <li key={index}><span className="group-name">{group.name}</span><span className={`fa fa-${group.icon}`}></span> </li>
             })
           }
           </ul>
