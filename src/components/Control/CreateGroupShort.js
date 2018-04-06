@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import API from '../../api.js';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import '../../assets/scss/main.scss';
 import '../../assets/scss/sidepanel.scss';
 
 class CreateGroupShort extends Component {
   constructor(props) {
     super(props);
-    this.state = {icons: [], groupName: ""};
+    this.state = {icons: [], name: "", icon: 1};
   }
 
   componentWillMount() {
@@ -36,20 +38,54 @@ class CreateGroupShort extends Component {
     this.setState({[event.target.id]: event.target.value});
   }
 
-  createGroup = () => {
-    //API.post()
+  createGroup = (event) => {
+    event.preventDefault();
+
+    if(this.state.name) {
+      API.post('/groups',
+      {
+        name: this.state.name,
+        icon_id: this.state.icon
+      },
+      {
+        'headers': { 'Authorization': localStorage.getItem("token")}
+      })
+      .then(response => {
+        const groupId = response['data']['data']['id'];
+        API.post('/user-groups',
+        {
+          user_id: this.props.user.id,
+          group_id: groupId,
+          role_id: 1
+        },
+        {
+          'headers': { 'Authorization': localStorage.getItem("token")}
+        })
+        .then(response => console.log(response));
+      })
+      .catch(error => {
+        if(error.response) {
+          const response = error.response['data']['message'];
+          console.log(response);
+        }
+        else {
+          console.log(error);
+        }
+      });
+    }
+
   }
   render() {
     return (
       <form className="instant-create-group">
         <h3>Create group instantly</h3>
-        <input id="groupName" onChange={this.handleChange} placeholder="Group name" type="text"/>
+        <input id="name" onChange={this.handleChange} placeholder="Group name" type="text"/>
         <div>
           <label htmlFor="icon">Select icon:</label>
-          <select name="icon">
+          <select onChange={this.handleChange} id="icon" name="icon">
             {
               this.state.icons.map((icon, index) => {
-                return <option key={index}>{icon.name}</option>
+                return <option value={icon.id} key={index}>{icon.name}</option>
               })
             }
           </select>
@@ -62,4 +98,14 @@ class CreateGroupShort extends Component {
   }
 }
 
-export default CreateGroupShort;
+function mapStateToProps(state) {
+  return {
+    user: state.userDetails
+  }
+}
+
+CreateGroupShort.propTypes = {
+  user: PropTypes.object.isRequired
+}
+
+export default connect(mapStateToProps)(CreateGroupShort);
