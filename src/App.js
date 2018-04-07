@@ -7,7 +7,7 @@ import {
 import Landing from './components/Containers/Landing';
 import NewsFeed from './components/Containers/NewsFeed';
 import CreateGroup from './components/Control/CreateGroup';
-import Group from './components/View/Group';
+import Group from './components/Containers/Group';
 import MyAccount from './components/Control/MyAccount';
 
 class App extends Component {
