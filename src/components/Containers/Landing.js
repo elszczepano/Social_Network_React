@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Footer from '../View/Footer';
 import Register from '../Control/Register';
 import Header from './Header';
+import { Redirect } from 'react-router';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import '../../assets/scss/main.scss';
 import '../../assets/scss/landing.scss';
 
@@ -11,13 +14,14 @@ class Landing extends Component {
     super(props);
     this.state = {showRegister: false};
   }
-  
+
   handleRegisterClick = () => {
     this.setState({
       showRegister: !this.state.showRegister
     });
   }
   render() {
+    if(this.props.loginStatus) return <Redirect to="/feed"/>
     return (
       <React.Fragment>
       <Header />
@@ -54,4 +58,14 @@ class Landing extends Component {
   }
 }
 
-export default Landing;
+function mapStateToProps(state) {
+  return {
+    loginStatus: state.loginStatus
+  }
+}
+
+Landing.propTypes = {
+  loginStatus: PropTypes.bool.isRequired
+}
+
+export default connect(mapStateToProps)(Landing);

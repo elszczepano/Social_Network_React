@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router';
 import PropTypes from 'prop-types';
 import Login from '../Control/Login';
 import UserPanel from '../Control/UserPanel';
@@ -16,7 +15,6 @@ class Header extends Component {
             <h1>Groupeé</h1>
           </div>
           { this.props.loginStatus ? <UserPanel/> : <Login/> }
-          { this.props.loginStatus ? <Redirect to="/feed"/> : <Redirect to="/"/> }
       </header>
     );
   }
