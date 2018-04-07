@@ -2,7 +2,6 @@
 @import "mixins";
 
 .news-feed-wrapper {
-  margin-top: 2rem;
   display: grid;
   grid-template-columns: 70% 1fr;
   grid-column-gap: 10px;

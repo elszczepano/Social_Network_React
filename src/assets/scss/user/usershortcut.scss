@@ -15,7 +15,7 @@
   height: 100vh;
   position: fixed;
   left: 0;
-  top: 5vh;
+  top: 0;
   grid-column: 1;
   width: 17rem;
   .account-shortcut {
@@ -50,8 +50,6 @@
         a {
           @include flex-space-between;
           color: #fff;
-        }
-        a:hover {
           text-decoration: none;
         }
         .group-name {

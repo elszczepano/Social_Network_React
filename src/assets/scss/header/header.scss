@@ -12,11 +12,14 @@
     .logo {
       display: flex;
       align-items: center;
-      color: $primary-color;
       h1 {
         font-weight: 300;
         padding: 0 1rem;
         margin: 0;
+        a {
+          color: $primary-color;
+          text-decoration: none;
+        }
       }
     }
     div, div ul li {
