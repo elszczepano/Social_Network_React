@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
 import API from '../../api.js';
 import '../../assets/scss/main.scss';
 import '../../assets/scss/user/usershortcut.scss';
@@ -16,7 +17,8 @@ class UserShortcut extends Component {
         response = response['data'];
         response = response.map(group => ({
           name: group.name,
-          icon: group.icon.name
+          icon: group.icon.name,
+          id: group.id
         }));
         this.setState({
           groups: response
@@ -44,7 +46,14 @@ class UserShortcut extends Component {
           <ul>
           {
             this.state.groups.map((group, index) => {
-              return <li key={index}><span className="group-name">{group.name}</span><span className={`fa fa-${group.icon}`}></span> </li>
+              return (
+                <li key={index}>
+                  <Link to={`/group/${group.id}`}>
+                    <span className="group-name">{group.name}</span>
+                    <span className={`fa fa-${group.icon}`}></span>
+                  </Link>
+                </li>
+              )
             })
           }
           </ul>

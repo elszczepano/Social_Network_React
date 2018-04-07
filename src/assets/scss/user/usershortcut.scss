@@ -47,7 +47,13 @@
         box-sizing: border-box;
         font-weight: 600;
         transition: .3s;
-        @include flex-space-between;
+        a {
+          @include flex-space-between;
+          color: #fff;
+        }
+        a:hover {
+          text-decoration: none;
+        }
         .group-name {
           max-width: 80%;
         }
