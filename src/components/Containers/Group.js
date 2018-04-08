@@ -3,6 +3,7 @@ import Header from './Header';
 import API from '../../api.js';
 import UserShortcut from '../View/UserShortcut';
 import GroupDetails from '../View/GroupDetails';
+import GroupPostContainer from './GroupPostContainer';
 import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -52,6 +53,7 @@ class Group extends Component {
         <UserShortcut />
         <section>
           <GroupDetails details={this.state.groupDetails} />
+          <GroupPostContainer details={this.state.groupDetails} />
         </section>
       </div>
       </React.Fragment>
