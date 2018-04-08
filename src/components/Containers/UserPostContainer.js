@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import Post from '../View/Post';
 import API from '../../api.js';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-class PostContainer extends Component {
+class UserPostContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {userPosts: []};
+    this.state = {posts: []};
   }
 
   componentWillMount() {
-    API.get('/me', { 'headers': { 'Authorization': localStorage.getItem("token")} })
-    .then(response => response['data']['id'])
-    .then(id => {
-      API.get(`/user/posts/${id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
+      API.get(`/user/posts/${this.props.user.id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
       .then(response => {
         response = response['data'];
         response = response.map(post => ({
@@ -23,10 +22,10 @@ class PostContainer extends Component {
           group: post.group.name
         }));
         this.setState({
-          userPosts: response
+          posts: response
         })
       })
-    })
+
     .catch(error => {
       if(error.response) {
         const response = error.response['data']['message'];
@@ -43,7 +42,7 @@ class PostContainer extends Component {
       <React.Fragment>
       <h1 className="text-marker">My recent activity:</h1>
       {
-        this.state.userPosts.map((post, index) =>
+        this.state.posts.map((post, index) =>
           <Post content={post} key={index}/>
         )
       }
@@ -52,4 +51,14 @@ class PostContainer extends Component {
   }
 }
 
-export default PostContainer;
+function mapStateToProps(state) {
+  return {
+    user: state.userDetails
+  }
+}
+
+UserPostContainer.propTypes = {
+  user: PropTypes.object.isRequired
+}
+
+export default connect(mapStateToProps)(UserPostContainer);

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import UserShortcut from '../View/UserShortcut';
-import PostContainer from './PostContainer';
+import UserPostContainer from './UserPostContainer';
 import SidePanel from './SidePanel';
 import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
@@ -19,7 +19,7 @@ class NewsFeed extends Component {
         <UserShortcut />
         <section className="news-feed-wrapper">
           <div>
-            <PostContainer />
+            <UserPostContainer />
           </div>
           <SidePanel />
         </section>
