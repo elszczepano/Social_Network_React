@@ -1,0 +1,37 @@
+@import "../variables";
+@import "../mixins";
+
+.group-details-wrapper {
+  border-bottom: $default-border;
+  padding-bottom: 1rem;
+  .group-background {
+    background-color: $primary-color-darker;
+    border-radius: 5px;
+    height: 20rem;
+    display: flex;
+    align-items: flex-end;
+    h3 {
+      padding: 1rem;
+      margin: 0;
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 500;
+    }
+  }
+  div {
+    @include flex-space-between;
+    h4 {
+      margin: 1rem 0;
+    }
+    span {
+      color: $icon-grey;
+    }
+    span:hover {
+      color: $icon-grey-hover;
+      cursor: pointer;
+    }
+  }
+  p {
+    margin: 0;
+  }
+}
