@@ -20,7 +20,8 @@ class UserPostContainer extends Component {
           author: `${post.user.name} ${post.user.surname}`,
           authorAvatar: post.user.avatar,
           authorId: post.user_id,
-          group: post.group.name
+          group: post.group.name,
+          groupId: post.group_id
         }));
         this.setState({
           posts: response

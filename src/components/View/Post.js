@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
 import DropdownPost from '../Control/DropdownPost';
 import '../../assets/scss/main.scss';
 import '../../assets/scss/post/post.scss';
@@ -12,15 +13,21 @@ class Post extends Component {
           <span className="fa fa-cog" onClick={() => this.refs.dropdown.toggleDropdown()}></span>
           <DropdownPost ref="dropdown" />
       </div>
-    ) : (
-      ""
-    )
+    ) : ("")
     return (
       <div className="post-wrapper">
       <header>
         <div>
           <img src={this.props.content.authorAvatar} alt={`${this.props.content.author} avatar`}/>
-          <span><strong><a href="">{this.props.content.author}</a></strong> <span className="fa fa-caret-right" aria-hidden="true"></span> <strong><a href="">{this.props.content.group}</a></strong></span>
+          <span>
+            <strong>
+            <a href="">{this.props.content.author}</a>
+            </strong>
+            <span className="fa fa-caret-right" aria-hidden="true"></span>
+            <strong>
+            <Link to={`/group/${this.props.content.groupId}`}>{this.props.content.group}</Link>
+            </strong>
+          </span>
         </div>
         {edit}
       </header>
