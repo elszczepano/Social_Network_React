@@ -19,6 +19,7 @@ class UserPostContainer extends Component {
           rating: post.rating,
           author: `${post.user.name} ${post.user.surname}`,
           authorAvatar: post.user.avatar,
+          authorId: post.user_id,
           group: post.group.name
         }));
         this.setState({

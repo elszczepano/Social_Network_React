@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import DropdownPost from '../Control/DropdownPost';
 import '../../assets/scss/main.scss';
 import '../../assets/scss/post/post.scss';
 
 class Post extends Component {
   render () {
+    const edit = this.props.content.authorId === this.props.user.id ? (
+      <div className="dropdown-menu">
+          <span className="fa fa-cog" onClick={() => this.refs.dropdown.toggleDropdown()}></span>
+          <DropdownPost ref="dropdown" />
+      </div>
+    ) : (
+      ""
+    )
     return (
       <div className="news-wrapper">
       <header>
@@ -13,10 +22,7 @@ class Post extends Component {
           <img src={this.props.content.authorAvatar} alt={`${this.props.content.author} avatar`}/>
           <span><strong><a href="">{this.props.content.author}</a></strong> <span className="fa fa-caret-right" aria-hidden="true"></span> <strong><a href="">{this.props.content.group}</a></strong></span>
         </div>
-        <div className="dropdown-menu">
-            <span className="fa fa-cog" onClick={() => this.refs.dropdown.toggleDropdown()}></span>
-            <DropdownPost ref="dropdown" />
-        </div>
+        {edit}
       </header>
       <section>
         <p className="news-content">{this.props.content.content}</p>
@@ -32,8 +38,15 @@ class Post extends Component {
   }
 }
 
-Post.propTypes = {
-  content: PropTypes.object
+function mapStateToProps(state) {
+  return {
+    user: state.userDetails
+  }
 }
 
-export default Post;
+Post.propTypes = {
+  content: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired
+}
+
+export default connect(mapStateToProps)(Post);
