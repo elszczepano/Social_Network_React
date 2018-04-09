@@ -6,9 +6,10 @@ import {
 
 import Landing from './components/Containers/Landing';
 import NewsFeed from './components/Containers/NewsFeed';
-import CreateGroup from './components/Control/CreateGroup';
+import CreateGroup from './components/Containers/CreateGroup';
 import Group from './components/Containers/Group';
-import MyAccount from './components/Control/MyAccount';
+import MyAccount from './components/Containers/MyAccount';
+import UserAccount from './components/Containers/UserAccount';
 
 class App extends Component {
   render() {
@@ -20,6 +21,7 @@ class App extends Component {
         <Route exact path="/group/create" component={CreateGroup} />
         <Route exact path="/my-account" component={MyAccount} />
         <Route exact path="/group/:id" component={Group} />
+        <Route exact path="/user/:id" component={UserAccount} />
         </div>
       </Router>
     );

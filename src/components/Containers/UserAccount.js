@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import Header from './Header';
-import Footer from './Footer';
-import News from './News';
-import '../assets/scss/main.scss';
-import '../assets/scss/useraccount.scss';
+import Footer from '../View/Footer';
+import '../../assets/scss/main.scss';
+import '../../assets/scss/user/useraccount.scss';
 
 class UserAccount extends Component {
   user = {
@@ -46,14 +45,6 @@ class UserAccount extends Component {
               }
               </ul>
             </aside>
-            <section className="news-container">
-              <News />
-              <News />
-              <News />
-              <News />
-              <News />
-              <News />
-            </section>
         </section>
         <Footer />
       </div>

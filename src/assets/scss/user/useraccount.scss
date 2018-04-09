@@ -1,5 +1,5 @@
-@import "variables";
-@import "mixins";
+@import "../variables";
+@import "../mixins";
 .user-account {
   display: grid;
   grid-template-columns: 25%;
