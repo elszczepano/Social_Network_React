@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Post from '../View/Post';
 import AddPost from '../Control/AddPost';
 import API from '../../api.js';
+import { connect } from 'react-redux';
+import { setId, removeId } from '../../actions/currentGroup.actions';
 import PropTypes from 'prop-types';
 
 class GroupPostContainer extends Component {
@@ -40,8 +42,12 @@ class GroupPostContainer extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.fetchGroupPosts(nextProps['details']['id']);
+    this.props.dispatch(setId(nextProps['details']['id']));
   }
 
+  componentWillUnmount() {
+    this.props.dispatch(removeId());
+  }
   render () {
     return (
       <React.Fragment>
@@ -61,4 +67,4 @@ GroupPostContainer.propTypes = {
   details: PropTypes.object.isRequired
 }
 
-export default GroupPostContainer;
+export default connect()(GroupPostContainer);
