@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { signOut } from '../../actions/login.actions';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 import API from '../../api.js';
@@ -25,13 +26,9 @@ class UserShortcut extends Component {
         })
       })
     .catch(error => {
-      if(error.response) {
-        const response = error.response['data']['message'];
-        console.log(response);
-      }
-      else {
-        console.log(error);
-      }
+      if(error.response) console.log(error.response['data']['message']);
+      else console.log(error);
+      this.props.dispatch(signOut());
     });
   }
   render() {
