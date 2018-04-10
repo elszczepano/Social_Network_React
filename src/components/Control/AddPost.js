@@ -1,19 +1,66 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import API from '../../api.js';
 import '../../assets/scss/main.scss';
 import '../../assets/scss/post/addpost.scss';
 
 class AddPost extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {content: ""}
+  }
+
+  updateContent = (event) => {
+    this.setState({
+      content: event.target.value
+    });
+  }
+  addPost = () => {
+    if(this.state.content) {
+      API.post('/posts',
+      {
+        content: this.state.content,
+        group_id: this.props.id,
+        user_id: this.props.user.id
+      },
+      {
+        'headers': { 'Authorization': localStorage.getItem("token")}
+      })
+      .catch(error => {
+        if(error.response) {
+          const response = error.response['data']['message'];
+          console.log(response);
+        }
+        else {
+          console.log(error);
+        }
+      });
+    }
+  }
+
   render() {
     return (
       <div className="add-post-wrapper">
         <h3>Write something:</h3>
-        <textarea name="" id="" rows="8" />
+        <textarea onChange={this.updateContent} rows="8" />
         <div>
-          <button><span className="fa fa-pencil-square-o" aria-hidden="true"></span> Post</button>
+          <button onClick={this.addPost}><span className="fa fa-pencil-square-o" aria-hidden="true"></span> Post</button>
         </div>
       </div>
     );
   }
 }
 
-export default AddPost;
+function mapStateToProps(state) {
+  return {
+    id: state.currentGroup,
+    user: state.userDetails
+  }
+}
+
+AddPost.propTypes = {
+  id: PropTypes.number.isRequired
+}
+
+export default connect(mapStateToProps)(AddPost);
