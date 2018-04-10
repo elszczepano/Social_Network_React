@@ -8,7 +8,6 @@ import '../../assets/scss/main.scss';
 import '../../assets/scss/header/header.scss';
 
 class Header extends Component {
-
   render() {
     return (
       <header className="main-header">

@@ -11,7 +11,6 @@ import '../../assets/scss/main.scss';
 import '../../assets/scss/group/group.scss';
 
 class Group extends Component {
-
   constructor(props) {
     super(props);
     this.state = {groupDetails: {}};

@@ -7,7 +7,6 @@ import '../../assets/scss/main.scss';
 import '../../assets/scss/header/login.scss';
 
 class Login extends Component {
-
   constructor(props) {
     super(props);
     this.state = {email: "", password: "", errMessage: ""};

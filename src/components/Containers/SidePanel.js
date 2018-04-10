@@ -5,7 +5,6 @@ import '../../assets/scss/main.scss';
 import '../../assets/scss/sidepanel.scss';
 
 class SidePanel extends Component {
-
   render() {
     return (
       <aside>

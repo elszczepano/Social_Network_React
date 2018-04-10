@@ -9,19 +9,19 @@ import NewsFeed from './components/Containers/NewsFeed';
 import CreateGroup from './components/Containers/CreateGroup';
 import Group from './components/Containers/Group';
 import MyAccount from './components/Containers/MyAccount';
-import UserAccount from './components/Containers/UserAccount';
+import User from './components/Containers/User';
 
 class App extends Component {
   render() {
     return (
       <Router>
         <div className="container">
-        <Route exact path="/" component={Landing} />
-        <Route exact path="/feed" component={NewsFeed} />
-        <Route exact path="/group/create" component={CreateGroup} />
-        <Route exact path="/my-account" component={MyAccount} />
-        <Route exact path="/group/:id" component={Group} />
-        <Route exact path="/user/:id" component={UserAccount} />
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/feed" component={NewsFeed} />
+          <Route exact path="/group/create" component={CreateGroup} />
+          <Route exact path="/my-account" component={MyAccount} />
+          <Route exact path="/group/:id" component={Group} />
+          <Route exact path="/user/:id" component={User} />
         </div>
       </Router>
     );

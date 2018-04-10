@@ -9,7 +9,6 @@ import '../../assets/scss/main.scss';
 import '../../assets/scss/landing.scss';
 
 class Landing extends Component {
-
   constructor(props) {
     super(props);
     this.state = {showRegister: false};
