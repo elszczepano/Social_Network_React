@@ -10,7 +10,11 @@ import '../../assets/scss/header/panel.scss';
 
 class UserPanel extends Component {
   signOut = () => {
-    API.post('/logout', {}, { 'headers': { 'Authorization': localStorage.getItem("token")} });
+    API.post('/logout', {}, { 'headers': { 'Authorization': localStorage.getItem("token")} })
+    .catch(error => {
+      if(error.response) console.log(error.response['data']['message']);
+      else console.log(error);
+    });
     localStorage.removeItem('token');
     this.props.dispatch(signOut());
     this.props.dispatch(removeDetails());

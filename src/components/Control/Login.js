@@ -40,13 +40,8 @@ class Login extends Component {
 
     })
     .catch(error => {
-      if(error.response) {
-        const response = error.response['data']['error'];
-        this.setState({errMessage: response});
-      }
-      else {
-        console.log(error);
-      }
+      if(error.response) this.setState({errMessage: error.response['data']['error']});
+      else console.log(error);
     });
   }
 

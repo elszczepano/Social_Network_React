@@ -68,9 +68,7 @@ class Register extends Component {
         })
         this.setState({errMessage: messages});
       }
-      else {
-        console.log(error);
-      }
+      else console.log(error);
     });
   }
 

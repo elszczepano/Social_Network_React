@@ -34,13 +34,8 @@ class NotificationBox extends Component {
         }
       })
       .catch(error => {
-        if(error.response) {
-          const response = error.response['data']['message'];
-          console.log(response);
-        }
-        else {
-          console.log(error);
-        }
+        if(error.response) console.log(error.response['data']['message']);
+        else console.log(error);
       });
   }
 
