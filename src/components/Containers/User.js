@@ -6,7 +6,7 @@ import Header from './Header';
 import API from '../../api.js';
 import UserShortcut from '../View/UserShortcut';
 import '../../assets/scss/main.scss';
-import '../../assets/scss/user/useraccount.scss';
+import '../../assets/scss/user/user.scss';
 
 class User extends Component {
   constructor(props) {
@@ -26,7 +26,6 @@ class User extends Component {
     API.get(`/users/${id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
     .then(response => {
       response = response['data'];
-      console.log(response);
       this.setState({
         user: response
       })
@@ -44,11 +43,26 @@ class User extends Component {
       <Header />
       <div className="default-grid default-container">
         <UserShortcut />
-        <section className="news-feed-wrapper">
-        <header className="user-name">
-          <img src="https://avatarfiles.alphacoders.com/855/85557.png" />
-          <h2><strong>John Doe</strong></h2>
-        </header>
+        <section className="user-container">
+          <div className="user-card">
+            <img src="https://avatarfiles.alphacoders.com/855/85557.png" />
+            <h2><strong>John Doe</strong></h2>
+          </div>
+          <div className="user-content">
+            <div className="user-bio">
+              <h3>About me:</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt delectus consequatur eaque, veritatis fugit, voluptates laudantium illo temporibus, provident nisi sint placeat tenetur maxime beatae commodi quae mollitia dignissimos magni.</p>
+            </div>
+            <div className="user-groups">
+              <h3>My groups:</h3>
+              <ul>
+                <li>one</li>
+                <li>two</li>
+                <li>three</li>
+                <li>four</li>
+              </ul>
+            </div>
+          </div>
         </section>
       </div>
       </React.Fragment>
