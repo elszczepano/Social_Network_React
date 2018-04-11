@@ -15,7 +15,7 @@ class Post extends Component {
       </div>
     ) : ("")
     return (
-      <div className="post-wrapper">
+      <div className="post-container">
       <header>
         <div>
           <img src={this.props.content.authorAvatar} alt={`${this.props.content.author} avatar`}/>
@@ -31,7 +31,7 @@ class Post extends Component {
         </div>
         {edit}
       </header>
-      <div className="post-content-wrapper">
+      <div className="post-content-container">
         <p className="post-content">{this.props.content.content}</p>
         <p className="post-votes">{this.props.content.rating}</p>
       </div>

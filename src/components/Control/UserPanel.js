@@ -22,7 +22,7 @@ class UserPanel extends Component {
 
   render() {
     return (
-        <div className="user-panel-box">
+        <div className="user-panel">
             <input type="text" placeholder="Search groups and hit enter!"/>
             <ul className="user-icons">
               <li><span className="fa fa-plus"></span></li>

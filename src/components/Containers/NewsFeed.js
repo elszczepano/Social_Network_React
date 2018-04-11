@@ -17,7 +17,7 @@ class NewsFeed extends Component {
       <Header />
       <div className="default-grid default-container">
         <UserShortcut />
-        <section className="news-feed-wrapper">
+        <section className="news-feed-container">
           <div>
             <UserPostContainer />
           </div>

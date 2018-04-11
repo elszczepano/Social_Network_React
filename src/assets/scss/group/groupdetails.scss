@@ -1,7 +1,7 @@
 @import "../variables";
 @import "../mixins";
 
-.group-details-wrapper {
+.group-details-container{
   border-bottom: $default-border;
   padding-bottom: 1rem;
   .group-background {

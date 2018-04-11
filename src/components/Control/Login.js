@@ -47,7 +47,7 @@ class Login extends Component {
   render() {
     return (
       <form>
-        <div className="login-box">
+        <div className="login">
           <ul>
             <li className="warning-marker">{this.state.errMessage}</li>
             <li><input id="email" value={this.state.email} onChange={this.handleChange} type="text" placeholder="Email"/></li>

@@ -1,7 +1,7 @@
 @import "../variables";
 @import "../mixins";
 
-.post-wrapper {
+.post-container {
   background-color: #fff;
   border-radius: 10px;
   padding: 1rem;
@@ -40,7 +40,7 @@
       }
     }
   }
-  .post-content-wrapper {
+  .post-content-container {
     p {
       margin: 0;
       padding: 1rem 0;

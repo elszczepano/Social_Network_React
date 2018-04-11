@@ -4,7 +4,7 @@ import '../../assets/scss/main.scss';
 import '../../assets/scss/group/groupdetails.scss';
 
 const GroupDetails = (props) => (
-  <div className="group-details-wrapper">
+  <div className="group-details-container">
     <div className="group-background">
       <h3>{props.details.name}</h3>
     </div>

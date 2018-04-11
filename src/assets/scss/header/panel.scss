@@ -1,7 +1,7 @@
 @import "../variables";
 @import "../mixins";
 
-.user-panel-box {
+.user-panel {
   position: relative;
   @include flex-space-between;
   input {

@@ -36,7 +36,7 @@ class AddPost extends Component {
 
   render() {
     return (
-      <div className="add-post-wrapper">
+      <div className="add-post-container">
         <h3>Write something:</h3>
         <textarea onChange={this.updateContent} rows="8" />
         <div>

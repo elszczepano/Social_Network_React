@@ -1,11 +1,11 @@
 @import "variables";
 @import "mixins";
 
-.news-feed-wrapper {
+.news-feed-container {
   display: grid;
   grid-template-columns: 70% 1fr;
   grid-column-gap: 10px;
 }
-.news-feed-wrapper:first-child {
+.news-feed-container:first-child {
   grid-column: 1;
 }
