@@ -43,11 +43,10 @@
       margin: 0;
       padding: 0;
       li {
-        padding: 1rem;
-        box-sizing: border-box;
         font-weight: 600;
         transition: .3s;
         a {
+          padding: 1rem;
           @include flex-space-between;
           color: #fff;
           text-decoration: none;
@@ -59,7 +58,6 @@
       li:hover {
         transform: translateY(2px);
         background-color: #303C4E;
-        cursor:pointer;
       }
     }
   }
