@@ -21,7 +21,7 @@ class Post extends Component {
           <img src={this.props.content.authorAvatar} alt={`${this.props.content.author} avatar`}/>
           <span>
             <strong>
-            <a href="">{this.props.content.author}</a>
+            <Link to={`/user/${this.props.content.authorId}`}>{this.props.content.author}</Link>
             </strong>
             <span className="fa fa-caret-right" aria-hidden="true"></span>
             <strong>
