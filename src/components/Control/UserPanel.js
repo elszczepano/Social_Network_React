@@ -9,6 +9,15 @@ import '../../assets/scss/main.scss';
 import '../../assets/scss/header/panel.scss';
 
 class UserPanel extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {searchKey: "", searching: false}
+  }
+
+  handleChange = (event) => {
+    this.setState({[event.target.id]: event.target.value});
+  }
+
   signOut = () => {
     API.post('/logout', {}, { 'headers': { 'Authorization': localStorage.getItem("token")} })
     .catch(error => {
@@ -23,7 +32,9 @@ class UserPanel extends Component {
   render() {
     return (
         <div className="user-panel">
-            <input type="text" placeholder="Search groups and hit enter!"/>
+            <form action={`/search/${this.state.searchKey}`}>
+              <input id="searchKey" onChange={this.handleChange} type="text" placeholder="Search groups and hit enter!" required/>
+            </form>
             <ul className="user-icons">
               <li><span className="fa fa-plus"></span></li>
               <li><span className="fa fa-user-o"></span></li>

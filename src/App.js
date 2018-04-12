@@ -10,6 +10,7 @@ import CreateGroup from './components/Containers/CreateGroup';
 import Group from './components/Containers/Group';
 import MyAccount from './components/Containers/MyAccount';
 import User from './components/Containers/User';
+import SearchResults from './components/Containers/SearchResults';
 
 class App extends Component {
   render() {
@@ -22,6 +23,7 @@ class App extends Component {
           <Route exact path="/my-account" component={MyAccount} />
           <Route exact path="/group/:id" component={Group} />
           <Route exact path="/user/:id" component={User} />
+          <Route exact path="/search/:name" component={SearchResults} />
         </div>
       </Router>
     );
