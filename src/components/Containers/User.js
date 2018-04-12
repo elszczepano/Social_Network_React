@@ -63,7 +63,7 @@ class User extends Component {
             <img src={this.state.user.avatar} alt={`${this.state.user.name} ${this.state.user.surname} avatar`}/>
             <div className="user-bio">
               <h3>About me</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt delectus consequatur eaque, veritatis fugit, voluptates laudantium illo temporibus, provident nisi sint placeat tenetur maxime beatae commodi quae mollitia dignissimos magni.</p>
+              <p>{this.state.user.description ? this.state.user.description : "This user does not have description yet."}</p>
             </div>
           </div>
           <div className="user-content">
@@ -73,6 +73,7 @@ class User extends Component {
             <div className="user-details">
               <p>Joined at: <span className="text-marker">{this.state.user.created_at}</span></p>
               <p>E-mail: <span className="text-marker">{this.state.user.email}</span></p>
+              {this.state.user.birth_date ? <p>Birth date: <span className="text-marker">{this.state.user.birth_date}</span></p> :''}
             </div>
             <div className="user-groups">
               <h3>My groups</h3>
