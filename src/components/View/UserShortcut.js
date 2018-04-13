@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { signOut } from '../../actions/login.actions';
+import { removeDetails } from '../../actions/userDetails.actions';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 import API from '../../api.js';
@@ -29,6 +30,7 @@ class UserShortcut extends Component {
       if(error.response) console.log(error.response['data']['message']);
       else console.log(error);
       this.props.dispatch(signOut());
+      this.props.dispatch(removeDetails());
     });
   }
   render() {
