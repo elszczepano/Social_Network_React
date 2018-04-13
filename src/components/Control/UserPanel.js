@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import NotificationBox from '../Containers/NotificationBox';
 import API from '../../api.js';
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
 import { signOut } from '../../actions/login.actions';
 import { removeDetails } from '../../actions/userDetails.actions';
 import '../../assets/scss/main.scss';
@@ -36,8 +37,8 @@ class UserPanel extends Component {
               <input id="searchKey" onChange={this.handleChange} type="text" placeholder="Search groups and hit enter!" required/>
             </form>
             <ul className="user-icons">
-              <li><span className="fa fa-plus"></span></li>
-              <li><span className="fa fa-user-o"></span></li>
+              <li><Link to="/create"><span className="fa fa-plus"></span></Link></li>
+              <li><Link to="/my-account"><span className="fa fa-user-o"></span></Link></li>
               <li><span className="fa fa-bell-o" onClick={() => this.refs['notificationBox'].getWrappedInstance().toggleNotifcation()}></span></li>
               <li><button onClick={this.signOut}>Logout</button></li>
             </ul>

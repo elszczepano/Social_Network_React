@@ -27,6 +27,7 @@
     }
     .edit-account-buttons {
       @include flex-space-between;
+      height: 7vh;
     }
   }
 }
