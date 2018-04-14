@@ -87,3 +87,12 @@ button:active {
     grid-column: 2;
   }
 }
+.fa-eye {
+  font-weight: bold;
+  cursor: pointer;
+  transition: .3s;
+}
+.fa-eye:hover {
+  color: #303C4E;
+  transform: translateY(-2px);
+}

@@ -24,6 +24,17 @@
         line-height: 200%;
         color: $primary-color-darker;
       }
+      .eye-handler {
+        position: relative;
+        input {
+          width: 78%;
+        }
+        .fa-eye {
+          position: absolute;
+          top: 38%;
+          right: 10%;
+        }
+      }
     }
     .edit-account-buttons {
       @include flex-space-between;

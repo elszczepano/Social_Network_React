@@ -16,6 +16,11 @@ class Login extends Component {
     this.setState({[event.target.id]: event.target.value});
   }
 
+  togglePasswordVisibility = () => {
+    if(this.refs.password.type === 'password') this.refs.password.type = 'text'
+    else this.refs.password.type = 'password'
+  }
+
   handleLogin = (event) => {
     event.preventDefault();
     this.setState({errMessage: ""});
@@ -51,7 +56,10 @@ class Login extends Component {
           <ul>
             <li className="warning-marker">{this.state.errMessage}</li>
             <li><input id="email" value={this.state.email} onChange={this.handleChange} type="text" placeholder="Email"/></li>
-            <li><input id="password" value={this.state.password} onChange={this.handleChange} type="password" placeholder="Password"/></li>
+            <li className="eye-handler">
+              <input ref="password" id="password" value={this.state.password} onChange={this.handleChange} type="password" placeholder="Password"/>
+              <span onClick={this.togglePasswordVisibility} className="fa fa-eye"></span>
+            </li>
             <li><button onClick={this.handleLogin}>Sign In</button></li>
           </ul>
         </div>
