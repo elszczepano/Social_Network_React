@@ -40,5 +40,11 @@
       @include flex-space-between;
       height: 7vh;
     }
+    .error-message-box {
+      text-align: center;
+      p {
+        font-weight: bold;
+      }
+    }
   }
 }

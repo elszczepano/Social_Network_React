@@ -73,7 +73,7 @@ class Register extends Component {
   }
 
   render() {
-    let messageClass = classNames({
+    const messageClass = classNames({
     'success-marker': this.state.registered,
     'warning-marker': !this.state.registered
     });
