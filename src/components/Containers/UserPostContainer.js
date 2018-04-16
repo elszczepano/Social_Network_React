@@ -17,7 +17,7 @@ class UserPostContainer extends Component {
         response = response.map(post => ({
           content: post.content,
           rating: post.rating,
-          author: `${post.user.name} ${post.user.surname}`,
+          author: post.user.surname ? `${post.user.name} ${post.user.surname}` : post.user.name,
           authorAvatar: post.user.avatar,
           authorId: post.user_id,
           group: post.group.name,
