@@ -18,7 +18,7 @@ class Post extends Component {
       <div className="post-container">
       <header>
         <div>
-          <img src={this.props.content.authorAvatar} alt={`${this.props.content.author} avatar`}/>
+          <img src={`http://localhost:8000/storage/${this.props.content.authorAvatar}`} alt={`${this.props.content.author} avatar`}/>
           <span>
             <strong>
             <Link to={`/user/${this.props.content.authorId}`}>{this.props.content.author}</Link>

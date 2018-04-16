@@ -37,7 +37,7 @@ class UserShortcut extends Component {
     return (
       <aside className="user-shortcuts">
         <div className="account-shortcut">
-          <img src={this.props.user.avatar} alt={`${this.props.user.name} ${this.props.user.surname} avatar`}/>
+          <img src={`http://localhost:8000/storage/${this.props.user.avatar}`} alt={`${this.props.user.name} ${this.props.user.surname} avatar`}/>
           <h3>{this.props.user.name} {this.props.user.surname}</h3>
         </div>
         <h3>Browse groups:</h3>

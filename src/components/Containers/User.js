@@ -60,7 +60,7 @@ class User extends Component {
         <UserShortcut />
         <section className="user-container">
           <div className="user-card">
-            <img src={this.state.user.avatar} alt={`${this.state.user.name} ${this.state.user.surname} avatar`}/>
+            <img src={`http://localhost:8000/storage/${this.state.user.avatar}`} alt={`${this.state.user.name} ${this.state.user.surname} avatar`}/>
             <div className="user-bio">
               <h3>About me</h3>
               <p>{this.state.user.description ? this.state.user.description : "This user does not have description yet."}</p>

@@ -14,15 +14,11 @@ class MyAccount extends Component {
   constructor(props) {
     super(props);
     this.state = {errMessage: [], user: this.props.user, updated: false};
+    this.formData = new FormData();
   }
 
   handleChange = (event) => {
-      this.setState({
-          user: {
-              ...this.state.user,
-              [event.target.id]: event.target.value
-          }
-      });
+    this.formData.append([event.target.id], event.target.value);
   }
 
   togglePasswordVisibility = () => {
@@ -31,33 +27,25 @@ class MyAccount extends Component {
   }
 
   getAvatar = (event) => {
-    //to fix
-    const reader  = new FileReader();
-    this.setState({
-      user: {
-        ...this.state.user,
-        avatar: reader.readAsDataURL(event.target.files[0])
-      }
-    })
+    this.formData.append('avatar', event.target.files[0]);
   }
 
   updateUserDetails = (event) => {
     event.preventDefault();
     let messages = [];
+    this.formData.append('_method', 'PUT');
     this.setState({
       updated: false,
       errMessage: []
     });
-    const user = this.state.user;
-    for(let key in user) {
-      if(user[key] === this.props.user[key]) delete user[key];
-    }
-    console.log(user);
-    if(Object.keys(user).length === 0) return;
-    API.put(`/users/${this.props.user.id}`,
-    {...user},
-    {
-      'headers': { 'Authorization': localStorage.getItem("token")}
+    API({
+      method: 'post',
+      url: `/users/${this.props.user.id}`,
+      data: this.formData,
+      headers: {
+        'Authorization': localStorage.getItem("token"),
+        'Content-Type': 'multipart/form-data'
+      }
     })
     .then(response => {
       if(response['data']['error']) {
