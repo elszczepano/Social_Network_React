@@ -5,6 +5,7 @@ import { removeDetails } from '../../actions/userDetails.actions';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 import API from '../../api.js';
+import storageLink from '../../storageLink.js';
 import '../../assets/scss/main.scss';
 import '../../assets/scss/user/usershortcut.scss';
 
@@ -37,7 +38,7 @@ class UserShortcut extends Component {
     return (
       <aside className="user-shortcuts">
         <div className="account-shortcut">
-          <img src={`http://localhost:8000/storage/${this.props.user.avatar}`} alt={`${this.props.user.name} ${this.props.user.surname} avatar`}/>
+          <img src={`${storageLink}${this.props.user.avatar}`} alt={`${this.props.user.name} ${this.props.user.surname} avatar`}/>
           <h3>{this.props.user.name} {this.props.user.surname}</h3>
         </div>
         <h3>Browse groups:</h3>

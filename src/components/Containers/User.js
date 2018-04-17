@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Header from './Header';
 import API from '../../api.js';
+import storageLink from '../../storageLink.js';
 import {Link} from 'react-router-dom';
 import UserShortcut from '../View/UserShortcut';
 import '../../assets/scss/main.scss';
@@ -60,7 +61,7 @@ class User extends Component {
         <UserShortcut />
         <section className="user-container">
           <div className="user-card">
-            <img src={`http://localhost:8000/storage/${this.state.user.avatar}`} alt={`${this.state.user.name} ${this.state.user.surname} avatar`}/>
+            <img src={`${storageLink}${this.state.user.avatar}`} alt={`${this.state.user.name} ${this.state.user.surname} avatar`}/>
             <div className="user-bio">
               <h3>About me</h3>
               <p>{this.state.user.description ? this.state.user.description : "This user does not have description yet."}</p>

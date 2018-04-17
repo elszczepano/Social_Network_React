@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 import DropdownPost from '../Control/DropdownPost';
+import storageLink from '../../storageLink.js';
 import '../../assets/scss/main.scss';
 import '../../assets/scss/post/post.scss';
 
@@ -18,7 +19,7 @@ class Post extends Component {
       <div className="post-container">
       <header>
         <div>
-          <img src={`http://localhost:8000/storage/${this.props.content.authorAvatar}`} alt={`${this.props.content.author} avatar`}/>
+          <img src={`${storageLink}${this.props.content.authorAvatar}`} alt={`${this.props.content.author} avatar`}/>
           <span>
             <strong>
             <Link to={`/user/${this.props.content.authorId}`}>{this.props.content.author}</Link>
