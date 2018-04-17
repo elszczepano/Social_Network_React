@@ -57,6 +57,10 @@ class MyAccount extends Component {
         return;
       }
       this.props.dispatch(getDetails(response['data']['data']));
+      this.setState({
+        updated: true,
+        errMessage: ["Data updated successfully"]
+      });
       this.forceUpdate();
     })
     .catch(error => {
