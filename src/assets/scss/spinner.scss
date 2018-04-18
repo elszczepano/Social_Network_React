@@ -1,0 +1,12 @@
+@import "variables";
+@import "mixins";
+
+ .loading-spinner-container {
+   font-size: .65rem;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 5rem;
+   box-sizing: border-box;
+ }
