@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Notification from '../View/Notification';
+import LoadingSpinner from '../View/LoadingSpinner';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { signOut } from '../../actions/login.actions';
@@ -11,7 +12,7 @@ import '../../assets/scss/user/notification.scss';
 class NotificationBox extends Component {
   constructor(props) {
     super(props);
-    this.state = {userNotifications: [], unread: 0, isOpened: false};
+    this.state = {userNotifications: [], unread: 0, isOpened: false, ready: false};
   }
 
   componentDidMount() {
@@ -29,7 +30,8 @@ class NotificationBox extends Component {
         response = response['data'];
         response = response.map(notification => notification);
         this.setState({
-          userNotifications: response
+          userNotifications: response,
+          ready: true
         });
         for(let notification of response) {
           if(!notification.read) this.setState({unread: this.state.unread + 1});
@@ -59,6 +61,17 @@ class NotificationBox extends Component {
     }
   }
   render() {
+    const content = this.state.ready ? (
+      <section>
+      {
+        this.state.userNotifications.map((notification, index) =>
+          <Notification content={notification} key={index}/>
+        )
+      }
+      </section>
+    ) : (
+      <LoadingSpinner />
+    )
     if(this.state.isOpened) {
       return (
           <div ref={this.setWrapperRef} className="notification-box">
@@ -66,13 +79,7 @@ class NotificationBox extends Component {
               <div>Notifications ({this.state.unread})</div>
               <div><span onClick={this.toggleNotifcation} className="fa fa-times"></span></div>
             </header>
-            <section>
-            {
-              this.state.userNotifications.map((notification, index) =>
-                <Notification content={notification} key={index}/>
-              )
-            }
-            </section>
+            {content}
           </div>
       );
     }

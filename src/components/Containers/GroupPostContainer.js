@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Post from '../View/Post';
 import AddPost from '../Control/AddPost';
 import API from '../../api.js';
+import LoadingSpinner from '../View/LoadingSpinner';
 import { connect } from 'react-redux';
 import { setId, removeId } from '../../actions/currentGroup.actions';
 import PropTypes from 'prop-types';
@@ -9,7 +10,7 @@ import PropTypes from 'prop-types';
 class GroupPostContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {posts: []};
+    this.state = {posts: [], ready: false};
   }
 
   fetchGroupPosts = (id) => {
@@ -26,7 +27,8 @@ class GroupPostContainer extends Component {
           groupId: post.group_id
         }));
         this.setState({
-          posts: response
+          posts: response,
+          ready: true
         })
       })
     .catch(error => {
@@ -44,7 +46,7 @@ class GroupPostContainer extends Component {
     this.props.dispatch(removeId());
   }
   render () {
-    return (
+    const content = this.state.ready ? (
       <React.Fragment>
       <AddPost />
       <h1 className="text-marker">Group activity:</h1>
@@ -53,6 +55,13 @@ class GroupPostContainer extends Component {
           <Post content={post} key={index}/>
         )
       }
+      </React.Fragment>
+    ) : (
+      <LoadingSpinner />
+    )
+    return (
+      <React.Fragment>
+        {content}
       </React.Fragment>
     );
   }

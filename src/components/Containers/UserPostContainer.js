@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Post from '../View/Post';
+import LoadingSpinner from '../View/LoadingSpinner';
 import API from '../../api.js';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -7,7 +8,7 @@ import { connect } from 'react-redux';
 class UserPostContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {posts: []};
+    this.state = {posts: [], ready: false};
   }
 
   componentWillMount() {
@@ -24,7 +25,8 @@ class UserPostContainer extends Component {
           groupId: post.group_id
         }));
         this.setState({
-          posts: response
+          posts: response,
+          ready: true
         })
       })
 
@@ -35,7 +37,7 @@ class UserPostContainer extends Component {
   }
 
   render () {
-    return (
+    const content = this.state.ready ? (
       <React.Fragment>
       <h1 className="text-marker">My recent activity:</h1>
       {
@@ -43,6 +45,13 @@ class UserPostContainer extends Component {
           <Post content={post} key={index}/>
         )
       }
+      </React.Fragment>
+    ) : (
+      <LoadingSpinner />
+    )
+    return (
+      <React.Fragment>
+        {content}
       </React.Fragment>
     );
   }
