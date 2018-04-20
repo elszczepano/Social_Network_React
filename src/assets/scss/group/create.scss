@@ -1,0 +1,43 @@
+@import "../variables";
+@import "../mixins";
+
+
+.create-group-contaner {
+  h2 {
+    font-weight: 300;
+    font-size: 2.5rem;
+  }
+  p {
+    font-weight: 300;
+  }
+  form {
+    .create-group-fields {
+      margin: 0 auto;
+      width:50%;
+      display: grid;
+      grid-template-columns: 40% 50%;
+      input, label, select, textarea {
+        margin: 1rem;
+      }
+      label {
+        text-align: right;
+        font-size: 1.2rem;
+        line-height: 200%;
+        color: $primary-color-darker;
+      }
+      textarea {
+        height: 10rem;
+      }
+    }
+    .create-group-button {
+      @include flex-center;
+      height: 7vh;
+    }
+    .error-message-box {
+      text-align: center;
+      p {
+        font-weight: bold;
+      }
+    }
+  }
+}

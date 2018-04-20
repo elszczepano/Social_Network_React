@@ -19,7 +19,7 @@ class App extends Component {
         <div className="container">
           <Route exact path="/" component={Landing} />
           <Route exact path="/feed" component={NewsFeed} />
-          <Route exact path="/group" component={CreateGroup} />
+          <Route exact path="/create" component={CreateGroup} />
           <Route exact path="/my-account" component={MyAccount} />
           <Route exact path="/group/:id" component={Group} />
           <Route exact path="/user/:id" component={User} />
