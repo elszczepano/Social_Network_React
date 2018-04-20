@@ -6,7 +6,6 @@ import API from '../../api.js';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import { getDetails } from '../../actions/userDetails.actions';
-import Footer from '../View/Footer';
 import '../../assets/scss/main.scss';
 import '../../assets/scss/user/myaccount.scss';
 
@@ -81,7 +80,7 @@ class MyAccount extends Component {
     });
     if(!this.props.loginStatus) return <Redirect to="/"/>
     return (
-      <div>
+      <React.Fragment>
         <Header />
         <section className="edit-account-contaner default-container">
           <h2 className="text-marker">Edit account details</h2>
@@ -117,8 +116,7 @@ class MyAccount extends Component {
             </div>
           </form>
         </section>
-        <Footer />
-      </div>
+      </React.Fragment>
     );
   }
 }
