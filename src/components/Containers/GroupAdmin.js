@@ -3,7 +3,7 @@ import Header from './Header';
 import UserShortcut from './UserShortcut';
 import Footer from './Footer';
 import '../assets/scss/main.scss';
-import '../assets/scss/groupadmin.scss';
+import '../assets/scss/admin.scss';
 
 class GroupAdmin extends Component {
   group = {

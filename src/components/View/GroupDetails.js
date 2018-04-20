@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../../assets/scss/main.scss';
-import '../../assets/scss/group/groupdetails.scss';
+import '../../assets/scss/group/details.scss';
 
 const GroupDetails = (props) => (
   <div className="group-details-container">
