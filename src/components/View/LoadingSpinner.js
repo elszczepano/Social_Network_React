@@ -4,8 +4,8 @@ import '../../assets/scss/spinner.scss';
 
 const LoadingSpinner = (props) => (
   <div className="loading-spinner-container">
-    <span class="fa fa-spinner fa-spin fa-3x fa-fw"></span>
-    <span class="sr-only">Loading...</span>
+    <span className="fa fa-spinner fa-spin fa-3x fa-fw"></span>
+    <span className="sr-only">Loading...</span>
   </div>
 );
 
