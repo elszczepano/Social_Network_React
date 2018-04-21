@@ -3,8 +3,6 @@ import Notification from '../View/Notification';
 import LoadingSpinner from '../View/LoadingSpinner';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { signOut } from '../../actions/login.actions';
-import { removeDetails } from '../../actions/userDetails.actions';
 import API from '../../api.js';
 import '../../assets/scss/main.scss';
 import '../../assets/scss/user/notification.scss';
@@ -40,8 +38,6 @@ class NotificationBox extends Component {
       .catch(error => {
         if(error.response) console.log(error.response['data']['message']);
         else console.log(error);
-        this.props.dispatch(signOut());
-        this.props.dispatch(removeDetails());
       });
   }
 

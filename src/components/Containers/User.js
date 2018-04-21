@@ -41,10 +41,6 @@ class User extends Component {
           groups: response
         })
       })
-    .catch(error => {
-      if(error.response) console.log(error.response['data']['message']);
-      else console.log(error);
-    });
     })
   .catch(error => {
     if(error.response) console.log(error.response['data']['message']);
