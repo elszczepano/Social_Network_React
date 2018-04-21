@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import API from '../../api.js';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
 import '../../assets/scss/main.scss';
 import '../../assets/scss/sidepanel.scss';
@@ -8,7 +9,7 @@ import '../../assets/scss/sidepanel.scss';
 class CreateGroupShort extends Component {
   constructor(props) {
     super(props);
-    this.state = {icons: [], name: "", icon: 1};
+    this.state = {icons: [], name: "", icon: 1, created: false, redirectAfterCreateId: 0};
   }
 
   componentWillMount() {
@@ -35,7 +36,6 @@ class CreateGroupShort extends Component {
 
   createGroup = (event) => {
     event.preventDefault();
-
     if(this.state.name) {
       API.post('/groups',
       {
@@ -56,21 +56,19 @@ class CreateGroupShort extends Component {
         {
           'headers': { 'Authorization': localStorage.getItem("token")}
         })
-        .then(response => console.log(response));
+        this.setState({
+          created: true,
+          redirectAfterCreateId: groupId
+        })
       })
       .catch(error => {
-        if(error.response) {
-          const response = error.response['data']['message'];
-          console.log(response);
-        }
-        else {
-          console.log(error);
-        }
+        if(error.response) console.log(error.response['data']['message']);
+        else console.log(error);
       });
     }
-
   }
   render() {
+    if(this.state.created) return <Redirect to={`/group/${this.state.redirectAfterCreateId}`}/>
     return (
       <form className="instant-create-group">
         <h3>Create group instantly</h3>
