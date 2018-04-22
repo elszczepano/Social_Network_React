@@ -5,6 +5,8 @@ import classNames from 'classnames';
 import API from '../../api.js';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
+import { signOut } from '../../actions/login.actions';
+import { removeDetails } from '../../actions/userDetails.actions';
 import { getDetails } from '../../actions/userDetails.actions';
 import '../../assets/scss/main.scss';
 import '../../assets/scss/user/myaccount.scss';
@@ -66,11 +68,18 @@ class MyAccount extends Component {
       if(error.response) console.log(error.response['data']['message']);
       else console.log(error);
     });
-
   }
 
-  deleteUser = () => {
+  deleteUser = (event) => {
+    event.preventDefault();
 
+    if(window.confirm('Are you sure you wish to PERMAMENTLY delete your account?')) {
+      API.delete(`users/${this.props.user.id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
+      localStorage.removeItem('token');
+      this.props.dispatch(signOut());
+      this.props.dispatch(removeDetails());
+    }
+    else return;
   }
 
   render() {
@@ -112,7 +121,7 @@ class MyAccount extends Component {
             </div>
             <div className="edit-account-buttons">
               <button type="submit" onClick={this.updateUserDetails}>Update</button>
-              <button className="danger-button">Delete account</button>
+              <button className="danger-button" onClick={this.deleteUser}>Delete account</button>
             </div>
           </form>
         </section>
