@@ -8,7 +8,6 @@ import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import '../../assets/scss/main.scss';
-import '../../assets/scss/group/group.scss';
 
 class Group extends Component {
   constructor(props) {

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import API from '../../api.js';
 import '../../assets/scss/main.scss';
-import '../../assets/scss/group/create.scss';
+import '../../assets/scss/group/forms.scss';
 
 class CreateGroup extends Component {
   constructor(props) {
@@ -92,10 +92,10 @@ class CreateGroup extends Component {
     return (
       <React.Fragment>
         <Header />
-        <section className="create-group-contaner default-container">
+        <section className="group-form-contaner default-container">
           <h2 className="text-marker">Create new group:</h2>
           <form>
-            <div className="create-group-fields">
+            <div className="group-fields">
               <label htmlFor="firstName">Group name<span className="warning-marker">*</span></label>
               <input id="name" name="name" type="text" onChange={this.handleChange}/>
               <label htmlFor="description">Description</label>
@@ -111,7 +111,7 @@ class CreateGroup extends Component {
                 }
               </select>
             </div>
-            <div className="create-group-button">
+            <div className="group-button-single">
               <button type="submit" onClick={this.createGroup}>Create</button>
             </div>
             <div className="error-message-box">

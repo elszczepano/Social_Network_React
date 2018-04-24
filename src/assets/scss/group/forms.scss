@@ -2,7 +2,7 @@
 @import "../mixins";
 
 
-.create-group-contaner {
+.group-form-contaner {
   h2 {
     font-weight: 300;
     font-size: 2.5rem;
@@ -11,7 +11,7 @@
     font-weight: 300;
   }
   form {
-    .create-group-fields {
+    .group-fields {
       margin: 0 auto;
       width:50%;
       display: grid;
@@ -29,8 +29,12 @@
         height: 10rem;
       }
     }
-    .create-group-button {
+    .group-button-single {
       @include flex-center;
+      height: 7vh;
+    }
+    .group-button-multiple {
+      @include flex-space-between;
       height: 7vh;
     }
     .error-message-box {
