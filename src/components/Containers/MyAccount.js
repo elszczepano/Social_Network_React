@@ -93,7 +93,7 @@ class MyAccount extends Component {
         <Header />
         <section className="edit-account-contaner default-container">
           <h2 className="text-marker">Edit account details</h2>
-          <p>Edit your personal inforamtion and click <span className="text-marker">update</span></p>
+          <p>Edit your personal information and click <span className="text-marker">update</span></p>
           <form>
             <div className="edit-account-fields">
               <label htmlFor="firstName">First name</label>
