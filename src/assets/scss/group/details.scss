@@ -4,19 +4,15 @@
 .group-details-container{
   border-bottom: $default-border;
   padding-bottom: 1rem;
-  .group-background {
-    background-color: $primary-color-darker;
-    border-radius: 5px;
-    height: 20rem;
-    display: flex;
-    align-items: flex-end;
-    h3 {
-      padding: 1rem;
-      margin: 0;
-      color: #fff;
-      font-size: 2rem;
-      font-weight: 500;
-    }
+  h3 {
+    color: $primary-color-darker;
+    padding: 1rem 0;
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 500;
+  }
+  .background-image {
+    width: 100%;
   }
   div {
     @include flex-space-between;
