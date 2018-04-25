@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import Header from '../Containers/Header';
+import DeleteUser from '../Control/DeleteUser';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import API from '../../api.js';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
-import { signOut } from '../../actions/login.actions';
-import { removeDetails } from '../../actions/userDetails.actions';
 import { getDetails } from '../../actions/userDetails.actions';
 import '../../assets/scss/user/myaccount.scss';
 
 class MyAccount extends Component {
   constructor(props) {
     super(props);
-    this.state = {errMessage: [], updated: false};
+    this.state = {errMessage: [], updated: false, showDelete: false};
     this.formData = new FormData();
   }
 
@@ -69,16 +68,11 @@ class MyAccount extends Component {
     });
   }
 
-  deleteUser = (event) => {
+  handleDeleteClick = (event) => {
     event.preventDefault();
-
-    if(window.confirm('Are you sure you wish to PERMAMENTLY delete your account?')) {
-      API.delete(`users/${this.props.user.id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
-      localStorage.removeItem('token');
-      this.props.dispatch(signOut());
-      this.props.dispatch(removeDetails());
-    }
-    else return;
+    this.setState({
+      showDelete: !this.state.showDelete
+    });
   }
 
   render() {
@@ -89,6 +83,7 @@ class MyAccount extends Component {
     if(!this.props.loginStatus) return <Redirect to="/"/>
     return (
       <React.Fragment>
+      { this.state.showDelete ? <DeleteUser deleteVisibility={this.handleDeleteClick} /> : '' }
         <Header />
         <section className="edit-account-contaner default-container">
           <h2 className="text-marker">Edit account details</h2>
@@ -120,7 +115,7 @@ class MyAccount extends Component {
             </div>
             <div className="edit-account-buttons">
               <button type="submit" onClick={this.updateUserDetails}>Update</button>
-              <button className="danger-button" onClick={this.deleteUser}>Delete account</button>
+              <button className="warning-button" onClick={this.handleDeleteClick}>Delete account</button>
             </div>
           </form>
         </section>

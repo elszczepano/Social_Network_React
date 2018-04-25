@@ -1,6 +1,10 @@
 @import "../variables";
 @import "../mixins";
 
+.delete-textarea {
+  height: 10rem;
+}
+
 .edit-account-contaner {
   h2 {
     font-weight: 300;
