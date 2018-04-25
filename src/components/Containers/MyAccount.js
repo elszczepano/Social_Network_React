@@ -94,6 +94,8 @@ class MyAccount extends Component {
               <input id="name" name="firstName" type="text" onChange={this.handleChange} defaultValue={this.props.user.name} />
               <label htmlFor="lastName">Last name</label>
               <input id="surname" name="lastName" type="text" onChange={this.handleChange} defaultValue={this.props.user.surname}/>
+              <label htmlFor="description">Bio</label>
+              <textarea id="description" name="description" onChange={this.handleChange} defaultValue={this.props.user.description}></textarea>
               <label htmlFor="birth">Birth date</label>
               <input id="birth_date" name="birth" type="date" onChange={this.handleChange} defaultValue={this.props.user.birth_date}/>
               <label htmlFor="email">E-Mail Address</label>
