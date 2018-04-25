@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
-import '../../assets/scss/main.scss';
 import '../../assets/scss/group/search.scss';
 
 const Result = (props) => (

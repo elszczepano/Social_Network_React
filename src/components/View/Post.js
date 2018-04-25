@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 import DropdownPost from '../Control/DropdownPost';
 import storageLink from '../../storageLink.js';
-import '../../assets/scss/main.scss';
 import '../../assets/scss/post/post.scss';
 
 class Post extends Component {

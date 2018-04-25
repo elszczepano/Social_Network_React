@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import API from '../../api.js';
-import '../../assets/scss/main.scss';
 import '../../assets/scss/post/addpost.scss';
 
 class AddPost extends Component {

@@ -4,7 +4,6 @@ import Login from '../Control/Login';
 import {Link} from 'react-router-dom';
 import UserPanel from '../Control/UserPanel';
 import { connect } from 'react-redux';
-import '../../assets/scss/main.scss';
 import '../../assets/scss/header/header.scss';
 
 class Header extends Component {

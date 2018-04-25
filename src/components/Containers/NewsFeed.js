@@ -6,7 +6,6 @@ import SidePanel from './SidePanel';
 import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import '../../assets/scss/main.scss';
 import '../../assets/scss/newsfeed.scss';
 
 class NewsFeed extends Component {

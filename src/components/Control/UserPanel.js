@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 import { signOut } from '../../actions/login.actions';
 import { removeDetails } from '../../actions/userDetails.actions';
-import '../../assets/scss/main.scss';
 import '../../assets/scss/header/panel.scss';
 
 class UserPanel extends Component {

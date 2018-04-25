@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import storageLink from '../../storageLink.js';
 import LoadingSpinner from '../View/LoadingSpinner';
-import '../../assets/scss/main.scss';
 import '../../assets/scss/group/details.scss';
 
 class GroupDetails extends Component {

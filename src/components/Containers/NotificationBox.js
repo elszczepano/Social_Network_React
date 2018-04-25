@@ -4,7 +4,6 @@ import LoadingSpinner from '../View/LoadingSpinner';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import API from '../../api.js';
-import '../../assets/scss/main.scss';
 import '../../assets/scss/user/notification.scss';
 
 class NotificationBox extends Component {

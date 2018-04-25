@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../assets/scss/main.scss';
 import '../../assets/scss/spinner.scss';
 
 const LoadingSpinner = (props) => (

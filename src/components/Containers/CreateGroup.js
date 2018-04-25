@@ -4,7 +4,6 @@ import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import API from '../../api.js';
-import '../../assets/scss/main.scss';
 import '../../assets/scss/group/forms.scss';
 
 class CreateGroup extends Component {

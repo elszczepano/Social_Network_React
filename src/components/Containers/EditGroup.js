@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Header from '../Containers/Header';
 import classNames from 'classnames';
 import API from '../../api.js';
-import '../../assets/scss/main.scss';
 import '../../assets/scss/group/forms.scss';
 
 class EditGroup extends Component {

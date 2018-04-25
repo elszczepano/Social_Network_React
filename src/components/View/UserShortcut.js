@@ -7,7 +7,6 @@ import {Link} from 'react-router-dom';
 import API from '../../api.js';
 import LoadingSpinner from './LoadingSpinner';
 import storageLink from '../../storageLink.js';
-import '../../assets/scss/main.scss';
 import '../../assets/scss/user/usershortcut.scss';
 
 class UserShortcut extends Component {

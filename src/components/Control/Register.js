@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import API from '../../api.js';
-import '../../assets/scss/main.scss';
 import '../../assets/scss/header/register.scss';
 
 class Register extends Component {

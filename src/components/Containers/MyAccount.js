@@ -8,7 +8,6 @@ import { Redirect } from 'react-router';
 import { signOut } from '../../actions/login.actions';
 import { removeDetails } from '../../actions/userDetails.actions';
 import { getDetails } from '../../actions/userDetails.actions';
-import '../../assets/scss/main.scss';
 import '../../assets/scss/user/myaccount.scss';
 
 class MyAccount extends Component {

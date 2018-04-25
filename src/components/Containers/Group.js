@@ -7,7 +7,6 @@ import GroupPostContainer from './GroupPostContainer';
 import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import '../../assets/scss/main.scss';
 
 class Group extends Component {
   constructor(props) {

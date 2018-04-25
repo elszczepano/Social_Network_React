@@ -7,7 +7,6 @@ import API from '../../api.js';
 import storageLink from '../../storageLink.js';
 import {Link} from 'react-router-dom';
 import UserShortcut from '../View/UserShortcut';
-import '../../assets/scss/main.scss';
 import '../../assets/scss/user/user.scss';
 
 class User extends Component {

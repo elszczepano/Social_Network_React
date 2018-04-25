@@ -3,7 +3,6 @@ import API from '../../api.js';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
-import '../../assets/scss/main.scss';
 import '../../assets/scss/sidepanel.scss';
 
 class CreateGroupShort extends Component {

@@ -3,7 +3,6 @@ import API from '../../api.js';
 import { connect } from 'react-redux';
 import { signIn } from '../../actions/login.actions';
 import { getDetails } from '../../actions/userDetails.actions';
-import '../../assets/scss/main.scss';
 import '../../assets/scss/header/login.scss';
 
 class Login extends Component {

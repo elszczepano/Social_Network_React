@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../../assets/scss/main.scss';
 import '../../assets/scss/user/notification.scss';
 
 const Notification = (props) => (
