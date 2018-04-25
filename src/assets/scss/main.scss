@@ -46,11 +46,11 @@ button:hover {
 button:active {
   @include default-button-pressed;
 }
-.danger-button {
-  @include danger-button;
+.warning-button {
+  @include warning-button;
 }
-.danger-button:hover {
-  @include danger-button-hover;
+.warning-button:hover {
+  @include warning-button-hover;
 }
 .text-marker {
   color: $primary-color-dark;

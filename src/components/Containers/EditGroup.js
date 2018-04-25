@@ -59,7 +59,7 @@ class EditGroup extends Component {
             </div>
             <div className="group-button-multiple">
             <button type="submit">Update</button>
-            <button className="danger-button">Delete group</button>
+            <button className="warning-button">Delete group</button>
             </div>
             <div className="error-message-box">
             {

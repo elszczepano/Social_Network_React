@@ -23,11 +23,11 @@
 @mixin default-button-pressed {
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
-@mixin danger-button {
+@mixin warning-button {
   @include default-button;
   background-color: $primary-red;
 }
-@mixin danger-button-hover {
+@mixin warning-button-hover {
   @include default-button-hover;
   background-color: $primary-red-light;
 }
