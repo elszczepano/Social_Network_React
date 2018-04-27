@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import API from '../../api.js';
+import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
 import '../../assets/scss/sidepanel.scss';
 
 class AddPostSidePanel extends Component {
   constructor(props) {
     super(props);
-    this.state = {groups: [], group: 0, content: ""};
+    this.state = {groups: [], group: 0, content: "", created: false, redirectAfterCreateId: 0};
   }
   componentWillMount() {
       API.get(`/user/groups/${this.props.user.id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
@@ -44,6 +45,12 @@ class AddPostSidePanel extends Component {
       {
         'headers': { 'Authorization': localStorage.getItem("token")}
       })
+      .then(() => {
+        this.setState({
+          created: true,
+          redirectAfterCreateId: this.state.group
+        })
+      })
       .catch(error => {
         if(error.response) console.log(error.response['data']['message']);
         else console.log(error);
@@ -51,6 +58,7 @@ class AddPostSidePanel extends Component {
     }
   }
   render() {
+    if(this.state.created) return <Redirect to={`/group/${this.state.redirectAfterCreateId}`}/>
     return (
       <form className="instant-add-post">
         <h3>Add post instantly</h3>
