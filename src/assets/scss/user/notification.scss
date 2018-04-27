@@ -10,6 +10,7 @@
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
   box-shadow: $default-shadow;
+
   header {
     background-color: $primary-color-darker;
     color: #FFF;
@@ -25,14 +26,15 @@
     }
   }
   section {
-    min-height: 150px;
+    max-height: 150px;
+    max-height: 250px;
+    overflow-y: scroll;
   }
 }
-.notification {
+.notification, .notification-read {
   display: grid;
   grid-template-columns: 1fr 30px 30px;
   border-bottom: $default-border;
-  justify-items: center;
   align-items: center;
   p {
     font-weight: 300;
@@ -46,4 +48,8 @@
   span:hover {
     color: $icon-grey-hover;
   }
+}
+
+.notification {
+  background-color: $default-grey;
 }
