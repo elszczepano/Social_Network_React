@@ -38,10 +38,12 @@ class UserShortcut extends Component {
   render() {
     const content = this.state.ready ? (
       <React.Fragment>
-      <div className="account-shortcut">
-        <img src={`${storageLink}${this.props.user.avatar}`} alt={`${this.props.user.name} ${this.props.user.surname} avatar`}/>
-        <h3>{this.props.user.name} {this.props.user.surname}</h3>
-      </div>
+      <Link to={`/user/${this.props.user.id}`}>
+        <div className="account-shortcut">
+          <img src={`${storageLink}${this.props.user.avatar}`} alt={`${this.props.user.name} ${this.props.user.surname} avatar`}/>
+          <h3>{this.props.user.name} {this.props.user.surname}</h3>
+        </div>
+      </Link>
       <h3>Browse groups:</h3>
       <div className="groups-shortcut">
         <ul>
