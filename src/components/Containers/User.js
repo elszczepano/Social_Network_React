@@ -7,12 +7,13 @@ import API from '../../api.js';
 import storageLink from '../../storageLink.js';
 import {Link} from 'react-router-dom';
 import UserShortcut from '../View/UserShortcut';
+import LoadingSpinner from '../View/LoadingSpinner';
 import '../../assets/scss/user/user.scss';
 
 class User extends Component {
   constructor(props) {
     super(props);
-    this.state = {user: {}, groups: []}
+    this.state = {user: {}, groups: [], ready: false}
   }
 
   componentWillMount() {
@@ -37,7 +38,8 @@ class User extends Component {
           id: group.id
         }));
         this.setState({
-          groups: response
+          groups: response,
+          ready: true
         })
       })
     })
@@ -48,6 +50,46 @@ class User extends Component {
 
   }
   render() {
+    const content = this.state.ready ? (
+      <React.Fragment>
+        <div className="user-card">
+          <img src={`${storageLink}${this.state.user.avatar}`} alt={`${this.state.user.name} ${this.state.user.surname} avatar`}/>
+          <div className="user-bio">
+            <h3>About me</h3>
+            <p>{this.state.user.description ? this.state.user.description : "This user does not have description yet."}</p>
+          </div>
+        </div>
+        <div className="user-content">
+          <h2>
+            <strong>{this.state.user.name} {this.state.user.surname}</strong>
+          </h2>
+          <div className="user-details">
+            <p>Joined at: <span className="text-marker">{this.state.user.created_at}</span></p>
+            <p>E-mail: <span className="text-marker">{this.state.user.email}</span></p>
+            {this.state.user.birth_date ? <p>Birth date: <span className="text-marker">{this.state.user.birth_date}</span></p> :''}
+          </div>
+          <div className="user-groups">
+            <h3>My groups</h3>
+            <ul>
+            {
+              this.state.groups.map((group, index) => {
+                return (
+                  <li key={index}>
+                    <Link to={`/group/${group.id}`}>
+                      <span className="group-name">{group.name}</span>
+                      <span className={`fa fa-${group.icon}`}></span>
+                    </Link>
+                  </li>
+                )
+              })
+            }
+            </ul>
+          </div>
+        </div>
+      </React.Fragment>
+    ) : (
+      <LoadingSpinner />
+    )
     if(!this.props.loginStatus) return <Redirect to="/"/>
     return (
       <React.Fragment>
@@ -55,40 +97,7 @@ class User extends Component {
       <div className="default-grid default-container">
         <UserShortcut />
         <section className="user-container">
-          <div className="user-card">
-            <img src={`${storageLink}${this.state.user.avatar}`} alt={`${this.state.user.name} ${this.state.user.surname} avatar`}/>
-            <div className="user-bio">
-              <h3>About me</h3>
-              <p>{this.state.user.description ? this.state.user.description : "This user does not have description yet."}</p>
-            </div>
-          </div>
-          <div className="user-content">
-            <h2>
-              <strong>{this.state.user.name} {this.state.user.surname}</strong>
-            </h2>
-            <div className="user-details">
-              <p>Joined at: <span className="text-marker">{this.state.user.created_at}</span></p>
-              <p>E-mail: <span className="text-marker">{this.state.user.email}</span></p>
-              {this.state.user.birth_date ? <p>Birth date: <span className="text-marker">{this.state.user.birth_date}</span></p> :''}
-            </div>
-            <div className="user-groups">
-              <h3>My groups</h3>
-              <ul>
-              {
-                this.state.groups.map((group, index) => {
-                  return (
-                    <li key={index}>
-                      <Link to={`/group/${group.id}`}>
-                        <span className="group-name">{group.name}</span>
-                        <span className={`fa fa-${group.icon}`}></span>
-                      </Link>
-                    </li>
-                  )
-                })
-              }
-              </ul>
-            </div>
-          </div>
+          {content}
         </section>
       </div>
       </React.Fragment>
