@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import storageLink from '../../storageLink.js';
-import LoadingSpinner from '../View/LoadingSpinner';
+import LoadingSpinner from './LoadingSpinner';
 import '../../assets/scss/group/details.scss';
 
 class GroupDetails extends Component {
