@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import Header from '../Containers/Header';
-import classNames from 'classnames';
+import { Redirect } from 'react-router';
 import API from '../../api.js';
 import '../../assets/scss/group/forms.scss';
 
 class EditGroup extends Component {
   constructor(props) {
     super(props);
-    this.state = {icons: [], errMessage: [], updated: false};
+    this.state = {icons: [], errMessage: [], updated: false, groupId: this.props['match']['params']['id']};
     this.formData = new FormData();
   }
 
@@ -29,11 +29,52 @@ class EditGroup extends Component {
     });
   }
 
-  render() {
-    const messageClass = classNames({
-    'success-marker': this.state.updated,
-    'warning-marker': !this.state.updated
+  handleChange = (event) => {
+    this.formData.append([event.target.id], event.target.value);
+  }
+
+  getBackgroundImage = (event) => {
+    this.formData.append('background_image', event.target.files[0]);
+  }
+
+  updateGroupDetails = (event) => {
+    event.preventDefault();
+    let messages = [];
+    this.formData.append('_method', 'PUT');
+    this.setState({
+      updated: false,
+      errMessage: []
     });
+    API({
+      method: 'post',
+      url: `/groups/${this.state.groupId}`,
+      data: this.formData,
+      headers: {
+        'Authorization': localStorage.getItem("token"),
+        'Content-Type': 'multipart/form-data'
+      }
+    })
+    .then(response => {
+      if(response['data']['error']) {
+        const responseMessage = response['data']['message'];
+        Object.keys(responseMessage).forEach((key) => {
+          messages.push(responseMessage[key].toString());
+        })
+        this.setState({errMessage: messages});
+        return;
+      }
+      this.setState({
+        updated: true
+      });
+    })
+    .catch(error => {
+      if(error.response) console.log(error.response['data']['message']);
+      else console.log(error);
+    });
+  }
+
+  render() {
+    if(this.state.updated) return <Redirect to={`/group/${this.state.groupId}`}/>
     return (
       <React.Fragment>
         <Header />
@@ -42,7 +83,7 @@ class EditGroup extends Component {
           <p>Edit group information and click <span className="text-marker">update</span></p>
           <form>
             <div className="group-fields">
-              <label htmlFor="firstName">Group name<span className="warning-marker">*</span></label>
+              <label htmlFor="firstName">Group name</label>
               <input id="name" name="name" type="text" onChange={this.handleChange}/>
               <label htmlFor="description">Description</label>
               <textarea name="description" id="description" onChange={this.handleChange}></textarea>
@@ -58,7 +99,7 @@ class EditGroup extends Component {
               </select>
             </div>
             <div className="group-button-multiple">
-            <button type="submit">Update</button>
+            <button onClick={this.updateGroupDetails} type="submit">Update</button>
             <button className="warning-button">Delete group</button>
             </div>
             <div className="error-message-box">
