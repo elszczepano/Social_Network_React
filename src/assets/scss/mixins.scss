@@ -31,6 +31,14 @@
   @include default-button-hover;
   background-color: $primary-red-light;
 }
+@mixin success-button {
+  @include default-button;
+  background-color: $primary-green;
+}
+@mixin success-button-hover {
+  @include default-button-hover;
+  background-color: $primary-green-light;
+}
 @mixin flex-space-between {
   display: flex;
   flex-wrap: wrap;

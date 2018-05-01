@@ -52,6 +52,12 @@ button:active {
 .warning-button:hover {
   @include warning-button-hover;
 }
+.success-button {
+  @include success-button;
+}
+.success-button:hover {
+  @include success-button-hover;
+}
 .text-marker {
   color: $primary-color-dark;
 }
