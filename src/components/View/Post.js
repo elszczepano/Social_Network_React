@@ -6,12 +6,13 @@ import DropdownPost from '../Control/DropdownPost';
 import Comment from './Comment';
 import API from '../../api.js';
 import storageLink from '../../storageLink.js';
+import LoadingSpinner from './LoadingSpinner';
 import '../../assets/scss/post/post.scss';
 
 class Post extends Component {
   constructor(props) {
     super(props);
-    this.state = {content: "", created: false, comments: []}
+    this.state = {content: "", comments: [], ready: false}
   }
 
   componentWillMount() {
@@ -25,7 +26,8 @@ class Post extends Component {
         content: comment.content
       }));
       this.setState({
-        comments: response
+        comments: response,
+        ready: true
       })
     })
     .catch(error => {
@@ -41,6 +43,17 @@ class Post extends Component {
           <DropdownPost ref="dropdown" />
       </div>
     ) : ("")
+    const comments = this.state.ready ? (
+      <React.Fragment>
+      {
+        this.state.comments.map((comment, index) =>
+          <Comment content={comment} key={index}/>
+        )
+      }
+      </React.Fragment>
+    ) : (
+      <LoadingSpinner/>
+    )
     return (
       <div className="post-container">
       <header>
@@ -72,11 +85,7 @@ class Post extends Component {
         </div>
       </div>
       <div>
-      {
-        this.state.comments.map((comment, index) =>
-          <Comment content={comment} key={index}/>
-        )
-      }
+      {comments}
       </div>
       </div>
     );
