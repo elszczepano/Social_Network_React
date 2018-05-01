@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router';
 import classNames from 'classnames';
 import API from '../../api.js';
 import '../../assets/scss/post/addpost.scss';
@@ -49,7 +48,6 @@ class AddPost extends Component {
     'fa fa-check': this.state.created,
     'fa fa-pencil-square-o': !this.state.created
     });
-    <span className="fa fa-check" aria-hidden="true"></span>
     return (
       <div className="add-post-container">
         <h3>Write something:</h3>
