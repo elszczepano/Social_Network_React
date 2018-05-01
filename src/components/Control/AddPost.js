@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
+import classNames from 'classnames';
 import API from '../../api.js';
 import '../../assets/scss/post/addpost.scss';
 
 class AddPost extends Component {
   constructor(props) {
     super(props);
-    this.state = {content: ""}
+    this.state = {content: "", created: false}
   }
 
   updateContent = (event) => {
@@ -26,6 +28,12 @@ class AddPost extends Component {
       {
         'headers': { 'Authorization': localStorage.getItem("token")}
       })
+      .then(() => {
+        this.setState({
+          created: true
+        })
+        setTimeout(window.location.reload(), 4000);
+      })
       .catch(error => {
         if(error.response) console.log(error.response['data']['message']);
         else console.log(error);
@@ -34,12 +42,20 @@ class AddPost extends Component {
   }
 
   render() {
+    const buttonClass = classNames({
+    'success-button': this.state.created
+    });
+    const iconClass = classNames({
+    'fa fa-check': this.state.created,
+    'fa fa-pencil-square-o': !this.state.created
+    });
+    <span className="fa fa-check" aria-hidden="true"></span>
     return (
       <div className="add-post-container">
         <h3>Write something:</h3>
         <textarea onChange={this.updateContent} rows="8" />
         <div>
-          <button onClick={this.addPost}><span className="fa fa-pencil-square-o" aria-hidden="true"></span> Post</button>
+          <button className={buttonClass} onClick={this.addPost} disabled={this.state.created}><span className={iconClass} aria-hidden="true"></span>{this.state.created ? ' Posted' : ' Post'}</button>
         </div>
       </div>
     );

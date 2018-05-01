@@ -20,11 +20,9 @@ class Result extends Component {
     {
       'headers': { 'Authorization': localStorage.getItem("token")}
     })
-    .then(
-      this.setState({
+    .then(this.setState({
       sent: true
-      })
-    )
+    }))
     .catch(error => {
       if(error.response) console.log(error.response['data']['message']);
       else console.log(error);
