@@ -18,6 +18,7 @@ class GroupPostContainer extends Component {
       .then(response => {
         response = response['data'];
         response = response.map(post => ({
+          postId: post.id,
           content: post.content,
           rating: post.rating,
           author: post.user.surname ? `${post.user.name} ${post.user.surname}` : post.user.name,

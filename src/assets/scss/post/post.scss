@@ -48,29 +48,34 @@
     .post-content {
       border-bottom: 1px solid $default-grey;
     }
-    .post-votes {
-      text-align: right;
-      margin-right: 1rem;
-      font-size: 1.2rem;
-      color: $primary-green;
-      font-weight: bold;
-    }
   }
-  footer {
+  .post-actions {
+    border-bottom: 1px solid $default-grey;
+    margin-bottom: 1rem;
+    padding: 1rem 0;
+    @include flex-space-between;
     span {
       color: $icon-grey;
       margin: 0 1rem;
       font-size: 1.2rem;
       cursor: pointer;
     }
-    .fa-plus:hover {
-      color: $primary-green;
-    }
-    .fa-minus:hover {
-      color: $primary-red;
-    }
-    .fa-commenting:hover {
-      color: $primary-color-darker;
+    div {
+      .fa-plus:hover {
+        color: $primary-green;
+      }
+      .fa-minus:hover {
+        color: $primary-red;
+      }
+      .fa-commenting:hover {
+        color: $primary-color-darker;
+      }
+      .post-votes {
+        margin-right: 1rem;
+        font-size: 1.2rem;
+        color: $primary-green;
+        font-weight: bold;
+      }
     }
   }
 }
