@@ -25,7 +25,7 @@ class DeleteUser extends Component {
       'headers': { 'Authorization': localStorage.getItem("token")}
     })
     .then(response => {
-      API.delete(`users/${this.props.user.id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
+      API.delete(`/users/${this.props.user.id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
       localStorage.removeItem('token');
       this.props.dispatch(signOut());
       this.props.dispatch(removeDetails());
