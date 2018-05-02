@@ -10,7 +10,6 @@
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
   box-shadow: $default-shadow;
-
   header {
     background-color: $primary-color-darker;
     color: #FFF;
@@ -26,9 +25,10 @@
     }
   }
   section {
-    max-height: 150px;
+    min-height: 150px;
     max-height: 250px;
     overflow-y: scroll;
+    background-color: #fff;
   }
 }
 .notification, .notification-read {
