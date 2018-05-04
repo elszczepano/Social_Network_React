@@ -7,3 +7,21 @@
   margin-bottom: 1rem;
   border-radius: 25px;
 }
+.add-comment {
+  width:100%;
+  margin-bottom: 1rem;
+  strong {
+    color: $icon-grey-hover;
+  }
+  div {
+    @include flex-center;
+    input {
+      margin: 0;
+      font-size: 1.1rem;
+      width: 100%;
+      border-radius: 3px;
+      min-height: 2rem;
+      max-height: 5rem;
+    }
+  }
+}

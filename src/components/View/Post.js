@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 import DropdownPost from '../Control/DropdownPost';
+import AddComment from '../Control/AddComment';
 import Comment from './Comment';
 import API from '../../api.js';
 import storageLink from '../../storageLink.js';
@@ -12,7 +13,7 @@ import '../../assets/scss/post/post.scss';
 class Post extends Component {
   constructor(props) {
     super(props);
-    this.state = {content: "", comments: [], ready: false}
+    this.state = {content: "", comments: [], ready: false, showAddComment: false}
   }
 
   componentWillMount() {
@@ -33,6 +34,12 @@ class Post extends Component {
     .catch(error => {
       if(error.response) console.log(error.response['data']['message']);
       else console.log(error);
+    });
+  }
+
+  handleAddCommentClick = () => {
+    this.setState({
+      showAddComment: true
     });
   }
 
@@ -78,13 +85,14 @@ class Post extends Component {
         <div>
           <span className="fa fa-plus" aria-hidden="true"></span>
           <span className="fa fa-minus" aria-hidden="true"></span>
-          <span className="fa fa-commenting" aria-hidden="true"></span>
+          <span onClick={this.handleAddCommentClick} className="fa fa-commenting" aria-hidden="true"></span>
         </div>
         <div>
           <span className="post-votes">{this.props.content.rating}</span>
         </div>
       </div>
       <div>
+      {this.state.showAddComment ? <AddComment postId={this.props.content.postId} /> : ""}
       {comments}
       </div>
       </div>
