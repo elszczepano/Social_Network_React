@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 import DropdownPost from '../Control/DropdownPost';
 import AddComment from '../Control/AddComment';
+import EditPost from '../Control/EditPost';
 import Comment from './Comment';
 import API from '../../api.js';
 import storageLink from '../../storageLink.js';
@@ -13,7 +14,7 @@ import '../../assets/scss/post/post.scss';
 class Post extends Component {
   constructor(props) {
     super(props);
-    this.state = {content: "", comments: [], ready: false, showAddComment: false}
+    this.state = {content: "", comments: [], ready: false, showAddComment: false , showEditPost: false}
   }
 
   componentWillMount() {
@@ -43,11 +44,17 @@ class Post extends Component {
     });
   }
 
+  handleEditPostClick = () => {
+    this.setState({
+      showEditPost: !this.state.showEditPost
+    });
+  }
+
   render () {
     const edit = this.props.content.authorId === this.props.user.id ? (
       <div className="dropdown-menu">
           <span className="fa fa-cog" onClick={() => this.refs.dropdown.toggleDropdown()}></span>
-          <DropdownPost ref="dropdown" />
+          <DropdownPost editPost={this.handleEditPostClick} ref="dropdown" />
       </div>
     ) : ("")
     const comments = this.state.ready ? (
@@ -79,7 +86,7 @@ class Post extends Component {
         {edit}
       </header>
       <div className="post-content-container">
-        <p className="post-content">{this.props.content.content}</p>
+        {this.state.showEditPost ? <EditPost content={this.props.content}/> : <p className="post-content">{this.props.content.content}</p>}
       </div>
       <div className="post-actions">
         <div>
