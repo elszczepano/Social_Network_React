@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Header';
-import Result from './Result';
+import Result from '../View/Result';
 import UserShortcut from '../View/UserShortcut';
 import API from '../../api.js';
 import { Redirect } from 'react-router';
