@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import classNames from 'classnames';
 import API from '../../api.js';
 import '../../assets/scss/post/edit.scss';
@@ -59,5 +58,8 @@ class EditPost extends Component {
   }
 }
 
+EditPost.propTypes = {
+  content: PropTypes.object.isRequired
+}
 
 export default EditPost;
