@@ -1,0 +1,63 @@
+@import "../variables";
+@import "../mixins";
+
+section {
+  .group-header {
+    border-bottom: 1px solid $primary-color-darker;
+    margin-bottom: 2rem;
+    h2 {
+      margin: 0;
+      font-weight: 300;
+      font-size: 3rem;
+    }
+  }
+  table {
+    margin-bottom: 3rem;
+    width: 100%;
+    border: 1px solid $default-grey;
+    thead, tbody {
+      display: grid;
+      tr {
+        padding: 1rem;
+        display: grid;
+        grid-template-columns: 70% 20% 10%;
+        .icon-cell {
+          @include flex-center;
+          .fa-times {
+            color: $primary-red;
+          }
+          .fa-times:hover {
+            color: $primary-red-light;
+          }
+          .fa-check {
+            color: $primary-green;
+          }
+          .fa-check:hover {
+            color: $primary-green-light;
+          }
+        }
+        td {
+          display: flex;
+          align-items: center;
+          select {
+            font-size: 1rem;
+            option {
+              padding: .2rem;
+              border-top: 1px solid red;
+            }
+          }
+        }
+      }
+      tr:nth-child(even) {
+        background-color: $default-grey;
+      }
+    }
+    tbody tr {
+      border-top: 1px solid $default-grey;
+      cursor: pointer;
+    }
+  }
+  div button {
+    float: right;
+  }
+}
