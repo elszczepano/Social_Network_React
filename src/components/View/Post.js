@@ -54,7 +54,7 @@ class Post extends Component {
     const edit = this.props.content.authorId === this.props.user.id ? (
       <div className="dropdown-menu">
           <span className="fa fa-cog" onClick={() => this.refs.dropdown.toggleDropdown()}></span>
-          <DropdownPost editPost={this.handleEditPostClick} ref="dropdown" />
+          <DropdownPost postId={this.props.content.postId} editPost={this.handleEditPostClick} ref="dropdown" />
       </div>
     ) : ("")
     const comments = this.state.ready ? (
