@@ -8,6 +8,7 @@ import Landing from './components/Containers/Landing';
 import NewsFeed from './components/Containers/NewsFeed';
 import CreateGroup from './components/Containers/CreateGroup';
 import Group from './components/Containers/Group';
+import GroupMembers from './components/Containers/GroupMembers';
 import EditGroup from './components/Containers/EditGroup';
 import MyAccount from './components/Containers/MyAccount';
 import User from './components/Containers/User';
@@ -23,6 +24,7 @@ class App extends Component {
           <Route exact path="/create" component={CreateGroup} />
           <Route exact path="/my-account" component={MyAccount} />
           <Route exact path="/group/:id" component={Group} />
+          <Route exact path="/members/:id" component={GroupMembers} />
           <Route exact path="/edit-group/:id" component={EditGroup} />
           <Route exact path="/user/:id" component={User} />
           <Route exact path="/search/:name" component={SearchResults} />

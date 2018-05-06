@@ -24,7 +24,10 @@ class GroupDetails extends Component {
         <h3>{this.props.details.name}</h3>
         <div>
           <h4>Description:</h4>
-          <Link to={`/edit-group/${this.props.details.id}`}><span className="fa fa-cog"></span></Link>
+          <div>
+            <Link to={`/edit-group/${this.props.details.id}`}><span className="fa fa-cog"></span></Link>
+            <Link to={`/members/${this.props.details.id}`}><span className="fa fa-users"></span></Link>
+          </div>
         </div>
         <p>{this.props.details.description ? this.props.details.description : "This group does not have description yet."}</p>
       </div>

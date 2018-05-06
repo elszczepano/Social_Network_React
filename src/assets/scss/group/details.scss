@@ -19,12 +19,16 @@
     h4 {
       margin: 1rem 0;
     }
-    span {
-      color: $icon-grey;
-    }
-    span:hover {
-      color: $icon-grey-hover;
-      cursor: pointer;
+    div {
+      span {
+        color: $icon-grey;
+        font-size: 1.4rem;
+        padding-left: .7rem;
+      }
+      span:hover {
+        color: $icon-grey-hover;
+        cursor: pointer;
+      }
     }
   }
   p {
