@@ -46,15 +46,17 @@ class GroupMembers extends Component {
   }
 
   componentWillMount() {
-    this.fetchMembers(this.props['match']['params']['id']);
-    this.fetchRequests(this.props['match']['params']['id']);
-    this.props.dispatch(setId(parseInt(this.props['match']['params']['id'], 10)));
+    const id = this.props['match']['params']['id']
+    this.fetchMembers(id);
+    this.fetchRequests(id);
+    this.props.dispatch(setId(parseInt(id, 10)));
   }
 
   componentWillReceiveProps(nextProps) {
-    this.fetchMembers(nextProps['match']['params']['id']);
-    this.fetchRequests(nextProps['match']['params']['id']);
-    this.props.dispatch(setId(parseInt(nextProps['match']['params']['id'], 10)));
+    const id = nextProps['match']['params']['id']
+    this.fetchMembers(id);
+    this.fetchRequests(id);
+    this.props.dispatch(setId(parseInt(id, 10)));
   }
 
   componentWillUnmount() {
@@ -62,6 +64,46 @@ class GroupMembers extends Component {
   }
 
   render() {
+    const members = this.state.ready ? (
+      <table>
+        <thead>
+          <tr>
+            <td>Member</td>
+            <td>Role</td>
+            <td className="icon-cell">Remove</td>
+          </tr>
+        </thead>
+        <tbody>
+        {
+          this.state.members.map((member, index) =>
+            <Member member={member} key={index}/>
+          )
+        }
+        </tbody>
+      </table>
+    ) : (
+      <LoadingSpinner />
+    )
+    const candidates = this.state.ready ? (
+      <table>
+        <thead>
+          <tr>
+            <td>User</td>
+            <td className="icon-cell">Accept</td>
+            <td className="icon-cell">Deny</td>
+          </tr>
+        </thead>
+        <tbody>
+        {
+          this.state.candidates.map((candidate, index) =>
+            <Candidate candidate={candidate} key={index}/>
+          )
+        }
+        </tbody>
+      </table>
+    ) : (
+      <LoadingSpinner />
+    )
     if(!this.props.loginStatus) return <Redirect to="/"/>
     return (
       <div>
@@ -73,42 +115,9 @@ class GroupMembers extends Component {
             <h2 className="text-marker">Group name</h2>
           </header>
             <h3>Join requests: </h3>
-            <table>
-              <thead>
-                <tr>
-                  <td>User</td>
-                  <td className="icon-cell">Accept</td>
-                  <td className="icon-cell">Deny</td>
-                </tr>
-              </thead>
-              <tbody>
-              {
-                this.state.candidates.map((candidate, index) =>
-                  <Candidate candidate={candidate} key={index}/>
-                )
-              }
-              </tbody>
-            </table>
+              {candidates}
             <h3>Members: </h3>
-            <table>
-              <thead>
-                <tr>
-                  <td>Member</td>
-                  <td>Role</td>
-                  <td className="icon-cell">Remove</td>
-                </tr>
-              </thead>
-              <tbody>
-              {
-                this.state.members.map((member, index) =>
-                  <Member member={member} key={index}/>
-                )
-              }
-              </tbody>
-            </table>
-            <div>
-              <button>save changes</button>
-            </div>
+              {members}
         </section>
       </div>
     </div>);

@@ -49,15 +49,12 @@ section {
         }
       }
       tr:nth-child(even) {
-        background-color: $default-grey;
+        background-color: #fff;
       }
     }
     tbody tr {
       border-top: 1px solid $default-grey;
       cursor: pointer;
     }
-  }
-  div button {
-    float: right;
   }
 }
