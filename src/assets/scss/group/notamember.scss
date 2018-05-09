@@ -1,0 +1,20 @@
+@import "../variables";
+@import "../mixins";
+
+.info-container {
+  padding: 5rem;
+  @include flex-center;
+  div {
+    .info {
+      font-size: 2rem;
+    }
+    .join-button {
+      display: flex;
+      @include flex-center;
+      padding: 5rem 0;
+      button {
+        transform: scale(2);
+      }
+    }
+  }
+}
