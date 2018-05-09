@@ -29,11 +29,13 @@ class Group extends Component {
   }
 
   componentWillMount() {
-    this.fetchGroupDetails(this.props['match']['params']['id']);
+    const id = this.props['match']['params']['id'];
+    this.fetchGroupDetails(id);
   }
 
   componentWillReceiveProps(nextProps) {
-    this.fetchGroupDetails(nextProps['match']['params']['id']);
+    const id = nextProps['details']['id'];
+    this.fetchGroupDetails(id);
   }
 
   render() {

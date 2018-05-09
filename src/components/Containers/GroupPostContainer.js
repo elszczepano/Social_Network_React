@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import Post from '../View/Post';
 import AddPost from '../Control/AddPost';
-import API from '../../api.js';
+import NotAMember from '../Control/NotAMember';
 import LoadingSpinner from '../View/LoadingSpinner';
+import API from '../../api.js';
+
 import { connect } from 'react-redux';
 import { setId, removeId } from '../../actions/currentGroup.actions';
 import PropTypes from 'prop-types';
@@ -10,10 +12,29 @@ import PropTypes from 'prop-types';
 class GroupPostContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {posts: [], ready: false};
+    this.state = {posts: [], ready: false, displayContent: false};
   }
 
-  fetchGroupPosts = (id) => {
+  fetchMembers = (id) => {
+    API.get(`/group/users/${id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
+    .then(response => {
+      response = response['data'];
+      response = response.map(item => item.id);
+      for(let index in response) {
+          if(response[index] === this.props.user.id) {
+            this.setState({
+              displayContent: true
+            });
+          }
+        }
+    })
+    .catch(error => {
+      if(error.response) console.log(error.response['data']['message']);
+      else console.log(error);
+    });
+  }
+
+  fetchGroupPosts = id => {
       API.get(`/group/posts/${id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
       .then(response => {
         response = response['data'];
@@ -39,15 +60,17 @@ class GroupPostContainer extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.fetchGroupPosts(nextProps['details']['id']);
-    this.props.dispatch(setId(nextProps['details']['id']));
+    const id = nextProps['details']['id'];
+    this.fetchGroupPosts(id);
+    this.fetchMembers(id);
+    this.props.dispatch(setId(id));
   }
 
   componentWillUnmount() {
     this.props.dispatch(removeId());
   }
   render () {
-    const content = this.state.ready ? (
+    const checkMembership = this.state.displayContent ? (
       <React.Fragment>
       <AddPost />
       <h1 className="text-marker">Group activity:</h1>
@@ -58,18 +81,29 @@ class GroupPostContainer extends Component {
       }
       </React.Fragment>
     ) : (
-      <LoadingSpinner />
+      <NotAMember />
     )
     return (
       <React.Fragment>
-        {content}
+        {checkMembership}
       </React.Fragment>
     );
   }
 }
 
 GroupPostContainer.propTypes = {
-  details: PropTypes.object.isRequired
+  groupId: PropTypes.number.isRequired,
+  details: PropTypes.object.isRequired,
+  loginStatus: PropTypes.bool.isRequired,
+  user: PropTypes.object.isRequired
 }
 
-export default connect()(GroupPostContainer);
+function mapStateToProps(state) {
+  return {
+    loginStatus: state.loginStatus,
+    groupId: state.currentGroup,
+    user: state.userDetails
+  }
+}
+
+export default connect(mapStateToProps)(GroupPostContainer);
