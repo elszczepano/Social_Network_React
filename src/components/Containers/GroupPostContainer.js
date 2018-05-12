@@ -3,12 +3,24 @@ import Post from '../View/Post';
 import AddPost from '../Control/AddPost';
 import API from '../../api.js';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
 import PropTypes from 'prop-types';
+import '../../assets/scss/post/post.scss';
 
 class GroupPostContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {posts: [], ready: false};
+    this.state = {posts: [], ready: false, users: [], deleted: false};
+  }
+
+  fetchUsers = id => {
+    API.get(`/group/users/${id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
+    .then(response => {
+      response = response['data'];
+      this.setState({
+        users: response
+      });
+    })
   }
 
   fetchGroupPosts = id => {
@@ -36,12 +48,32 @@ class GroupPostContainer extends Component {
     });
   }
 
+  leaveGroup = () => {
+    for(let index in this.state.users) {
+        if(this.state.users[index]['pivot']['user_id'] === this.props.user.id) {
+          API.delete(`/user-groups/${this.state.users[index]['pivot']['id']}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
+          .then(this.setState({
+            deleted: true
+          }))
+          .catch(error => {
+            if(error.response) console.log(error.response['data']['message']);
+            else console.log(error);
+          });
+        }
+      }
+  }
+
   componentWillMount() {
     this.fetchGroupPosts(this.props.groupId);
+    this.fetchUsers(this.props.groupId);
   }
   render () {
+    if(this.state.deleted) return <Redirect to={`/feed`}/>
     return (
       <React.Fragment>
+        <div className="leave-button">
+          <button onClick={this.leaveGroup} className="warning-button">Leave <span className="fa fa-sign-out" aria-hidden="true"></span></button>
+        </div>
         <AddPost />
         <h1 className="text-marker">Group activity:</h1>
         {
@@ -57,13 +89,15 @@ class GroupPostContainer extends Component {
 function mapStateToProps(state) {
   return {
     loginStatus: state.loginStatus,
-    groupId: state.currentGroup
+    groupId: state.currentGroup,
+    user: state.userDetails
   }
 }
 
 GroupPostContainer.propTypes = {
   groupId: PropTypes.number.isRequired,
   details: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
   loginStatus: PropTypes.bool.isRequired
 }
 

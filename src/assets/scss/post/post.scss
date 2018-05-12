@@ -1,6 +1,12 @@
 @import "../variables";
 @import "../mixins";
 
+
+.leave-button {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: flex-end;
+}
 .post-container {
   background-color: #fff;
   border-radius: 10px;
