@@ -14,7 +14,7 @@ import '../../assets/scss/group/members.scss';
 class GroupMembers extends Component {
   constructor(props) {
     super(props);
-    this.state = {groupName: '', members: [], candidates: [] , ready: false};
+    this.state = {groupName: '', members: [], candidates: [] , ready: false, kickUser: false};
   }
   fetchMembers = (id) => {
     API.get(`/group/users/${id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
@@ -46,7 +46,25 @@ class GroupMembers extends Component {
   }
 
   componentWillMount() {
-    const id = this.props['match']['params']['id']
+    const id = this.props['match']['params']['id'];
+    API.get(`/group/users/${id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
+    .then(response => {
+      response = response['data'];
+      for(let index in response) {
+          if(response[index]['role'][0]['name'] === "Admin") {
+            this.setState({
+              adminId: response[index]['id']
+            });
+          }
+        }
+    })
+    .then(() => {
+      if(this.state.adminId !== this.props.user.id) {
+        this.setState({
+          kickUser: true
+        });
+      }
+    })
     this.fetchMembers(id);
     this.fetchRequests(id);
     this.props.dispatch(setId(parseInt(id, 10)));
@@ -105,6 +123,7 @@ class GroupMembers extends Component {
       <LoadingSpinner />
     )
     if(!this.props.loginStatus) return <Redirect to="/"/>
+    if(this.state.kickUser) return <Redirect to={`/feed`}/>
     return (
       <div>
       <Header/>
@@ -120,18 +139,21 @@ class GroupMembers extends Component {
               {members}
         </section>
       </div>
-    </div>);
+    </div>
+    );
   }
 }
 
 function mapStateToProps(state) {
   return {
-    loginStatus: state.loginStatus
+    loginStatus: state.loginStatus,
+    user: state.userDetails
   }
 }
 
 GroupMembers.propTypes = {
-  loginStatus: PropTypes.bool.isRequired
+  loginStatus: PropTypes.bool.isRequired,
+  user: PropTypes.object.isRequired
 }
 
 export default connect(mapStateToProps)(GroupMembers);

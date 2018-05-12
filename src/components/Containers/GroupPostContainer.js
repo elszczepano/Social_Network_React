@@ -54,17 +54,17 @@ class GroupPostContainer extends Component {
   }
 }
 
-GroupPostContainer.propTypes = {
-  groupId: PropTypes.number.isRequired,
-  details: PropTypes.object.isRequired,
-  loginStatus: PropTypes.bool.isRequired
-}
-
 function mapStateToProps(state) {
   return {
     loginStatus: state.loginStatus,
     groupId: state.currentGroup
   }
+}
+
+GroupPostContainer.propTypes = {
+  groupId: PropTypes.number.isRequired,
+  details: PropTypes.object.isRequired,
+  loginStatus: PropTypes.bool.isRequired
 }
 
 export default connect(mapStateToProps)(GroupPostContainer);

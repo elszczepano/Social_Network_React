@@ -2,31 +2,53 @@ import React, { Component } from 'react';
 import Header from '../Containers/Header';
 import { Redirect } from 'react-router';
 import API from '../../api.js';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import '../../assets/scss/group/forms.scss';
 
 class EditGroup extends Component {
   constructor(props) {
     super(props);
-    this.state = {icons: [], errMessage: [], updated: false, groupId: this.props['match']['params']['id']};
+    this.state = {adminId: 0, icons: [], errMessage: [], updated: false, groupId: this.props['match']['params']['id'], kickUser: false};
     this.formData = new FormData();
   }
 
   componentWillMount() {
-    API.get('/icons', { 'headers': { 'Authorization': localStorage.getItem("token")} })
+    API.get(`/group/users/${this.state.groupId}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
     .then(response => {
       response = response['data'];
-      response = response.map(icon => ({
-        id: icon.id,
-        name: icon.name
-      }));
-      this.setState({
-        icons: response
-      })
+      for(let index in response) {
+          if(response[index]['role'][0]['name'] === "Admin") {
+            this.setState({
+              adminId: response[index]['id']
+            });
+          }
+        }
     })
-    .catch(error => {
-      if(error.response) console.log(error.response['data']['message']);
-      else console.log(error);
-    });
+    .then(() => {
+      if(this.state.adminId !== this.props.user.id) {
+        this.setState({
+          kickUser: true
+        });
+      }
+    })
+    .then(() => {
+      API.get('/icons', { 'headers': { 'Authorization': localStorage.getItem("token")} })
+      .then(response => {
+        response = response['data'];
+        response = response.map(icon => ({
+          id: icon.id,
+          name: icon.name
+        }));
+        this.setState({
+          icons: response
+        })
+      })
+      .catch(error => {
+        if(error.response) console.log(error.response['data']['message']);
+        else console.log(error);
+      });
+    })
   }
 
   handleChange = (event) => {
@@ -75,6 +97,7 @@ class EditGroup extends Component {
 
   render() {
     if(this.state.updated) return <Redirect to={`/group/${this.state.groupId}`}/>
+    if(this.state.kickUser) return <Redirect to={`/feed`}/>
     return (
       <React.Fragment>
         <Header />
@@ -116,4 +139,14 @@ class EditGroup extends Component {
   }
 }
 
-export default EditGroup;
+function mapStateToProps(state) {
+  return {
+    user: state.userDetails
+  }
+}
+
+ EditGroup.propTypes = {
+  user: PropTypes.object.isRequired
+}
+
+export default connect(mapStateToProps)(EditGroup);
