@@ -12,7 +12,7 @@ class DeleteUser extends Component {
     this.state = {leaveReason: ""};
   }
 
-  updateLeaveReason = (event) => {
+  updateLeaveReason = event => {
     this.setState({leaveReason: event.target.value});
   }
 

@@ -50,7 +50,7 @@ class NotificationBox extends Component {
     }));
   }
 
-  handleClickOutside = (event) => {
+  handleClickOutside = event => {
     if (this.wrapperRef && !this.wrapperRef.contains(event.target) && this.state.isOpened) {
       this.toggleNotifcation();
     }

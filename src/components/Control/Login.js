@@ -11,7 +11,7 @@ class Login extends Component {
     this.state = {email: "", password: "", errMessage: ""};
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({[event.target.id]: event.target.value});
   }
 
@@ -20,7 +20,7 @@ class Login extends Component {
     else this.refs.password.type = 'password'
   }
 
-  handleLogin = (event) => {
+  handleLogin = event => {
     event.preventDefault();
     this.setState({errMessage: ""});
     if(!this.state.email||!this.state.password) {

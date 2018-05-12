@@ -16,7 +16,7 @@ class MyAccount extends Component {
     this.formData = new FormData();
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.formData.append([event.target.id], event.target.value);
   }
 
@@ -25,11 +25,11 @@ class MyAccount extends Component {
     else this.refs.password.type = 'password'
   }
 
-  getAvatar = (event) => {
+  getAvatar = event => {
     this.formData.append('avatar', event.target.files[0]);
   }
 
-  updateUserDetails = (event) => {
+  updateUserDetails = event => {
     event.preventDefault();
     let messages = [];
     this.formData.append('_method', 'PUT');
@@ -68,7 +68,7 @@ class MyAccount extends Component {
     });
   }
 
-  handleDeleteClick = (event) => {
+  handleDeleteClick = event => {
     event.preventDefault();
     this.setState({
       showDelete: !this.state.showDelete

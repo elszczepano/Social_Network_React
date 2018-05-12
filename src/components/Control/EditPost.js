@@ -10,7 +10,7 @@ class EditPost extends Component {
     this.state = {content: this.props.content.content, updated: false}
   }
 
-  updateContent = (event) => {
+  updateContent = event => {
     this.setState({
       content: event.target.value
     });

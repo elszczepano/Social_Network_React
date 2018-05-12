@@ -9,11 +9,11 @@ class AddComment extends Component {
     this.state = {content: ''}
   }
 
-  updateContent = (event) => {
+  updateContent = event => {
     this.setState({content: event.target.value});
   }
-  
-  handleSubmit = (event) => {
+
+  handleSubmit = event => {
     if (event.key === 'Enter' && this.state.content !== '')  this.addComment()
   }
 

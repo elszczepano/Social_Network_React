@@ -16,7 +16,7 @@ class DropdownPost extends Component {
     document.removeEventListener('mousedown', this.handleClickOutside);
   }
 
-  setWrapperRef = (node) => {
+  setWrapperRef = node => {
     this.wrapperRef = node;
   }
 
@@ -26,7 +26,7 @@ class DropdownPost extends Component {
     }));
   }
 
-  handleClickOutside = (event) => {
+  handleClickOutside = event => {
     if (this.wrapperRef && !this.wrapperRef.contains(event.target) && this.state.isOpened) {
       this.toggleDropdown();
     }

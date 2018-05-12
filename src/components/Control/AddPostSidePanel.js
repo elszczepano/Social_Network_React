@@ -28,13 +28,12 @@ class AddPostSidePanel extends Component {
     });
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({[event.target.id]: event.target.value});
   }
 
-  addPost = (event) => {
+  addPost = event => {
     event.preventDefault();
-
     if(this.state.content&&this.state.group) {
       API.post('/posts',
       {

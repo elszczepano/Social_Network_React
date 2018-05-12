@@ -31,15 +31,15 @@ class CreateGroup extends Component {
     });
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.formData.append([event.target.id], event.target.value);
   }
 
-  getBackgroundImage = (event) => {
+  getBackgroundImage = event => {
     this.formData.append('background_image', event.target.files[0]);
   }
 
-  createGroup = (event) => {
+  createGroup = event => {
     event.preventDefault();
     let messages = [];
     this.setState({

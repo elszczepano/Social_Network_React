@@ -20,7 +20,7 @@ class User extends Component {
     this.fetchUserDetails(this.props['match']['params']['id']);
   }
 
-  fetchUserDetails = (id) => {
+  fetchUserDetails = id => {
     API.get(`/users/${id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
     .then(response => {
       response = response['data'];

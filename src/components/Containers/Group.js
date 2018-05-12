@@ -16,7 +16,7 @@ class Group extends Component {
     this.state = {groupDetails: {}, displayContent: false};
   }
 
-  fetchGroupDetails = (id) => {
+  fetchGroupDetails = id => {
     API.get(`/groups/${id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
     .then(response => {
       response = response['data'];
@@ -30,7 +30,7 @@ class Group extends Component {
     });
   }
 
-  fetchMembers = (id) => {
+  fetchMembers = id => {
     API.get(`/group/users/${id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
     .then(response => {
       response = response['data'];

@@ -51,15 +51,15 @@ class EditGroup extends Component {
     })
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.formData.append([event.target.id], event.target.value);
   }
 
-  getBackgroundImage = (event) => {
+  getBackgroundImage = event => {
     this.formData.append('background_image', event.target.files[0]);
   }
 
-  updateGroupDetails = (event) => {
+  updateGroupDetails = event => {
     event.preventDefault();
     let messages = [];
     this.formData.append('_method', 'PUT');

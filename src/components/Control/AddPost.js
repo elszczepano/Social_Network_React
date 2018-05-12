@@ -11,7 +11,7 @@ class AddPost extends Component {
     this.state = {content: "", created: false}
   }
 
-  updateContent = (event) => {
+  updateContent = event => {
     this.setState({
       content: event.target.value
     });

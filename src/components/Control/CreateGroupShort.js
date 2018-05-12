@@ -29,11 +29,11 @@ class CreateGroupShort extends Component {
     });
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({[event.target.id]: event.target.value});
   }
 
-  createGroup = (event) => {
+  createGroup = event => {
     event.preventDefault();
     if(this.state.name) {
       API.post('/groups',

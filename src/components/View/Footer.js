@@ -5,7 +5,7 @@ class Footer extends Component {
   render() {
     return (
       <div className="main-footer">
-      <p>Groupeé <sup>&copy;</sup> 2017 - { (new Date()).getFullYear() }</p>
+      <p>Groupeé <sup>&copy;</sup> 2017 - {(new Date()).getFullYear()}</p>
       <ul>
         <li><a href="">About</a></li>
         <li><a href="">FAQ</a></li>

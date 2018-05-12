@@ -16,7 +16,7 @@ class GroupMembers extends Component {
     super(props);
     this.state = {groupName: '', members: [], candidates: [] , ready: false, kickUser: false};
   }
-  fetchMembers = (id) => {
+  fetchMembers = id => {
     API.get(`/group/users/${id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
     .then(response => {
       response = response['data'];
@@ -30,7 +30,7 @@ class GroupMembers extends Component {
     });
   }
 
-  fetchRequests = (id) => {
+  fetchRequests = id => {
     API.get(`/group/requests/${id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
     .then(response => {
       response = response['data'];

@@ -14,7 +14,7 @@ class UserPanel extends Component {
     this.state = {searchKey: "", searching: false}
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({[event.target.id]: event.target.value});
   }
 

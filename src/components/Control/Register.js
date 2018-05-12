@@ -10,7 +10,7 @@ class Register extends Component {
     this.state = { errMessage: [], terms: false, registered: false, name: "", email: "", password: "", confirmPassword: ""};
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({[event.target.id]: event.target.value});
   }
 
@@ -18,7 +18,7 @@ class Register extends Component {
     this.setState({terms: !this.state.terms});
   }
 
-  handleRegister = (event) => {
+  handleRegister = event => {
 
     event.preventDefault();
     let messages = [];
