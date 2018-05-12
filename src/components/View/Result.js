@@ -9,7 +9,7 @@ import '../../assets/scss/group/search.scss';
 class Result extends Component {
   constructor(props) {
     super(props);
-    this.state = {sent: false}
+    this.state = {created: false}
   }
   createNewRequest = () => {
     API.post('/requests',
@@ -21,7 +21,7 @@ class Result extends Component {
       'headers': { 'Authorization': localStorage.getItem("token")}
     })
     .then(this.setState({
-      sent: true
+      created: true
     }))
     .catch(error => {
       if(error.response) console.log(error.response['data']['message']);
@@ -31,12 +31,12 @@ class Result extends Component {
 
   render() {
     const buttonClass = classNames({
-    'success-button': this.state.sent
+    'success-button': this.state.created
     });
     return (
       <li className="result">
         <Link to={`/group/${this.props.group.id}`}>{this.props.group.name}</Link>
-        <button className={buttonClass} onClick={this.createNewRequest} disabled={this.state.sent}>{this.state.sent ? 'Joined' : 'Join'}</button>
+        <button className={buttonClass} onClick={this.createNewRequest} disabled={this.state.created}>{this.state.created ? 'Joined' : 'Join'}</button>
       </li>
     )
   }
