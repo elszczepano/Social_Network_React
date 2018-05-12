@@ -68,7 +68,8 @@ function mapStateToProps(state) {
 }
 
 AddPost.propTypes = {
-  id: PropTypes.number.isRequired
+  id: PropTypes.number.isRequired,
+  user: PropTypes.object.isRequired
 }
 
 export default connect(mapStateToProps)(AddPost);

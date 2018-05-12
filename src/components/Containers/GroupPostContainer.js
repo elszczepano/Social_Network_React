@@ -1,37 +1,14 @@
 import React, { Component } from 'react';
 import Post from '../View/Post';
 import AddPost from '../Control/AddPost';
-import NotAMember from '../Control/NotAMember';
-import LoadingSpinner from '../View/LoadingSpinner';
 import API from '../../api.js';
-
 import { connect } from 'react-redux';
-import { setId, removeId } from '../../actions/currentGroup.actions';
 import PropTypes from 'prop-types';
 
 class GroupPostContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {posts: [], ready: false, displayContent: false};
-  }
-
-  fetchMembers = (id) => {
-    API.get(`/group/users/${id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
-    .then(response => {
-      response = response['data'];
-      response = response.map(item => item.id);
-      for(let index in response) {
-          if(response[index] === this.props.user.id) {
-            this.setState({
-              displayContent: true
-            });
-          }
-        }
-    })
-    .catch(error => {
-      if(error.response) console.log(error.response['data']['message']);
-      else console.log(error);
-    });
+    this.state = {posts: [], ready: false};
   }
 
   fetchGroupPosts = id => {
@@ -59,33 +36,19 @@ class GroupPostContainer extends Component {
     });
   }
 
-  componentWillReceiveProps(nextProps) {
-    const id = nextProps['details']['id'];
-    this.fetchGroupPosts(id);
-    this.fetchMembers(id);
-    this.props.dispatch(setId(id));
-  }
-
-  componentWillUnmount() {
-    this.props.dispatch(removeId());
+  componentWillMount() {
+    this.fetchGroupPosts(this.props.groupId);
   }
   render () {
-    const checkMembership = this.state.displayContent ? (
-      <React.Fragment>
-      <AddPost />
-      <h1 className="text-marker">Group activity:</h1>
-      {
-        this.state.posts.map((post, index) =>
-          <Post content={post} key={index}/>
-        )
-      }
-      </React.Fragment>
-    ) : (
-      <NotAMember />
-    )
     return (
       <React.Fragment>
-        {checkMembership}
+        <AddPost />
+        <h1 className="text-marker">Group activity:</h1>
+        {
+          this.state.posts.map((post, index) =>
+            <Post content={post} key={index}/>
+          )
+        }
       </React.Fragment>
     );
   }
@@ -94,15 +57,13 @@ class GroupPostContainer extends Component {
 GroupPostContainer.propTypes = {
   groupId: PropTypes.number.isRequired,
   details: PropTypes.object.isRequired,
-  loginStatus: PropTypes.bool.isRequired,
-  user: PropTypes.object.isRequired
+  loginStatus: PropTypes.bool.isRequired
 }
 
 function mapStateToProps(state) {
   return {
     loginStatus: state.loginStatus,
-    groupId: state.currentGroup,
-    user: state.userDetails
+    groupId: state.currentGroup
   }
 }
 

@@ -3,15 +3,17 @@ import Header from './Header';
 import API from '../../api.js';
 import UserShortcut from '../View/UserShortcut';
 import GroupDetails from '../View/GroupDetails';
+import NotAMember from '../Control/NotAMember';
 import GroupPostContainer from './GroupPostContainer';
 import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
+import { setId, removeId } from '../../actions/currentGroup.actions';
 import PropTypes from 'prop-types';
 
 class Group extends Component {
   constructor(props) {
     super(props);
-    this.state = {groupDetails: {}};
+    this.state = {groupDetails: {}, displayContent: false};
   }
 
   fetchGroupDetails = (id) => {
@@ -28,14 +30,41 @@ class Group extends Component {
     });
   }
 
+  fetchMembers = (id) => {
+    API.get(`/group/users/${id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
+    .then(response => {
+      response = response['data'];
+      response = response.map(item => item.id);
+      for(let index in response) {
+          if(response[index] === this.props.user.id) {
+            this.setState({
+              displayContent: true
+            });
+          }
+        }
+    })
+    .catch(error => {
+      if(error.response) console.log(error.response['data']['message']);
+      else console.log(error);
+    });
+  }
+
   componentWillMount() {
-    const id = this.props['match']['params']['id'];
+    const id = parseInt(this.props['match']['params']['id'], 10);
     this.fetchGroupDetails(id);
+    this.fetchMembers(id);
+    this.props.dispatch(setId(id));
   }
 
   componentWillReceiveProps(nextProps) {
-    const id = nextProps['details']['id'];
+    const id = parseInt(nextProps['match']['params']['id'], 10);
     this.fetchGroupDetails(id);
+    this.fetchMembers(id);
+    this.props.dispatch(setId(id));
+  }
+
+  componentWillUnmount() {
+    this.props.dispatch(removeId());
   }
 
   render() {
@@ -47,7 +76,7 @@ class Group extends Component {
         <UserShortcut />
         <section>
           <GroupDetails details={this.state.groupDetails} />
-          <GroupPostContainer details={this.state.groupDetails} />
+          {this.state.displayContent ? <GroupPostContainer details={this.state.groupDetails} /> : <NotAMember />}
         </section>
       </div>
       </React.Fragment>
@@ -57,12 +86,14 @@ class Group extends Component {
 
 function mapStateToProps(state) {
   return {
-    loginStatus: state.loginStatus
+    loginStatus: state.loginStatus,
+    user: state.userDetails
   }
 }
 
 Group.propTypes = {
-  loginStatus: PropTypes.bool.isRequired
+  loginStatus: PropTypes.bool.isRequired,
+  user: PropTypes.object.isRequired
 }
 
 export default connect(mapStateToProps)(Group);
