@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router';
+import { connect } from 'react-redux';
 import Header from './Header';
 import Result from '../View/Result';
 import UserShortcut from '../View/UserShortcut';
 import API from '../../api.js';
-import { Redirect } from 'react-router';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import '../../assets/scss/group/searchresults.scss';
 
@@ -18,9 +18,7 @@ class SearchResults extends Component {
     .then(response => {
       response = response['data'];
       response = response.map(notification => notification);
-      this.setState({
-        groups: response
-      });
+      this.setState({groups: response});
     })
     .catch(error => {
       if(error.response) console.log(error.response['data']['message']);

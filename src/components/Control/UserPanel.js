@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import NotificationBox from '../Containers/NotificationBox';
 import API from '../../api.js';
 import { connect } from 'react-redux';
@@ -28,7 +27,7 @@ class UserPanel extends Component {
     this.props.dispatch(signOut());
     this.props.dispatch(removeDetails());
   }
-
+  
   render() {
     return (
         <div className="user-panel">
@@ -45,10 +44,6 @@ class UserPanel extends Component {
         </div>
     );
   }
-}
-
-UserPanel.propTypes = {
-  logout: PropTypes.func
 }
 
 export default connect()(UserPanel);

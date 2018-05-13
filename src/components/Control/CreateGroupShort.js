@@ -19,9 +19,7 @@ class CreateGroupShort extends Component {
         id: icon.id,
         name: icon.name
       }));
-      this.setState({
-        icons: response
-      })
+      this.setState({icons: response});
     })
     .catch(error => {
       if(error.response) console.log(error.response['data']['message']);
@@ -58,7 +56,7 @@ class CreateGroupShort extends Component {
         this.setState({
           created: true,
           redirectAfterCreateId: groupId
-        })
+        });
       })
       .catch(error => {
         if(error.response) console.log(error.response['data']['message']);

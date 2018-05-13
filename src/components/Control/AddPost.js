@@ -12,9 +12,7 @@ class AddPost extends Component {
   }
 
   updateContent = event => {
-    this.setState({
-      content: event.target.value
-    });
+    this.setState({content: event.target.value});
   }
   addPost = () => {
     if(this.state.content) {
@@ -28,9 +26,7 @@ class AddPost extends Component {
         'headers': { 'Authorization': localStorage.getItem("token")}
       })
       .then(() => {
-        this.setState({
-          created: true
-        })
+        this.setState({created: true});
         setTimeout(window.location.reload(), 4000);
       })
       .catch(error => {

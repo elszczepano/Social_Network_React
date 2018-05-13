@@ -11,9 +11,7 @@ class Member extends Component {
 
   removeUserFromGroup = () => {
     API.delete(`/user-groups/${this.props.member.pivot.id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
-    .then(this.setState({
-      deleted: true
-    }))
+    .then(this.setState({deleted: true}))
     .catch(error => {
       if(error.response) console.log(error.response['data']['message']);
       else console.log(error);

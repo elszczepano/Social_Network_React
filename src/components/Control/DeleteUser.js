@@ -34,7 +34,6 @@ class DeleteUser extends Component {
       if(error.response) console.log(error.response['data']['message']);
       else console.log(error);
     });
-
   }
 
   render() {

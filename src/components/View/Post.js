@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import DropdownPost from '../Control/DropdownPost';
 import AddComment from '../Control/AddComment';
 import EditPost from '../Control/EditPost';
 import Comment from './Comment';
-import API from '../../api.js';
 import storageLink from '../../storageLink.js';
 import LoadingSpinner from './LoadingSpinner';
+import API from '../../api.js';
 import '../../assets/scss/post/post.scss';
 
 class Post extends Component {
@@ -39,15 +39,11 @@ class Post extends Component {
   }
 
   handleAddCommentClick = () => {
-    this.setState({
-      showAddComment: true
-    });
+    this.setState({showAddComment: true});
   }
 
   handleEditPostClick = () => {
-    this.setState({
-      showEditPost: !this.state.showEditPost
-    });
+    this.setState({showEditPost: !this.state.showEditPost});
   }
 
   render () {

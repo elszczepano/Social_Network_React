@@ -19,7 +19,6 @@ class Register extends Component {
   }
 
   handleRegister = event => {
-
     event.preventDefault();
     let messages = [];
 
@@ -118,7 +117,7 @@ class Register extends Component {
 }
 
 Register.propTypes = {
-  registerVisibility: PropTypes.func
+  registerVisibility: PropTypes.func.isRequired
 }
 
 export default Register;

@@ -14,7 +14,7 @@ class AddComment extends Component {
   }
 
   handleSubmit = event => {
-    if (event.key === 'Enter' && this.state.content !== '')  this.addComment()
+    if(event.key === 'Enter' && this.state.content !== '')  this.addComment()
   }
 
   addComment = () => {

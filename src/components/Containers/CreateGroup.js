@@ -21,9 +21,7 @@ class CreateGroup extends Component {
         id: icon.id,
         name: icon.name
       }));
-      this.setState({
-        icons: response
-      })
+      this.setState({icons: response});
     })
     .catch(error => {
       if(error.response) console.log(error.response['data']['message']);

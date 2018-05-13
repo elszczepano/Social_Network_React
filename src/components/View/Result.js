@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import API from '../../api.js';
 import '../../assets/scss/group/searchresults.scss';
@@ -20,9 +20,7 @@ class Result extends Component {
     {
       'headers': { 'Authorization': localStorage.getItem("token")}
     })
-    .then(this.setState({
-      created: true
-    }))
+    .then(this.setState({created: true}))
     .catch(error => {
       if(error.response) console.log(error.response['data']['message']);
       else console.log(error);
@@ -42,15 +40,15 @@ class Result extends Component {
   }
 }
 
-Result.propTypes = {
-  group: PropTypes.object.isRequired,
-  user: PropTypes.object.isRequired
-}
-
 function mapStateToProps(state) {
   return {
     user: state.userDetails,
   }
+}
+
+Result.propTypes = {
+  group: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired
 }
 
 export default connect(mapStateToProps)(Result);

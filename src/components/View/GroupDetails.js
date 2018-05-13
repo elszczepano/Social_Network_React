@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom';
 import storageLink from '../../storageLink.js';
 import LoadingSpinner from './LoadingSpinner';
 import '../../assets/scss/group/details.scss';
@@ -12,9 +12,7 @@ class GroupDetails extends Component {
   }
 
   componentWillReceiveProps() {
-    this.setState({
-      ready: true
-    })
+    this.setState({ready: true})
   }
   render () {
     const content = this.state.ready ? (

@@ -35,9 +35,7 @@ class DropdownPost extends Component {
   deletePost = () => {
     API.delete(`/posts/${this.props.postId}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
     .then(() => {
-      this.setState({
-        postDeleted: true
-      })
+      this.setState({postDeleted: true});
       setTimeout(window.location.reload(), 4000);
     })
     .catch(error => {

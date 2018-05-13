@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { signOut } from '../../actions/login.actions';
 import { removeDetails } from '../../actions/userDetails.actions';
 import { connect } from 'react-redux';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import API from '../../api.js';
+import PropTypes from 'prop-types';
 import LoadingSpinner from './LoadingSpinner';
 import storageLink from '../../storageLink.js';
 import '../../assets/scss/user/usershortcut.scss';
@@ -67,7 +67,7 @@ class UserShortcut extends Component {
     )
     return (
       <aside className="user-shortcuts">
-      {content}
+        {content}
       </aside>
     );
   }

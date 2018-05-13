@@ -19,17 +19,13 @@ class EditGroup extends Component {
       response = response['data'];
       for(let index in response) {
           if(response[index]['role'][0]['name'] === "Admin") {
-            this.setState({
-              adminId: response[index]['id']
-            });
+            this.setState({adminId: response[index]['id']});
           }
         }
     })
     .then(() => {
       if(this.state.adminId !== this.props.user.id) {
-        this.setState({
-          kickUser: true
-        });
+        this.setState({kickUser: true});
       }
     })
     .then(() => {
@@ -40,9 +36,7 @@ class EditGroup extends Component {
           id: icon.id,
           name: icon.name
         }));
-        this.setState({
-          icons: response
-        })
+        this.setState({icons: response});
       })
       .catch(error => {
         if(error.response) console.log(error.response['data']['message']);
@@ -85,9 +79,7 @@ class EditGroup extends Component {
         this.setState({errMessage: messages});
         return;
       }
-      this.setState({
-        updated: true
-      });
+      this.setState({updated: true});
     })
     .catch(error => {
       if(error.response) console.log(error.response['data']['message']);

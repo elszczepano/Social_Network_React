@@ -1,4 +1,4 @@
-export const setId = (groupId) => {
+export const setId = groupId => {
   return {
     type: 'SET_ID',
     groupId

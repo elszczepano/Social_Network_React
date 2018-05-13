@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
 import Post from '../View/Post';
 import AddPost from '../Control/AddPost';
 import API from '../../api.js';
-import { connect } from 'react-redux';
-import { Redirect } from 'react-router';
 import PropTypes from 'prop-types';
 import '../../assets/scss/group/details.scss';
 
@@ -17,9 +17,7 @@ class GroupPostContainer extends Component {
     API.get(`/group/users/${id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
     .then(response => {
       response = response['data'];
-      this.setState({
-        users: response
-      });
+      this.setState({users: response});
     })
   }
 
@@ -52,9 +50,7 @@ class GroupPostContainer extends Component {
     for(let index in this.state.users) {
         if(this.state.users[index]['pivot']['user_id'] === this.props.user.id) {
           API.delete(`/user-groups/${this.state.users[index]['pivot']['id']}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
-          .then(this.setState({
-            deleted: true
-          }))
+          .then(this.setState({deleted: true}))
           .catch(error => {
             if(error.response) console.log(error.response['data']['message']);
             else console.log(error);

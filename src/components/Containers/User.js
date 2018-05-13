@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Header from './Header';
 import API from '../../api.js';
 import storageLink from '../../storageLink.js';
-import {Link} from 'react-router-dom';
 import UserShortcut from '../View/UserShortcut';
 import LoadingSpinner from '../View/LoadingSpinner';
 import '../../assets/scss/user/user.scss';
@@ -24,9 +24,7 @@ class User extends Component {
     API.get(`/users/${id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
     .then(response => {
       response = response['data'];
-      this.setState({
-        user: response
-      })
+      this.setState({user: response});
     })
     .then(() => {
       API.get(`/user/groups/${this.state.user.id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
@@ -43,11 +41,10 @@ class User extends Component {
         })
       })
     })
-  .catch(error => {
-    if(error.response) console.log(error.response['data']['message']);
-    else console.log(error);
-  });
-
+    .catch(error => {
+      if(error.response) console.log(error.response['data']['message']);
+      else console.log(error);
+    });
   }
   render() {
     const content = this.state.ready ? (

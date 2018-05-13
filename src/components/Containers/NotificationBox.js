@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Notification from '../View/Notification';
 import LoadingSpinner from '../View/LoadingSpinner';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import API from '../../api.js';
 import '../../assets/scss/user/notification.scss';
 
@@ -40,14 +40,12 @@ class NotificationBox extends Component {
       });
   }
 
-  setWrapperRef = (node) => {
+  setWrapperRef = node => {
     this.wrapperRef = node;
   }
 
   toggleNotifcation = () => {
-    this.setState(prevState => ({
-      isOpened: !this.state.isOpened
-    }));
+    this.setState({isOpened: !this.state.isOpened});
   }
 
   handleClickOutside = event => {

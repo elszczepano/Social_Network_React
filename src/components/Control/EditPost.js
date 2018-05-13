@@ -11,9 +11,7 @@ class EditPost extends Component {
   }
 
   updateContent = event => {
-    this.setState({
-      content: event.target.value
-    });
+    this.setState({content: event.target.value});
   }
 
   updatePost = () => {
@@ -26,9 +24,7 @@ class EditPost extends Component {
       'headers': { 'Authorization': localStorage.getItem("token")}
     })
     .then(() => {
-      this.setState({
-        updated: true
-      })
+      this.setState({updated: true});
       setTimeout(window.location.reload(), 4000);
     })
     .catch(error => {

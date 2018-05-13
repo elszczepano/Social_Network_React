@@ -20,9 +20,7 @@ class Group extends Component {
     API.get(`/groups/${id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
     .then(response => {
       response = response['data'];
-      this.setState({
-        groupDetails: response
-      });
+      this.setState({groupDetails: response});
     })
     .catch(error => {
       if(error.response) console.log(error.response['data']['message']);
@@ -37,9 +35,7 @@ class Group extends Component {
       response = response.map(item => item.id);
       for(let index in response) {
           if(response[index] === this.props.user.id) {
-            this.setState({
-              displayContent: true
-            });
+            this.setState({displayContent: true});
           }
         }
     })

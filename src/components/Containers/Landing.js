@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Footer from '../View/Footer';
-import Register from '../Control/Register';
-import Header from './Header';
 import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Footer from '../View/Footer';
+import Register from '../Control/Register';
+import Header from './Header';
 import '../../assets/scss/main.scss';
 import '../../assets/scss/landing.scss';
 
@@ -15,10 +15,9 @@ class Landing extends Component {
   }
 
   handleRegisterClick = () => {
-    this.setState({
-      showRegister: !this.state.showRegister
-    });
+    this.setState({showRegister: !this.state.showRegister});
   }
+
   render() {
     if(this.props.loginStatus) return <Redirect to="/feed"/>
     return (

@@ -18,9 +18,7 @@ class Notification extends Component {
       {
         'headers': { 'Authorization': localStorage.getItem("token")}
       })
-      .then(this.setState({
-        read: true
-      }))
+      .then(this.setState({read: true}))
       .catch(error => {
         if(error.response) console.log(error.response['data']['message']);
         else console.log(error);
@@ -28,9 +26,7 @@ class Notification extends Component {
   }
   deleteNotification = () => {
     API.delete(`/notifications/${this.props.content.id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
-    .then(this.setState({
-      deleted: true
-    }))
+    .then(this.setState({deleted: true}))
     .catch(error => {
       if(error.response) console.log(error.response['data']['message']);
       else console.log(error);

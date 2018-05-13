@@ -18,9 +18,7 @@ class AddPostSidePanel extends Component {
           name: group.name,
           id: group.id
         }));
-        this.setState({
-          groups: response
-        })
+        this.setState({groups: response});
       })
     .catch(error => {
       if(error.response) console.log(error.response['data']['message']);

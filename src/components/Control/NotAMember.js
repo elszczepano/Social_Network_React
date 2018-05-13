@@ -19,9 +19,7 @@ class NotAMember extends Component {
     {
       'headers': { 'Authorization': localStorage.getItem("token")}
     })
-    .then(this.setState({
-      created: true
-    }))
+    .then(this.setState({created: true}))
     .catch(error => {
       if(error.response) console.log(error.response['data']['message']);
       else console.log(error);

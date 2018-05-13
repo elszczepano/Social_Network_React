@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Post from '../View/Post';
 import LoadingSpinner from '../View/LoadingSpinner';
 import API from '../../api.js';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
 class UserPostContainer extends Component {
   constructor(props) {

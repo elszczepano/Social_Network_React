@@ -20,9 +20,7 @@ class GroupMembers extends Component {
     API.get(`/group/users/${id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
     .then(response => {
       response = response['data'];
-      this.setState({
-        members: response
-      })
+      this.setState({members: response});
     })
     .catch(error => {
       if(error.response) console.log(error.response['data']['message']);
@@ -52,17 +50,13 @@ class GroupMembers extends Component {
       response = response['data'];
       for(let index in response) {
           if(response[index]['role'][0]['name'] === "Admin") {
-            this.setState({
-              adminId: response[index]['id']
-            });
+            this.setState({adminId: response[index]['id']});
           }
         }
     })
     .then(() => {
       if(this.state.adminId !== this.props.user.id) {
-        this.setState({
-          kickUser: true
-        });
+        this.setState({kickUser: true});
       }
     })
     this.fetchMembers(id);
@@ -82,6 +76,8 @@ class GroupMembers extends Component {
   }
 
   render() {
+    if(!this.props.loginStatus) return <Redirect to="/"/>
+    if(this.state.kickUser) return <Redirect to={`/feed`}/>
     const members = this.state.ready ? (
       <table>
         <thead>
@@ -122,8 +118,6 @@ class GroupMembers extends Component {
     ) : (
       <LoadingSpinner />
     )
-    if(!this.props.loginStatus) return <Redirect to="/"/>
-    if(this.state.kickUser) return <Redirect to={`/feed`}/>
     return (
       <div>
       <Header/>

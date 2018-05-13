@@ -18,9 +18,7 @@ class Candidate extends Component {
     {
       'headers': { 'Authorization': localStorage.getItem("token")}
     })
-    .then(() => {
-      this.deleteRequest();
-    })
+    .then(this.deleteRequest())
     .catch(error => {
       if(error.response) console.log(error.response['data']['message']);
       else console.log(error);
@@ -29,9 +27,7 @@ class Candidate extends Component {
 
   deleteRequest = () => {
     API.delete(`/requests/${this.props.candidate.id}`, { 'headers': { 'Authorization': localStorage.getItem("token")} })
-    .then(this.setState({
-      deleted: true
-    }))
+    .then(this.setState({deleted: true}))
     .catch(error => {
       if(error.response) console.log(error.response['data']['message']);
       else console.log(error);

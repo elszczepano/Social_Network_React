@@ -70,9 +70,7 @@ class MyAccount extends Component {
 
   handleDeleteClick = event => {
     event.preventDefault();
-    this.setState({
-      showDelete: !this.state.showDelete
-    });
+    this.setState({showDelete: !this.state.showDelete});
   }
 
   render() {
