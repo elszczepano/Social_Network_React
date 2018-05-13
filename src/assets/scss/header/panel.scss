@@ -2,8 +2,8 @@
 @import "../mixins";
 
 .user-panel {
-  position: relative;
   @include flex-space-between;
+  position: relative;
   input {
     width: 20rem !important;
   }

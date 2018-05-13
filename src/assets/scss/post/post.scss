@@ -1,24 +1,17 @@
 @import "../variables";
 @import "../mixins";
 
-
-.leave-button {
-  margin: 2rem 0;
-  display: flex;
-  justify-content: flex-end;
-}
 .post-container {
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 1rem;
   margin: 1rem 0;
   div .loading-spinner-container {
     padding: 0;
   }
   header {
+    @include flex-space-between;
     padding-bottom: .5rem;
-    display: flex;
-    justify-content: space-between;
     span, div span {
       color: $icon-grey;
     }
@@ -30,14 +23,13 @@
       position: relative;
     }
     div {
-      display: flex;
-      align-items: center;
+      @include flex-center;
       img {
         @include profile-picture-xs;
       }
       span {
         strong a {
-          color: $primary-color-darker;
+          color: $primary-color-dark;
           text-decoration: none;
         }
         span {
@@ -55,15 +47,15 @@
       padding: 1rem 0;
     }
     .post-content {
-      border-bottom: 1px solid $default-grey;
+      border-bottom: $default-border;
     }
   }
   .post-actions {
-    border-bottom: 1px solid $default-grey;
+    @include flex-space-between;
+    border-bottom: $default-border;
     margin-bottom: 1rem;
     padding: 1rem 0;
-    @include flex-space-between;
-    span {
+    .fa {
       color: $icon-grey;
       margin: 0 1rem;
       font-size: 1.2rem;
@@ -77,7 +69,7 @@
         color: $primary-red;
       }
       .fa-commenting:hover {
-        color: $primary-color-darker;
+        color: $primary-color-dark;
       }
       .post-votes {
         margin-right: 1rem;

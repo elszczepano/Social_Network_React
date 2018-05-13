@@ -6,17 +6,17 @@
   top: 40px;
   right: 10px;
   background-color: #fff;
-  border: 1px solid $default-grey;
+  border: $default-border;
   font-weight: bold;
   user-select: none;
   ul {
-    width: 8rem;
     @include clear-list;
+    width: 8rem;
     li {
       padding: .6rem 1rem;
     }
     li:hover {
-      background-color: $primary-color-darker;
+      background-color: $primary-color-dark;
       color: #fff;
       cursor: pointer;
     }

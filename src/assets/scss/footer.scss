@@ -1,34 +1,21 @@
 @import "variables";
 @import "mixins";
 .main-footer {
+  @include flex-space-between;
   background-color: $primary-color-dark;
   color: #fff;
   padding: 1.7rem 10%;
-  @include flex-space-between;
   p {
     margin: 0;
   }
   ul {
-    display: flex;
-    flex-wrap: wrap;
+    @include flex-end;
     @include clear-list;
     li {
       padding:0 1rem;
       a {
         color: #fff;
       }
-    }
-  }
-}
-@media (max-width: 992px) {
-  .main-footer {
-    padding: 0;
-    @include flex-center;
-    p, ul {
-      margin: 1rem 0;
-    }
-    ul {
-      font-size: .8rem;
     }
   }
 }

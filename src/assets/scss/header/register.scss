@@ -1,26 +1,25 @@
 @import "../variables";
 @import "../mixins";
 .modal-container {
-  position:fixed;
-  overflow:hidden;
+  @include flex-center;
+  position: fixed;
+  overflow: hidden;
   z-index: 99999;
   width: 100vw;
   height: 100vh;
   background: rgba(0,0,0,.5);
-  @include flex-center;
   .modal-content {
     background-color: #fff;
     box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
     .modal-header {
       text-align: right;
-      background-color: #F3F4F5;
-      span {
-        padding: 1rem;
+      .fa-times {
+        margin: 1rem;
         font-size: 1.3rem;
         cursor: pointer;
       }
-      span:hover {
-        color: $primary-color-darker;
+      .fa-times:hover {
+        color: $primary-color;
       }
     }
     .modal-body {
@@ -29,7 +28,7 @@
       flex-direction: column;
       h2 {
         text-align: center;
-        color: $primary-color-darker;
+        color: $primary-color-dark;
         text-transform: uppercase;
       }
       label {

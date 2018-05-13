@@ -12,7 +12,6 @@
     }
   }
   .edit-post-submit {
-    display: flex;
-    justify-content: flex-end;
+    @include flex-end;
   }
 }

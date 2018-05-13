@@ -6,7 +6,7 @@ import API from '../../api.js';
 import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import '../../assets/scss/group/search.scss';
+import '../../assets/scss/group/searchresults.scss';
 
 class SearchResults extends Component {
   constructor(props) {
@@ -34,8 +34,8 @@ class SearchResults extends Component {
       <Header />
       <div className="default-grid default-container">
         <UserShortcut />
-        <section className="search-container">
-          <h3>Searching results for: <span className="text-marker">{this.props['match']['params']['name']}</span></h3>
+        <section className="results-container">
+          <h2>Searching results for: <span className="text-marker">{this.props['match']['params']['name']}</span></h2>
           {!this.state.groups.length ? <p>No results. <span className="fa fa-frown-o" aria-hidden="true"></span></p> : ''}
           <ul>
           {

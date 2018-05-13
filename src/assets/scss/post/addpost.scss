@@ -2,14 +2,13 @@
 @import "../mixins";
 
 .add-post-container {
-  background-color: #fff;
-  padding: 2rem 1rem;
+  padding-right: 1rem;
   margin: 1rem 0;
   h3 {
     margin: 0;
-    color: $primary-color-darker;
+    color: $primary-color-dark;
     text-transform: uppercase;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
   }
   textarea {
     width: 100%;
@@ -19,7 +18,6 @@
     margin: 1rem 0;
   }
   div {
-    display: flex;
-    justify-content: flex-end;
+    @include flex-end;
   }
 }

@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 import API from '../../api.js';
-import '../../assets/scss/group/search.scss';
+import '../../assets/scss/group/searchresults.scss';
 
 class Result extends Component {
   constructor(props) {

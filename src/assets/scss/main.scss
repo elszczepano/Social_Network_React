@@ -4,32 +4,34 @@
 @import "../../../node_modules/font-awesome/scss/_variables";
 @import '../../../node_modules/pretty-checkbox/src/pretty-checkbox';
 $fa-font-path: "..fonts" !important;
+
 .icon-user {
   @extend .fa;
   @extend .fa-user;
 }
+
 input {
-  font-family: 'Raleway', sans-serif;
+  font-family: $primary-font;
   margin: 0 1rem 1rem 1rem;
   padding: .5rem 1rem;
   font-size: 1.2rem;
   outline: none;
-  border: 1px solid $default-grey;
+  border: $default-border;
 }
 select {
   outline: none;
   border: none;
   font-size: 1.1rem;
-  font-family: 'Raleway', sans-serif;
+  font-family: $primary-font;
   padding: 8px 16px;
 }
 textarea {
   outline: none;
   resize: none;
-  border-color: $default-grey;
+  border: $default-border;
   padding: .5rem 1rem;
   font-size: 1.2rem;
-  font-family: 'Raleway', sans-serif;
+  font-family: $primary-font;
 }
 a {
   text-decoration: none;

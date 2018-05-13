@@ -2,11 +2,9 @@
 @import "mixins";
 
  .loading-spinner-container {
+   @include flex-center;
    font-size: .65rem;
    width: 100%;
-   display: flex;
-   justify-content: center;
-   align-items: center;
    padding: 5rem;
    box-sizing: border-box;
  }

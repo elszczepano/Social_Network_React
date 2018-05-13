@@ -9,7 +9,6 @@
       font-size: 2rem;
     }
     .join-button {
-      display: flex;
       @include flex-center;
       padding: 5rem 0;
       button {

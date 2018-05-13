@@ -1,7 +1,8 @@
 @import "variables";
 @mixin default-button {
-  font-family: 'Josefin Sans', sans-serif;
-  background-color: $primary-color-darker;
+  font-family: $primary-font;
+  background-color: $primary-color-dark;
+  box-shadow: $default-shadow;
   border: none;
   outline: none;
   color: #fff;
@@ -9,7 +10,6 @@
   font-size: 1rem;
   padding: .5rem .8rem;
   border-radius: 2px;
-  box-shadow: $default-shadow;
   transition: .2s background-color;
   transition: .1s box-shadow;
   transition: .3s transform;
@@ -39,23 +39,30 @@
   @include default-button-hover;
   background-color: $primary-green-light;
 }
-@mixin flex-space-between {
+@mixin flex {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   align-items: center;
+}
+@mixin flex-space-between {
+  @include flex;
+  justify-content: space-between;
 }
 @mixin flex-space-around {
-  display: flex;
-  flex-wrap: wrap;
+  @include flex;
   justify-content: space-around;
-  align-items: center;
 }
 @mixin flex-center {
-  display: flex;
-  flex-wrap: wrap;
+  @include flex;
   justify-content: center;
-  align-items: center;
+}
+@mixin flex-start {
+  @include flex;
+  justify-content: flex-start;
+}
+@mixin flex-end {
+  @include flex;
+  justify-content: flex-end;
 }
 @mixin background-image {
   background-size: cover;
@@ -63,8 +70,8 @@
 }
 @mixin clear-list {
   padding: 0;
-  list-style-type: none;
   margin: 0;
+  list-style-type: none;
 }
 @mixin profile-picture-xs {
   width: 60px;

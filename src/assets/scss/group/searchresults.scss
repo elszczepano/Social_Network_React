@@ -1,22 +1,15 @@
 @import "../variables";
 @import "../mixins";
 
-.search-container {
-  h3 {
-    font-size: 2rem;
-  }
+.results-container {
   p {
     font-size: 1.5rem;
-    padding: 0 2rem;
   }
   ul {
     @include clear-list;
     li {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      @include flex-space-between;
       padding: 1rem;
-      box-sizing: border-box;
       transition: .3s;
       margin: .5rem 0;
       a {

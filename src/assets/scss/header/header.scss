@@ -2,7 +2,7 @@
 @import "../mixins";
 
 .main-header {
-    padding: 0.7rem 0;
+    padding: .7rem 0;
     position: fixed;
     width: 100%;
     background-color: #fff;
@@ -10,8 +10,6 @@
     display: grid;
     grid-template-columns: 15% 1fr;
     .logo {
-      display: flex;
-      align-items: center;
       h1 {
         font-weight: 300;
         padding: 0 1rem;
@@ -26,7 +24,6 @@
       input {
         margin: 0 1rem;
         padding: .2rem 0;
-        width: 10rem;
         border: none;
         border-bottom: 2px solid #d0d0d0;
         outline: none;
