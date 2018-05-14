@@ -24,11 +24,11 @@ Run project
 ----
 ## Project Examples
 
-###Login page
+### Login page
 
 ![login page](https://i.imgur.com/wh1Zaw3.png)
 
-###Newsfeed page
+### Newsfeed page
 
 ![newsfeed page](https://i.imgur.com/qobhTMP.png)
 
