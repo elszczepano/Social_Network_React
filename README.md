@@ -1,6 +1,6 @@
 # React SPA - Social Media App
 
-## What it is?
+## What is it?
 
 An application written in React, based on [Laravel REST API](https://github.com/elszczepano/Laravel_REST_API).
 The main purpose of this app is gathering people with common goals and interests.
@@ -31,6 +31,14 @@ Run project
 ### Newsfeed page
 
 ![newsfeed page](https://i.imgur.com/qobhTMP.png)
+
+### TODO
+
+* Adding notifications
+* Handle voting
+* Optimization
+* Static pages with FAQ etc.
+* Improve UI & UX
 
 ##
 
